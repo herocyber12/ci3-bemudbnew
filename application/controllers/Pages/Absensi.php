@@ -34,7 +34,7 @@ class Absensi extends MY_Controller
                 $this->load->view('layout/users/header',$data);
                 $this->load->view('users/v_absensi',$data);
             }
-            $this->load->view('layout/users/footer');
+        $this->load->view('layout/users/footer');
     }
 
     public function buatAbsen()

@@ -159,7 +159,7 @@ if(empty($this->session->userdata('foto_profil'))){
           </li>
 			<p class="sidebar-menu-title">Proker Page</p>
 			<li class="nav-item">
-            <a class="nav-link" href="p_laporan">
+            <a class="nav-link" href="<?= site_url('pages/laporan')?>">
               <i class="mdi mdi-file-document menu-icon"></i>
               <span class="menu-title">Laporan</span>
             </a>

@@ -20,10 +20,98 @@ switch($jns_status){
               }
             ?>
             <div class="row">
-             <div class="col-md-6 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">Buat Laporan</h4>
+              <div class="col-sm-12 mb-4">
+                <div class="d-flex align-items-center justify-content-md-end d-none">
+                  <div class="pr-1 mb-3 mr-2 mb-xl-0">
+                    <button type="button" class="btn btn-sm bg-white btn-icon-text border" data-toggle="modal" data-target="#addlaporan"><i class="mdi mdi-note-plus mr-2"></i> Tambahkan Laporan</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Buat Laporan</h4>
+                      <div class="table-responsive">
+                        <table class="table overflow-auto">
+                          <thead>
+                            <tr>
+                              <th>ID</th>
+                              <th>Tanggal</th>
+                              <th>Pemasukan</th>
+						                  <th>Pengeluaran</th>
+                              <th>Keterangan</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+					                	<?php
+					              	  foreach($laporan_proker as $row):
+					              	  ?>
+					              	  <tr>
+                              <td><?php echo htmlentities(strip_tags(trim($row['id_lproker'])))?></td>
+					              	  	<td><?php echo htmlentities(strip_tags(trim($row['tanggal'])));?></td>
+					               		  <td><?php echo htmlentities(strip_tags(trim($row['nama_proker'])));?></td>
+					                		<td><?php echo htmlentities(strip_tags(trim($row['status'])));?></td>
+					                		<td><?php echo htmlentities(strip_tags(trim($row['keterangan'])));?></td>
+					                	</tr>
+					               <?php
+					                endforeach;
+					                ?>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <div class="col-lg-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Arsip Laporan Keuangan</h4>
+                      <div class="table-responsive">
+                        <table class="table overflow-auto">
+                          <thead>
+                            <tr>
+                              <th>ID</th>
+                              <th>Tanggal</th>
+                              <th>Pemasukan</th>
+						                  <th>Pengeluaran</th>
+                              <th>Keterangan</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+					                	<?php
+					                	foreach($laporan as $row):
+					                	?>
+					                	<tr>
+                              <td><?php echo htmlentities(strip_tags(trim($row['id_lkeuangan'])))?></td>
+					                		<td><?php echo htmlentities(strip_tags(trim($row['tanggal'])));?></td>
+					                		<td><?php echo htmlentities(strip_tags(trim($row['pemasukan'])));?></td>
+					                		<td><?php echo htmlentities(strip_tags(trim($row['pengeluaran'])));?></td>
+					                		<td><?php echo htmlentities(strip_tags(trim($row['keterangan'])));?></td>
+					                	</tr>
+					                <?php
+					                endforeach;
+					                ?>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+          <!-- Modal -->
+          <div class="modal fade" id="addlaporan" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Tambahkan Laporan</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
                   <form class="forms-sample" action="insertLaporan" method="post">
                     <div class="form-group" >
                       <label for="exampleInputEmail1">Tanggal</label>
@@ -56,42 +144,10 @@ switch($jns_status){
                     </div>
                   </form>
                 </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               </div>
-            </div>
-              <div class="col-lg-6 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">Arsip Laporan</h4>
-                  <div class="table-responsive">
-                    <table class="table overflow-auto">
-                      <thead>
-                        <tr>
-                          <th>Divisi</th>
-                          <th>Tanggal</th>
-						              <th>Jenis Laporan</th>
-                          <th>Keterangan</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-						<?php
-							foreach($laporan as $row):
-						?>
-						<tr>
-							<td><?php echo htmlentities(strip_tags(trim($row['divisi'])));?></td>
-							<td><?php echo htmlentities(strip_tags(trim($row['tanggal'])));?></td>
-							<td><?php echo htmlentities(strip_tags(trim($row['jns_laporan'])));?></td>
-							<td><?php echo htmlentities(strip_tags(trim($row['keterangan'])));?></td>
-						</tr>
-					<?php
-						endforeach;
-					?>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
             </div>
           </div>
+        </div>
           <!-- content-wrapper ends -->

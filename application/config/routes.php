@@ -59,3 +59,6 @@ $route['pages/home'] = 'pages/home/index';
 $route['pages/home/(:num)/(:any)'] = 'pages/home/view/$1';
 
 $route['pages/absensi'] = 'pages/absensi/p_absensi';
+$route['pages/absensi/(:num)/(:any)'] = 'pages/absensi/view/$1';
+
+$route['pages/laporan'] = 'pages/laporan/p_laporan';
