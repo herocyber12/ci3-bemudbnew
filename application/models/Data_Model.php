@@ -47,6 +47,21 @@ class Data_Model extends CI_Model
 
         return $auto_deletion;
     }
+
+    public function buatAbsens()
+    {
+        $tanggal = date('d F Y');
+        $jam = date('H:i:s');
+        $this->db->query("DROP TABLE IF EXISTS buatabsen");
+
+        $this->db->query("CREATE TABLE buatabsen( tanggal VARCHAR(50) NOT NULL, jam VARCHAR(50) NOT NULL)");
+
+        $array = array(
+            'tanggal' => $tanggal,
+            'jam' => $jam
+        );
+        $this->db->insert('buatabsen', $array);
+    }
 }
 
 ?>

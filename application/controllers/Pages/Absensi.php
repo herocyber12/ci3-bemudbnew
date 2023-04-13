@@ -32,9 +32,34 @@ class Absensi extends MY_Controller
                 $this->load->view('admin/v_absen',$data);
             } else {
                 $this->load->view('layout/users/header',$data);
-                $this->load->view('users/v_absen',$data);
+                $this->load->view('users/v_absensi',$data);
             }
             $this->load->view('layout/users/footer');
     }
+
+    public function buatAbsen()
+    {
+        if(!$this->session->userdata('Divisi') == "sekretaris"){
+            $this->session->set_flashdata('berhasil_buat_absen', '<div class="alert alert-success">Berhasil Buat Absen</div>');
+        }else{
+            $this->session->set_flashdata('gagal_buat_absen', '<div class="alert alert-warning">Anda bukan sekretaris</div>');
+            $this->data_model->buatAbsens();
+        }
+        redirect('pages/home/');   
+        
+    }
+
+    //Fungsi yang ada di halaman admin
+    public function delete_absen($id_absen)
+    {
+        $where = array('id_absen' => $id_absen);
+
+        $this->data_model->datadelete('absensi',$where);
+
+        $this->session->set_flashdata('berhasil_absen', '<div class="alert alert-success">Berhasil Hapus Data Absensi</div>');
+
+        redirect('pages/absensi');
+    }
+
 }
 ?>

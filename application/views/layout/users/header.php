@@ -153,7 +153,7 @@ if(empty($this->session->userdata('foto_profil'))){
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="<?= site_url('pages/absensi')?>">Absensi</a></li>
-                <li class="nav-item"> <a class="nav-link" href="buatAbsen">Buat Absen</a></li>
+                <li class="nav-item"> <a class="nav-link" href="<?= site_url('pages/absensi/buatAbsen')?>">Buat Absen</a></li>
               </ul>
             </div>
           </li>
