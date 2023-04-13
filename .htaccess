@@ -1,0 +1,6 @@
+RewriteEngine on
+RewriteCond ${LeechProtect:/home/bemudbmy/public_html:%{REMOTE_USER}:%{REMOTE_ADDR}:30:7qfoTKHH4mNHx6fw1nCKi2E0bCwEzeZ1} leech
+RewriteRule .* /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L]

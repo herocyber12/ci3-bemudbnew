@@ -1,0 +1,194 @@
+<?php 
+  defined('BASEPATH') OR exit('No direct script access allowed');
+$nama = $this->session->userdata('Nama');
+$nim = $this->session->userdata('Nim');
+$prodi = $this->session->userdata('Prodi');
+$divisi = $this->session->userdata('Divisi');
+$foto_profil = $this->session->userdata('foto_profil');
+
+if(empty($this->session->userdata())){
+  redirect('pages/login');
+}
+
+if($this->session->userdata('Divisi') == "Admin"){
+  $this->session->unset_userdata('Nama');
+  $this->session->unset_userdata('Nim');
+  $this->session->unset_userdata('Prodi');
+  $this->session->unset_userdata('Divisi');
+  $this->session->unset_userdata('foto_profil');
+
+  redirect('pages/login');
+}
+
+$foto = "";
+
+if(empty($this->session->userdata('foto_profil'))){
+  $foto = "bg-2.jpg";
+} else{
+  $foto = $this->session->userdata('foto_profil');
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	 
+    <title><?= $title ?></title>
+    <meta content="bem" name="keywords" />
+    <meta content="Untuk menjadikan mahasiswa bem yang akan menjadi pelajar universitas serta mahasiswa yang akan calon penerus di bem ikutkan program bem sebagai kursus mem" name="description" />
+    <!-- base:css -->
+    <link rel="stylesheet" href="<?= base_url()?>asset/vendors/typicons.font/font/typicons.css">
+    <link rel="stylesheet" href="<?= base_url()?>asset/vendors/css/vendor.bundle.base.css">
+	 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@mdi/font@6.9.96/css/materialdesignicons.min.css">
+    <!-- endinject --> 
+    <!-- plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="<?= base_url()?>asset/css/vertical-layout-light/style.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="<?= base_url()?>asset/images/Logo BEM UNIV FIX.webp" />
+  </head>
+  <body>
+    <div class="container-scroller">
+      <!-- partial:partials/_navbar.html -->
+      <?= $autoDelet; ?>
+
+      <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+        <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+          <a class="navbar-brand brand-logo" href="beranda"><img src="<?= base_url();?>asset/images/Logo BEM UNIV FIX BGT.webp" alt="logo"/></a>
+          <a class="navbar-brand brand-logo-mini" href="beranda"><img src="<?= base_url();?>asset/images/Logo BEM UNIV FIX.webp" alt="logo"/></a>
+          <button class="navbar-toggler navbar-toggler align-self-center d-none d-lg-flex" type="button" data-toggle="minimize">
+            <span class="typcn typcn-th-menu"></span>
+          </button>
+        </div>
+        <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+          <ul class="navbar-nav navbar-nav-right">
+            <li class="nav-item dropdown  d-flex">
+              <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center" id="notificationDropdown" href="#" data-toggle="dropdown">
+                <i class="typcn typcn-bell mr-0"></i>
+                <?php
+                  // if($notifikasi > 0){
+                  //   echo "<span class='count bg-danger'>$jumlah_notif</span>";
+                  // }
+                ?>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+                <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
+               	  <?php 
+				  	foreach($notifi as $data):
+				  ?>
+				  <a class="dropdown-item preview-item">
+            <div class="preview-item-content">
+              <h6 class="preview-subject font-weight-normal"><?php echo $data['notifikasi_judul']; ?></h6>
+              <p class="font-weight-light small-text mb-0">
+                <?php echo $data['notifikasi_isi']; ?>
+              </p>
+            </div>
+          </a>
+          <?php
+					endforeach;
+				  ?>
+              </div>
+            </li>
+            <li class="nav-item nav-profile dropdown">
+              <a class="nav-link dropdown-toggle  pl-0 pr-0" href="#" data-toggle="dropdown" id="profileDropdown">
+                <i class="typcn typcn-user-outline mr-0"></i>
+                <span class="nav-profile-name"><?php echo $this->session->userdata('Nama'); ?></span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+                <a class="dropdown-item" href="setting_profil">
+                <i class="typcn typcn-cog text-primary"></i>
+                Settings
+                </a>
+                <a class="dropdown-item" href="<?php site_url('landing');?>/ck_logout">
+                <i class="typcn typcn-power text-primary"></i>
+                Logout
+                </a>
+              </div>
+            </li>
+          </ul>
+          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+            <span class="typcn typcn-th-menu"></span>
+          </button>
+        </div>
+      </nav>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        
+        <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item">
+            <div class="d-flex sidebar-profile">
+              <div class="sidebar-profile-image">
+                <img src="<?php base_url();?>../../../../../../asset/images/<?php echo $foto?>">
+                <span class="sidebar-status-indicator"></span>
+              </div>
+              <div class="sidebar-profile-name">
+                <p class="sidebar-name">
+                  <?php echo $this->session->userdata('Nama'); ?>
+                </p>	
+                <p class="sidebar-designation">
+                  <?php echo $this->session->userdata('Divisi'); ?>
+                </p>
+              </div>
+            </div>
+            <p class="sidebar-menu-title">Dash menu</p>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="beranda">
+              <i class="typcn typcn-device-desktop menu-icon"></i>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+			<p class="sidebar-menu-title">Absensi</p>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <i class="mdi mdi-check-network-outline menu-icon"></i>
+              <span class="menu-title">Absen</span>
+              <i class="typcn typcn-chevron-right menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="p_absensi">Absensi</a></li>
+                <li class="nav-item"> <a class="nav-link" href="buatAbsen">Buat Absen</a></li>
+              </ul>
+            </div>
+          </li>
+			<p class="sidebar-menu-title">Proker Page</p>
+			<li class="nav-item">
+            <a class="nav-link" href="p_laporan">
+              <i class="mdi mdi-file-document menu-icon"></i>
+              <span class="menu-title">Laporan</span>
+            </a>
+          </li>
+		  <li class="nav-item">
+            <a class="nav-link" href="p_proker">
+              <i class="mdi mdi-account-hard-hat menu-icon"></i>
+              <span class="menu-title">Proker</span>
+            </a>
+          </li>
+			<p class="sidebar-menu-title">Administrasi</p>
+		  <li class="nav-item">
+            <a class="nav-link" href="p_surat">
+              <i class="mdi mdi-file-cabinet menu-icon"></i>
+              <span class="menu-title">Surat</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
+              <i class="mdi mdi-newspaper menu-icon"></i>
+              <span class="menu-title">Artikel</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="form-elements">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"><a class="nav-link" href="pc_artikel">Buat Artikel</a></li>
+                <li class="nav-item"><a class="nav-link" href="daftar_artikel">Daftar Artikel</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
