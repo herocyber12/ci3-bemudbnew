@@ -102,7 +102,7 @@ if(empty($this->session->userdata('foto_profil'))){
                 <i class="typcn typcn-cog text-primary"></i>
                 Settings
                 </a>
-                <a class="dropdown-item" href="<?php site_url('landing');?>/ck_logout">
+                <a class="dropdown-item" href="<?= site_url('landing/ck_logout');?>">
                 <i class="typcn typcn-power text-primary"></i>
                 Logout
                 </a>
@@ -123,7 +123,7 @@ if(empty($this->session->userdata('foto_profil'))){
           <li class="nav-item">
             <div class="d-flex sidebar-profile">
               <div class="sidebar-profile-image">
-                <img src="<?php base_url();?>../../../../../../asset/images/<?php echo $foto?>">
+                <img src="<?php base_url('asset/images/'.$foto);?>">
                 <span class="sidebar-status-indicator"></span>
               </div>
               <div class="sidebar-profile-name">
@@ -138,7 +138,7 @@ if(empty($this->session->userdata('foto_profil'))){
             <p class="sidebar-menu-title">Dash menu</p>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="beranda">
+            <a class="nav-link" href="<?= site_url('pages/home');?>">
               <i class="typcn typcn-device-desktop menu-icon"></i>
               <span class="menu-title">Dashboard</span>
             </a>
@@ -152,7 +152,7 @@ if(empty($this->session->userdata('foto_profil'))){
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="p_absensi">Absensi</a></li>
+                <li class="nav-item"> <a class="nav-link" href="<?= site_url('pages/absensi')?>">Absensi</a></li>
                 <li class="nav-item"> <a class="nav-link" href="buatAbsen">Buat Absen</a></li>
               </ul>
             </div>

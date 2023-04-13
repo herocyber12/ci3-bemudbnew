@@ -27,7 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | 5. Custom config files
 | 6. Language files
 | 7. Models
-|
+| 8. Core
 */
 
 /*
@@ -133,3 +133,10 @@ $autoload['language'] = array();
 |	$autoload['model'] = array('first_model' => 'first');
 */
 $autoload['model'] = array('data_model');
+
+/*
+| -------------------------------------------------------------------
+|  Auto-load Core
+| -------------------------------------------------------------------
+*/
+$autoload['core'] = array('MY_Controller');

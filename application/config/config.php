@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'https://localhost/ci3-bemudbnew';
+$config['base_url'] = 'https://localhost/ci3-bemudbnew/';
 
 /*
 |--------------------------------------------------------------------------
@@ -530,3 +530,10 @@ $config['rewrite_short_tags'] = FALSE;
 | Array:		array('10.0.1.200', '192.168.5.0/24')
 */
 $config['proxy_ips'] = '';
+
+/*
+|--------------------------------------------------------------------------
+| Site Path Configuaration
+|--------------------------------------------------------------------------
+*/
+// $config['site_path'] = 'application/view';

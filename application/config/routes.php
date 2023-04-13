@@ -57,3 +57,5 @@ $route['landing/(:num)/(:any)'] = 'landing/login';
 
 $route['pages/home'] = 'pages/home/index';
 $route['pages/home/(:num)/(:any)'] = 'pages/home/view/$1';
+
+$route['pages/absensi'] = 'pages/absensi/p_absensi';
