@@ -50,7 +50,7 @@
                             <?php foreach($tanggalJ->result_array() as $row3): ?>
                             <td><?php echo $row3['tanggal'];?></td>
 						                <td><?php echo $row3['jam']; ?></td>
-							              <td><form method="post" action="insertAbsensi">
+							              <td><form method="post" action="<?= site_url('pages/absensi/input_absen') ?>">
 		    				              <input type="submit" class="btn btn-success" name="submit" value="Absen" <?php echo $disable_in;?>></input>
 							                </form></td>
                             <?php endforeach; ?>

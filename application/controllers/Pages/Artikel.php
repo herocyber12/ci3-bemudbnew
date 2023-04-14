@@ -64,7 +64,7 @@ class Artikel extends MY_Controller
         $data['autoDelet'] = $this->data_model->autoDeletion();
         $data['notifikasi']= $this->data_model->dataget('notifikasi')->num_rows();
         $data['notifi'] = $this->data_model->dataget('notifikasi')->result_array();
-        $data['title'] = 'Buat Artikel | BEM UDB';
+        $data['title'] = 'Daftar Artikel | BEM UDB';
         $data['keyword'] = 'bem udb';
         $data['description'] = 'Website resmi bem udb'; 
       

@@ -24,27 +24,66 @@
                     <table class="table">
                       <thead>
                         <tr>
-                          <th>Divisi</th>
+                          <th>ID Laporan</th>
                           <th>Tanggal</th>
-						  <th>Jenis Laporan</th>
+						              <th>Nama Proker</th>
+                          <th>Divis</th>
+                          <th>Keterangan</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+					            		<?php
+					            			foreach($sum_lap_proker->result_array() as $row):
+					            		?>
+					            	<tr>
+					            		<td><?php echo $row['id_lproker']; ?></td>
+					            		<td><?php echo $row['tanggal'];?></td>
+					            		<td><?php echo $row['nama_proker'];?></td>
+                          <td><?php echo $row['divisi'] ?></td>
+					            		<td><?php echo $row['keterangan'];?></td>
+					            		<td><?php echo $row['status'];?></td>
+					            		<td><?php echo anchor(site_url('pages/laporan/delete_laporan/').$row['id_lproker'],'<button type="submit" name="submit" class="btn btn-danger m-2" value="laporan_proker"><i class="mdi mdi-trash-can"></i>Hapus</button>'); ?></td>
+					            	</tr>
+					            <?php
+					            	endforeach;
+					            ?>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Arsip Laporan</h4>
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>ID Laporan</th>
+                          <th>Tanggal</th>
+						              <th>Pemasukan</th>
+                          <th>Pengeluaran</th>
                           <th>Keterangan</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-							<?php
-								foreach($jumlahLaporan->result_array() as $row):
-							?>
-						<tr>
-							<td><?php echo $row['divisi'] ?></td>
-							<td><?php echo $row['tanggal'];?></td>
-							<td><?php echo $row['jns_laporan'];?></td>
-							<td><?php echo $row['keterangan'];?></td>
-							<td><?php echo anchor(base_url('admin/delete_Laporan/').$row['id_laporan'],'<button type="submit" name="delete" class="btn btn-danger m-2" value="Hapus"><i class="mdi mdi-trash-can"></i>Hapus</button>'); ?></td>
-						</tr>
-					<?php
-						endforeach;
-					?>
+					            		<?php
+					            			foreach($sum_lap_keuangan->result_array() as $row):
+					            		?>
+					            	<tr>
+					            		<td><?php echo $row['id_lkeuangan']; ?></td>
+					            		<td><?php echo $row['tanggal'];?></td>
+					            		<td><?php echo $row['pemasukan'];?></td>
+                          <td><?php echo $row['pengeluaran'] ?></td>
+					            		<td><?php echo $row['keterangan'];?></td>
+					            		<td><?php echo anchor(site_url('pages/laporan/delete_laporan/').$row['id_lkeuangan'],'<button type="submit" name="submit" class="btn btn-danger m-2" value="laporan_keuangan"><i class="mdi mdi-trash-can"></i>Hapus</button>'); ?></td>
+					            	</tr>
+					            <?php
+					            	endforeach;
+					            ?>
                       </tbody>
                     </table>
                   </div>

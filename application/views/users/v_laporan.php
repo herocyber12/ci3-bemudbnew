@@ -112,7 +112,7 @@ switch($jns_status){
                   </button>
                 </div>
                 <div class="modal-body">
-                  <form class="forms-sample" action="insertLaporan" method="post">
+                  <form class="forms-sample" action="<?= site_url('pages/laporan/input_laporan')?>" method="post">
                     <div class="form-group" >
                       <label for="exampleInputEmail1">Tanggal</label>
                       <input name="tanggal" type="date" class="form-control" id="exampleInputEmail1" required>
@@ -136,7 +136,7 @@ switch($jns_status){
                       <label for = "pengeluaranK">Status</label>
                       <select class="form-control m-2" name="status">
                         <option value="Berjalan<?php $berjalan ?>">Berjalan</option>
-                        <option value="Tidak Berjalan<?php $tidak_berjalan ?>">Tidak Berja  lan</option>
+                        <option value="Tidak Berjalan<?php $tidak_berjalan ?>">Tidak Berjalan</option>
                       </select>
                       <label>Keterangan Proker</label>
                       <textarea name="keterangan2" class="form-control m-2" placeholder="Masukan Keterangan Proker"></textarea>

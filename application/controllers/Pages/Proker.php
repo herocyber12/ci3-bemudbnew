@@ -35,6 +35,30 @@ class Proker extends MY_Controller
     $this->load->view('layout/users/footer');
     }
 
+    public function input_proker()
+    {
+        $id = mt_rand(100000,999999);
+        $namaproker = $this->input->post('namaproker');
+        $tanggal = $this->input->post('tanggal');
+        $alasan = $this->input->post('alasan');
+        $divisi = $this->session->userdata('Divisi');
+        $status = "Belum disetujui";    
+        
+        $arrayData = array(
+            'id' => $id,
+            'divisi' => $divisi,
+            'namaproker' => $namaproker,
+            'tanggal' => $tanggal,
+            'alasan' => $alasan,
+            'status' => $status
+        );
+
+        $this->data_model->datainsert('proker',$arrayData);
+
+        $this->session->set_flashdata('berhasil_proker', '<div class="alert alert-success">Berhasil Mengajukan Proker</div>');
+        redirect('pages/proker');
+    }
+
     public function delete_proker($id)
     {
         $where = array('id' => $id);

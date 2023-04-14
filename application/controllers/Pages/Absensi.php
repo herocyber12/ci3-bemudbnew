@@ -37,6 +37,40 @@ class Absensi extends MY_Controller
         $this->load->view('layout/users/footer');
     }
 
+    public function input_absen()
+    {
+        $nim = $this->session->userdata('Nim');
+        $nama = $this->session->userdata('Nama');
+        $divisi = $this->session->userdata('Divisi');
+        
+        if($this->input->post('submit') !== ""){
+
+            $id_absen = mt_rand(1000,9999);
+            $keterangan = "Hadir";
+            $tanggal = $x['tanggal'];
+            $jam = $x['jam'];
+
+            $arrayData = array(
+                'id_absen' => $id_absen,
+                'nim' => $nim,
+                'nama' => $nama,
+                'divisi' => $divisi,
+                'tngl' => $tanggal,
+                'jam_skrng' => $jam,
+                'keterangan' => $keterangan
+            );
+            if(!$this->data_model->datainsert('absensi',$arrayData)){
+                $this->session->set_flashdata('abnsensi_gagal', '<div class="alert alert-danger">Gagal Absen</div>');
+                redirect('user/p_absensi');
+            } else{
+                $this->session->set_flashdata('absensi_berhasil', '<div class="alert alert-success">Berhasil Absen</div>');
+                redirect('user/p_absensi');
+            }
+
+        }
+
+    }
+
     public function buatAbsen()
     {
         if(!$this->session->userdata('Divisi') == "sekretaris"){
@@ -45,7 +79,7 @@ class Absensi extends MY_Controller
             $this->session->set_flashdata('gagal_buat_absen', '<div class="alert alert-warning">Anda bukan sekretaris</div>');
             $this->data_model->buatAbsens();
         }
-        redirect('pages/home/');   
+        redirect('pages/home');   
         
     }
 

@@ -11,7 +11,7 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Buat Surat</h4>
-                  <form class="forms-sample" action="insertSurat" method="post">
+                  <form class="forms-sample" action="<?= site_url('pages/surat/input_surat')?>" method="post">
                     <div class="form-group">
                       <label for="exampleInputEmail1">Nomor Surat</label>
                       <input name="no_surat" type="number" class="form-control" id="exampleInputEmail1" placeholder="Urutan Nomor Surat" required>
@@ -44,19 +44,18 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-							<?php
-								foreach($surat as $data1):
-							?>
-						<tr>
-							<td><?php echo $data1['id_surat']?></td>
-							<td><?php echo $data1['nomor_surat']?></td>
-							<td><?php echo $data1['tanggal_surat']?></td>
-							<td><?php echo $data1['kegunaan_surat'];?></td>
-						</tr>
-				    	<?php
-					    	endforeach;
-					    ?>
+						            <?php
+						            	foreach($surat as $data1):
+						            ?>
+						            <tr>
+						            	<td><?php echo $data1['id_surat']?></td>
+						            	<td><?php echo $data1['nomor_surat']?></td>
+						            	<td><?php echo $data1['tanggal_surat']?></td>
+						            	<td><?php echo $data1['kegunaan_surat'];?></td>
+						            </tr>
+				                	<?php
+					                	endforeach;
+					                ?>
                       </tbody>
                     </table>
                   </div>
