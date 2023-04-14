@@ -36,7 +36,12 @@ class Data_Model extends CI_Model
 
     public function data_login_row($username,$password)
     {
-        return $this->db->query("SELECT *from id_profil INNER JOIN loginuser ON id_profil.uid = loginuser.uid where id_profil.username = '$username' and id_profil.password = '$password'");
+        $this->db->where('id_profil.username',$username);
+        $this->db->where('id_profil.password',$password);
+        $this->db->from('id_profil');
+        $this->db->join('loginuser', 'loginuser.uid = id_profil.uid');
+        return $this->db->get();
+        // return $this->db->query("SELECT *from id_profil INNER JOIN loginuser ON id_profil.uid = loginuser.uid where id_profil.username = '$username' and id_profil.password = '$password'");
 
     }
 

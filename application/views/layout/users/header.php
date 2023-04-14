@@ -6,18 +6,8 @@ $prodi = $this->session->userdata('Prodi');
 $divisi = $this->session->userdata('Divisi');
 $foto_profil = $this->session->userdata('foto_profil');
 
-if(empty($this->session->userdata())){
-  redirect('pages/login');
-}
-
-if($this->session->userdata('Divisi') == "Admin"){
-  $this->session->unset_userdata('Nama');
-  $this->session->unset_userdata('Nim');
-  $this->session->unset_userdata('Prodi');
-  $this->session->unset_userdata('Divisi');
-  $this->session->unset_userdata('foto_profil');
-
-  redirect('pages/login');
+if(empty($this->session->userdata('islogin_in'))){
+  redirect('landing/login');
 }
 
 $foto = "";
@@ -165,14 +155,14 @@ if(empty($this->session->userdata('foto_profil'))){
             </a>
           </li>
 		  <li class="nav-item">
-            <a class="nav-link" href="p_proker">
+            <a class="nav-link" href="<?= site_url('pages/proker') ?>">
               <i class="mdi mdi-account-hard-hat menu-icon"></i>
               <span class="menu-title">Proker</span>
             </a>
           </li>
 			<p class="sidebar-menu-title">Administrasi</p>
 		  <li class="nav-item">
-            <a class="nav-link" href="p_surat">
+            <a class="nav-link" href="<?= site_url('pages/surat') ?>">
               <i class="mdi mdi-file-cabinet menu-icon"></i>
               <span class="menu-title">Surat</span>
             </a>
@@ -185,8 +175,8 @@ if(empty($this->session->userdata('foto_profil'))){
             </a>
             <div class="collapse" id="form-elements">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"><a class="nav-link" href="pc_artikel">Buat Artikel</a></li>
-                <li class="nav-item"><a class="nav-link" href="daftar_artikel">Daftar Artikel</a></li>
+                <li class="nav-item"><a class="nav-link" href="<?= site_url('pages/artikel')?>">Buat Artikel</a></li>
+                <li class="nav-item"><a class="nav-link" href="<?= site_url('pages/artikel/daftar_artikel')?>">Daftar Artikel</a></li>
               </ul>
             </div>
           </li>

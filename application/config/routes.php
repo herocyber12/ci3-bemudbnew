@@ -62,3 +62,13 @@ $route['pages/absensi'] = 'pages/absensi/p_absensi';
 $route['pages/absensi/(:num)/(:any)'] = 'pages/absensi/view/$1';
 
 $route['pages/laporan'] = 'pages/laporan/p_laporan';
+$route['pages/laporan/(:num)/(:any)'] = 'pages/laporan/view/$1';
+
+$route['pages/proker'] = 'pages/proker/p_proker';
+$route['pages/proker/(:num)/(:any)'] = 'pages/proker/view/$1';
+
+$route['pages/surat'] = 'pages/surat/p_surat';
+$route['pages/surat/(:num)/(:any)'] = 'pages/proker/view/$1';
+
+$route['pages/artikel'] = 'pages/artikel/p_artikel';
+$route['pages/artikel/(:num)/(:any)'] = 'pages/artikel/view/$1';

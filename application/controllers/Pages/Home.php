@@ -11,7 +11,7 @@ class home extends MY_Controller
             $data['jumlahAnggta'] = $this->data_model->data_count_all('loginuser');
             $data['jumlahProker'] = $this->data_model->data_count_all('proker');
 
-            $data['title'] = 'Home Admin | BEM UDB';
+            $data['title'] = 'Dashboard | BEM UDB';
             $data['keyword'] = 'bem udb';
             $data['description'] = 'Website resmi bem udb';
             

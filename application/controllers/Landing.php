@@ -133,34 +133,35 @@ class Landing extends CI_Controller
 
     public function ck_login()
     {
-    $username = $this->input->post('nama');
-    $password = $this->input->post('password');
-    $password = md5($password);
-
-    $this->form_validation->set_rules('nama', 'Nama', 'required');
-    $this->form_validation->set_rules('password', 'Password', 'required');
-
-    if($this->form_validation->run() == FALSE){
-        redirect('landing/login');
-        die;
-    }
-
-    $this->db->where('username',$username);
-    $getLogin = $this->data_model->dataget('id_profil'); 
-        if($getLogin->num_rows()>0){
-            $cek = $this->data_model->data_login_row($username,$password);
-            if($cek->num_rows()>0){
-                $b= $cek->result_array();
-                foreach($b as $a):
-                   $this->session->set_userdata('islogin_in',true);
-                   $this->session->set_userdata('Uid', $a['uid']);
-                   $this->session->set_userdata('Nama', $a['nama']);
-                   $this->session->set_userdata('Nim', $a['nim']);
-                   $this->session->set_userdata('Prodi', $a['prodi']);
-                   $this->session->set_userdata('Divisi', $a['divisi']);
-                   $this->session->set_userdata('foto_profil', $a['foto_profil']);
-
-                   redirect('pages/home/index');
+        $username = $this->input->post('nama');
+        $password = $this->input->post('password');
+        $password = md5($password);
+    
+        $this->form_validation->set_rules('nama', 'Nama', 'required');
+        $this->form_validation->set_rules('password', 'Password', 'required');
+    
+        if($this->form_validation->run() == FALSE){
+            redirect('pages/login');
+            die;
+        }
+        $this->db->where('username',$username);
+        $getLogin = $this->data_model->dataget('id_profil'); 
+            if($getLogin->num_rows()>0){
+                $cek = $this->data_model->data_login_row($username,$password);
+                var_dump($cek);
+                if($cek->num_rows() > 0){
+                    $b= $cek->result_array();
+                    foreach($b as $a):
+                        $this->session->set_userdata('islogin_in',true);
+                       $this->session->set_userdata('Uid', $a['uid']);
+                       $this->session->set_userdata('Nama', $a['nama']);
+                       $this->session->set_userdata('Nim', $a['nim']);
+                       $this->session->set_userdata('Prodi', $a['prodi']);
+                       $this->session->set_userdata('Divisi', $a['divisi']);
+                       $this->session->set_userdata('foto_profil', $a['foto_profil']);
+    
+                       redirect('pages/home');
+                    
             endforeach;
             } else{
                 $jumlahlogin=0;
@@ -168,7 +169,7 @@ class Landing extends CI_Controller
 
                 if($jumlahlogin > 3){
                     $this->session->set_flashdata('gagal_login', '<div class="alert alert-danger">Username Atau Password Salah</div>');
-                    redirect(base_url('landing/login'));
+                    redirect(site_url('landing'));
                 }
             }
         }else{
