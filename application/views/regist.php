@@ -7,7 +7,7 @@
 
 if(empty($uid)){
   $this->session->set_flashdata('gagal_nama', '<div class="alert alert-danger">Nama Tidak Ditemukan</div>');
-  redirect(base_url('pages/login'));
+  redirect('landing/login');
 }
 ?>
 <!DOCTYPE html>
@@ -25,8 +25,6 @@ if(empty($uid)){
   <link rel="stylesheet" href="<?php echo base_url(); ?>vendors/typicons.font/font/typicons.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>vendors/css/vendor.bundle.base.css">
   <!-- endinject -->
-  <!-- plugin css for this page -->
-  <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>asset/css/vertical-layout-light/style.css">
   <!-- endinject -->
@@ -48,8 +46,8 @@ if(empty($uid)){
 					<a href="<?php echo base_url(); ?>"><button type="button" class="btn btn-light bg-transparent"><span class="mdi mdi-arrow-left"></span>Kembali</button></a>
 				  </div>
               </div>
-                <h4>Log In</h4>
-			        	<form class="forms-sample" action="<?php echo base_url(); ?>landing/updateanggota" method="post">
+                <h4>Form Buat Akun</h4>
+			        	<form class="forms-sample" action="<?php echo site_url('landing/update_data'); ?>" method="post">
 			        	  <input type="hidden" name="uid" class="form-control" id="exampleInputNim1 "value="<?php echo $a['uid']; ?>">
                 <div class="form-group">
 			        	  <label for="exampleInputNim1">Nim (Max 10 Digit Min 9 Digit)</label>
@@ -98,5 +96,4 @@ if(empty($uid)){
   <script src="<?php echo base_url(); ?>asset/js/todolist.js"></script>
   <!-- endinject -->
 </body>
-
 </html>

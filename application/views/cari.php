@@ -43,7 +43,7 @@
             echo $this->session->flashdata('gagal_login');
           endif;
 				?>
-				<form class="pt-3" action="<?php echo base_url(); ?>landing/register" method="post">
+				<form class="pt-3" action="<?php echo site_url('landing/register'); ?>" method="post">
 					<div class="form-group">
 					  <input type="text" name="cari" aria-label="Cari" class="form-control form-control-lg" id="exampleInputCari1" placeholder="Masukan Nama Anda" required>
 					</div>

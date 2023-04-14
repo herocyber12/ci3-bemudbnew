@@ -208,20 +208,20 @@ class Landing extends CI_Controller
         var_dump($nim);
         if(!$cek){
             $this->session->set_flashdata('gagal_nama', '<div class="alert alert-danger">Nama Tidak Ditemukan</div>');
-            redirect(base_url('pages/login'));
+            redirect(base_url('landing/login'));
             
         } else{
             if(empty($nim)){
                 $this->load->view('regist',$data);
             } else {
                 $this->session->set_flashdata('gagal_nama1', '<div class="alert alert-success">Anda Sudah Memiliki Akun</div>');
-                redirect(base_url('pages/login'));
+                redirect(base_url('landing/login'));
                 
             } 
         }
 	}
 
-    public function updateanggota()
+    public function update_data()
     {
         $uid = $this->input->post('uid');
         $password = $this->input->post('password');

@@ -85,7 +85,7 @@
                 <i class="typcn typcn-cog text-primary"></i>
                 Settings
                 </a>
-                <a class="dropdown-item" href="ck_logout">
+                <a class="dropdown-item" href="<?= site_url('landing/ck_logout')?>">
                 <i class="typcn typcn-power text-primary"></i>
                 Logout
                 </a>
