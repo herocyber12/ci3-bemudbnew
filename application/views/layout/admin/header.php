@@ -1,25 +1,14 @@
 <?php 
-$nama = $this->session->userdata('Nama');
-$nim = $this->session->userdata('Nim');
-$prodi = $this->session->userdata('Prodi');
-$divisi = $this->session->userdata('Divisi');
-$foto_profil = $this->session->userdata('foto_profil');
-
-defined('BASEPATH') OR exit('No direct script access allowed');
-
-if(empty($this->session->userdata())){
-  redirect('pages/login');
-}
-
-if($this->session->userdata('Divisi') !== "Admin"){
-  $this->session->unset_userdata('Nama');
-  $this->session->unset_userdata('Nim');
-  $this->session->unset_userdata('Prodi');
-  $this->session->unset_userdata('Divisi');
-  $this->session->unset_userdata('foto_profil');
-
-  redirect('pages/login');
-}
+  defined('BASEPATH') OR exit('No direct script access allowed');
+  $nama = $this->session->userdata('Nama');
+  $nim = $this->session->userdata('Nim');
+  $prodi = $this->session->userdata('Prodi');
+  $divisi = $this->session->userdata('Divisi');
+  $foto_profil = $this->session->userdata('foto_profil');
+  
+  if(empty($this->session->userdata('islogin_in'))){
+    redirect('landing/login');
+  }
 
 ?>
 <!DOCTYPE html>
@@ -63,9 +52,9 @@ if($this->session->userdata('Divisi') !== "Admin"){
               <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center" id="notificationDropdown" href="#" data-toggle="dropdown">
                 <i class="typcn typcn-bell mr-0"></i>
                 <?php
-                  if($notifikasi > 0){
-                    echo "<span class='count bg-danger'>$jumlah_notif</span>";
-                  }
+                  // if($notifikasi > 0){
+                  //   echo "<span class='count bg-danger'>$jumlah_notif</span>";
+                  // }
                 ?>
               </a>
               <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
@@ -146,12 +135,12 @@ if($this->session->userdata('Divisi') !== "Admin"){
             <p class="sidebar-menu-title">Dash menu</p>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?php site_url()?>../admin/beranda">
+            <a class="nav-link" href="<?php site_url('pages/home')?>">
               <i class="typcn typcn-device-desktop menu-icon"></i>
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
-			<p class="sidebar-menu-title">Absensi</p>
+			<p class="sidebar-menu-title">Daftar</p>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <i class="mdi mdi-check-network-outline menu-icon"></i>
@@ -160,11 +149,11 @@ if($this->session->userdata('Divisi') !== "Admin"){
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="<?php site_url()?>../admin/p_absen">Daftar Absensi</a></li>
-                <li class="nav-item"> <a class="nav-link" href="<?php site_url()?>../admin/p_laporan">Daftar Laporan</a></li>
-                <li class="nav-item"> <a class="nav-link" href="<?php site_url()?>../admin/p_proker">Daftar Proker</a></li>
-                <li class="nav-item"> <a class="nav-link" href="<?php site_url()?>../admin/p_surat">Daftar Arsip Surat</a></li>
-                <li class="nav-item"> <a class="nav-link" href="<?php site_url()?>../admin/p_artikel">Daftar Artikel</a></li>
+                <li class="nav-item"> <a class="nav-link" href="<?= site_url('pages/absensi') ?>">Daftar Absensi</a></li>
+                <li class="nav-item"> <a class="nav-link" href="<?= site_url('pages/laporan') ?>">Daftar Laporan</a></li>
+                <li class="nav-item"> <a class="nav-link" href="<?= site_url('pages/proker') ?>">Daftar Proker</a></li>
+                <li class="nav-item"> <a class="nav-link" href="<?= site_url('pages/surat') ?>">Daftar Arsip Surat</a></li>
+                <li class="nav-item"> <a class="nav-link" href="<?= site_url('pages/artikel')?>">Daftar Artikel</a></li>
               </ul>
             </div>
           </li>

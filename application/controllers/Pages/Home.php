@@ -15,8 +15,8 @@ class home extends MY_Controller
             $data['keyword'] = 'bem udb';
             $data['description'] = 'Website resmi bem udb';
             
-            if($this->session->userdata('Divisi') == "Admin" || $this->session->userdata('Divisi') == "admin"){
-                $this->load->view('layout/users/header',$data);;
+            if($this->session->userdata('Divisi') == "Admin"){
+                $this->load->view('layout/admin/header',$data);;
                 $this->load->view('admin/v_utama',$data);
             } else {
                 $this->load->view('layout/users/header',$data);

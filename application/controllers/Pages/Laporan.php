@@ -24,7 +24,7 @@ class Laporan extends MY_Controller
         $data['description'] = 'Website resmi bem udb'; 
 
         if($this->session->userdata('Divisi') == "Admin" || $this->session->userdata('Divisi') == "admin"){
-            $this->load->view('layout/users/header',$data);;
+            $this->load->view('layout/admin/header',$data);;
             $this->load->view('admin/v_laporan',$data);
         } else {
             $this->load->view('layout/users/header',$data);

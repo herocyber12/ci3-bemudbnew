@@ -152,7 +152,7 @@ class Landing extends CI_Controller
                 if($cek->num_rows() > 0){
                     $b= $cek->result_array();
                     foreach($b as $a):
-                        $this->session->set_userdata('islogin_in',true);
+                       $this->session->set_userdata('islogin_in',true);
                        $this->session->set_userdata('Uid', $a['uid']);
                        $this->session->set_userdata('Nama', $a['nama']);
                        $this->session->set_userdata('Nim', $a['nim']);

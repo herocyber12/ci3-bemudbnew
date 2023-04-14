@@ -6,6 +6,8 @@ class Surat extends MY_Controller
         $this->db->order_by('tanggal_surat','DESC');
         $data['surat'] = $this->data_model->dataget('no_surat')->result_array();
 
+        $this->db->order_by('tanggal_surat','DESC');
+        $data['jumlahSurat'] = $this->data_model->dataget('no_surat');
         $data['autoDelet'] = $this->data_model->autoDeletion();
         $data['notifikasi']= $this->data_model->dataget('notifikasi')->num_rows();
         $data['notifi'] = $this->data_model->dataget('notifikasi')->result_array();
@@ -15,7 +17,7 @@ class Surat extends MY_Controller
         
   
         if($this->session->userdata('Divisi') == "Admin" || $this->session->userdata('Divisi') == "admin"){
-            $this->load->view('layout/users/header',$data);;
+            $this->load->view('layout/admin/header',$data);;
             $this->load->view('admin/v_surat',$data);
         } else {
             $this->load->view('layout/users/header',$data);

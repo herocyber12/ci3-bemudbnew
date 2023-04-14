@@ -25,7 +25,7 @@ class Proker extends MY_Controller
         
   
         if($this->session->userdata('Divisi') == "Admin" || $this->session->userdata('Divisi') == "admin"){
-            $this->load->view('layout/users/header',$data);;
+            $this->load->view('layout/admin/header',$data);;
             $this->load->view('admin/v_proker',$data);
         } else {
             $this->load->view('layout/users/header',$data);

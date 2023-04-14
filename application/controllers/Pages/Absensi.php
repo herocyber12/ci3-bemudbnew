@@ -21,7 +21,7 @@ class Absensi extends MY_Controller
         $data['absensia'] = $absensi;
         
         $this->db->order_by('tngl','DESC');
-        $data['jumlahAbsen'] = $this->data_model->data_count_all('absensi');
+        $data['jumlahAbsen'] = $this->data_model->dataget('absensi');
 
         $data['title'] = 'Absensi | BEM UDB';
         $data['keyword'] = 'bem udb';
@@ -29,7 +29,7 @@ class Absensi extends MY_Controller
         
 
         if($this->session->userdata('Divisi') == "Admin" || $this->session->userdata('Divisi') == "admin"){
-                $this->load->view('layout/users/header',$data);;
+                $this->load->view('layout/admin/header',$data);;
                 $this->load->view('admin/v_absen',$data);
             } else {
                 $this->load->view('layout/users/header',$data);

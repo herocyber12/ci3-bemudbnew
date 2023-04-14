@@ -3,17 +3,26 @@ class Artikel extends MY_Controller
 {
     public function p_artikel()
     {
-        if($this->session->userdata('Divisi') == 'litbang & kastrat' || $this->session->userdata('Divisi') == "sekretaris" || $this->session->userdata('Divisi') == "kominfo"){
+        if($this->session->userdata('Divisi') == 'litbang & kastrat' || $this->session->userdata('Divisi') == "sekretaris" || $this->session->userdata('Divisi') == "kominfo" || $this->session->userdata('Divisi') == "Admin"){
             
+            $this->db->order_by('tanggal_artikel','DESC');
+            $data['jumlahArtikel'] = $this->data_model->dataget('artikel');
+
             $data['autoDelet'] = $this->data_model->autoDeletion();
             $data['notifikasi']= $this->data_model->dataget('notifikasi')->num_rows();
             $data['notifi'] = $this->data_model->dataget('notifikasi')->result_array();
             $data['title'] = 'Buat Artikel | BEM UDB';
             $data['keyword'] = 'bem udb';
             $data['description'] = 'Website resmi bem udb'; 
-          
-            $this->load->view('layout/users/header',$data);
-            $this->load->view('users/v_buatartikel',$data);
+            
+            if($this->session->userdata('Divisi') == "Admin"){
+                $this->load->view('layout/admin/header',$data);
+                $this->load->view('admin/v_artikel',$data);
+                
+            } else {
+                $this->load->view('layout/users/header',$data);
+                $this->load->view('users/v_buatartikel',$data);
+            }
             $this->load->view('layout/users/footer');
         } else {
             $this->session->set_flashdata('bukan_Litbang', '<div class="alert alert-warning">Anda Tidak Bisa ke Halaman Pembuatan Artikel</div>');
@@ -68,7 +77,7 @@ class Artikel extends MY_Controller
         $data['keyword'] = 'bem udb';
         $data['description'] = 'Website resmi bem udb'; 
       
-        $this->load->view('layout/users/header',$data);
+        $this->load->view('layout/admin/header',$data);
         $this->load->view('users/v_daftarartikel',$data);
         $this->load->view('layout/users/footer'); 
     }
