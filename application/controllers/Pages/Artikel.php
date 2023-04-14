@@ -52,7 +52,7 @@ class Artikel extends MY_Controller
         $this->data_model->datainsert('artikel',$arrayData);
 
         $this->session->set_flashdata('berhasil_artikel', '<div class="alert alert-success">Berhasil Membuat Artikel</div>');
-        redirect('user/daftar_artikel');
+        redirect('pages/artikel/daftar_artikel');
     }
 
     public function daftar_artikel()

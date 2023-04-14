@@ -1,14 +1,14 @@
 <?php 
     foreach($absensia->result_array() as $row):
-        $tanggal=isset($row['tngl']);
+        $tanggal=$row['tngl'];
     endforeach;
 
     $disable_in = "";
     if($absensia->num_rows()){
-        if($tanggal !=0){
-            $disable_in = "disabled='disabled'";
+        if(empty($tanggal)){
+          $disable_in = "";
         } else{
-            $disable_in = "";
+          $disable_in = "disabled='disabled'";
         }
     }
 ?>
@@ -47,7 +47,7 @@
                       </thead>
                       <tbody>
                         <tr>
-                            <?php foreach($tanggalJ->result_array() as $row3): ?>
+                            <?php foreach($tanggalJ->result_array() as $row3):?>
                             <td><?php echo $row3['tanggal'];?></td>
 						                <td><?php echo $row3['jam']; ?></td>
 							              <td><form method="post" action="<?= site_url('pages/absensi/input_absen') ?>">

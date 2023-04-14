@@ -19,6 +19,7 @@ class Absensi extends MY_Controller
         $data['notifi'] = $this->data_model->dataget('notifikasi')->result_array();
         $data['tanggalJ'] = $ambilJam;
         $data['absensia'] = $absensi;
+        
         $this->db->order_by('tngl','DESC');
         $data['jumlahAbsen'] = $this->data_model->data_count_all('absensi');
 
@@ -42,13 +43,17 @@ class Absensi extends MY_Controller
         $nim = $this->session->userdata('Nim');
         $nama = $this->session->userdata('Nama');
         $divisi = $this->session->userdata('Divisi');
+
+        $ambilJam = $this->data_model->dataget('buatabsen');
+        foreach($ambilJam->result_array() as $x):
+            $tanggal = $x['tanggal'];
+            $jam = $x['jam'];
+        endforeach;
         
         if($this->input->post('submit') !== ""){
 
             $id_absen = mt_rand(1000,9999);
             $keterangan = "Hadir";
-            $tanggal = $x['tanggal'];
-            $jam = $x['jam'];
 
             $arrayData = array(
                 'id_absen' => $id_absen,
@@ -61,10 +66,10 @@ class Absensi extends MY_Controller
             );
             if(!$this->data_model->datainsert('absensi',$arrayData)){
                 $this->session->set_flashdata('abnsensi_gagal', '<div class="alert alert-danger">Gagal Absen</div>');
-                redirect('user/p_absensi');
+                redirect('pages/absensi');
             } else{
                 $this->session->set_flashdata('absensi_berhasil', '<div class="alert alert-success">Berhasil Absen</div>');
-                redirect('user/p_absensi');
+                redirect('pages/absensi');
             }
 
         }
@@ -74,9 +79,9 @@ class Absensi extends MY_Controller
     public function buatAbsen()
     {
         if(!$this->session->userdata('Divisi') == "sekretaris"){
-            $this->session->set_flashdata('berhasil_buat_absen', '<div class="alert alert-success">Berhasil Buat Absen</div>');
-        }else{
             $this->session->set_flashdata('gagal_buat_absen', '<div class="alert alert-warning">Anda bukan sekretaris</div>');
+        }else{
+            $this->session->set_flashdata('berhasil_buat_absen', '<div class="alert alert-success">Berhasil Buat Absen</div>');
             $this->data_model->buatAbsens();
         }
         redirect('pages/home');   

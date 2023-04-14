@@ -11,7 +11,7 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Buat Artikel</h4>
-                  <form class="forms-sample" action="insertArtikel" method="post" enctype="multipart/form-data">
+                  <form class="forms-sample" action="<?= site_url('pages/artikel/input_artikel')?>" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                       <label for="exampleInputEmail1">Judul Artikel</label>
                       <input name="tema" type="text" class="form-control" id="exampleInputEmail1" placeholder="Judul Artikel" required>

@@ -55,17 +55,17 @@ class Data_Model extends CI_Model
 
     public function buatAbsens()
     {
-        $tanggal = date('d F Y');
+        $tanggal = date('Y-m-d');
         $jam = date('H:i:s');
         $this->db->query("DROP TABLE IF EXISTS buatabsen");
 
         $this->db->query("CREATE TABLE buatabsen( tanggal VARCHAR(50) NOT NULL, jam VARCHAR(50) NOT NULL)");
 
-        $array = array(
+        $arrayData = array(
             'tanggal' => $tanggal,
             'jam' => $jam
         );
-        $this->db->insert('buatabsen', $array);
+        $this->datainsert('buatabsen',$arrayData);
     }
 }
 
