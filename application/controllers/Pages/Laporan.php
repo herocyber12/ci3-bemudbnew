@@ -81,15 +81,21 @@ class Laporan extends MY_Controller
         }
     }
 
-    public function delete_laporan($id_laporan)
+    public function del_laporan_proker($id_laporan)
     {
-        if($this->input->post('submit') == "laporan_keuangan"){
-            $where = array('id_lproker' => $id_laporan);
-            $this->admin_model->hapus_laporan('laporan_keuangan',$where);
-        } else if ($this->input->post('submit')=="laporan_proker"){
-            $where = array('id_lkeuangan' => $id_laporan);
-            $this->admin_model->hapus_laporan('laporan_keuangan',$where);
-        }
+        $where = array('id_lproker' => $id_laporan);
+        $this->data_model->datadelete('laporan_proker',$where);
+
+        $this->session->set_flashdata('berhasil_laporan', '<div class="alert alert-success">Berhasil Hapus Laporan</div>');
+
+        redirect('pages/laporan');
+    }
+
+    public function del_laporan_keuangan($id_laporan)
+    {
+        $where = array('id_lkeuangan' => $id_laporan);
+        $this->data_model->datadelete('laporan_keuangan',$where);
+
         $this->session->set_flashdata('berhasil_laporan', '<div class="alert alert-success">Berhasil Hapus Laporan</div>');
 
         redirect('pages/laporan');

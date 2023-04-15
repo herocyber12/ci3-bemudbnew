@@ -24,5 +24,21 @@ class home extends MY_Controller
             }
             $this->load->view('layout/users/footer');
     }
+
+    public function delete_anggota($uid)
+        {
+            $where = array('uid' => $uid);
+            $this->db->where($where);
+            if($this->data_model->datadelete('id_profil', $where)){
+                $this->db->where($where);
+                $this->data_model->datadelete('loginuser', $where);
+                // $this->session->set_flashdata('gagal_hapus_anggota', '<div class="alert alert-danger">Tidak Bisa Menghapus Admin !</div>');
+                $this->session->set_flashdata('gagal_hapus_anggota', '<div class="alert alert-success">Berhasil Hapus Anggota !</div>');
+                redirect('pages/home');
+            } else {
+                $this->session->set_flashdata('pesan_hapus', '<div class="alert alert-success">Berhasil Menghapus Anggota</div>');
+                redirect('pages/home');
+            }
+        }
 }
 ?>

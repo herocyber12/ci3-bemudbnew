@@ -43,7 +43,7 @@
                           <td><?php echo $row['divisi'] ?></td>
 					            		<td><?php echo $row['keterangan'];?></td>
 					            		<td><?php echo $row['status'];?></td>
-					            		<td><?php echo anchor(site_url('pages/laporan/delete_laporan/').$row['id_lproker'],'<button type="submit" name="submit" class="btn btn-danger m-2" value="laporan_proker"><i class="mdi mdi-trash-can"></i>Hapus</button>'); ?></td>
+					            		<td><?php echo anchor(site_url('pages/laporan/del_laporan_proker/').$row['id_lproker'],'<button type="submit" name="submit" class="btn btn-danger m-2" value="laporan_proker"><i class="mdi mdi-trash-can"></i>Hapus</button>'); ?></td>
 					            	</tr>
 					            <?php
 					            	endforeach;
@@ -79,7 +79,7 @@
 					            		<td><?php echo $row['pemasukan'];?></td>
                           <td><?php echo $row['pengeluaran'] ?></td>
 					            		<td><?php echo $row['keterangan'];?></td>
-					            		<td><?php echo anchor(site_url('pages/laporan/delete_laporan/').$row['id_lkeuangan'],'<button type="submit" name="submit" class="btn btn-danger m-2" value="laporan_keuangan"><i class="mdi mdi-trash-can"></i>Hapus</button>'); ?></td>
+					            		<td><?php echo anchor(site_url('pages/laporan/del_laporan_keuangan/').$row['id_lkeuangan'],'<button type="submit" name="submit" class="btn btn-danger m-2" value="laporan_keuangan"><i class="mdi mdi-trash-can"></i>Hapus</button>'); ?></td>
 					            	</tr>
 					            <?php
 					            	endforeach;

@@ -200,7 +200,7 @@ switch($divisi){
 												
 										</td>
 										<td class="d-grid">
-										<?php echo anchor(base_url('admin/delete_anggota/').$data1['uid'],'<button type="submit" name="delete" class="btn btn-danger m-2" value="Hapus"><i class="mdi mdi-trash-can"></i>Hapus</button>'); ?>
+										<?php echo anchor(base_url('pages/home/delete_anggota/').$data1['uid'],'<button type="submit" name="delete" class="btn btn-danger m-2" value="Hapus"><i class="mdi mdi-trash-can"></i>Hapus</button>'); ?>
 										</td>
 									</tr>
 									  <?php

@@ -112,7 +112,7 @@ class Surat extends MY_Controller
         $data['description'] = 'Website resmi bem udb'; 
     
         $this->load->view('layout/users/header',$data);;
-        $this->load->view('admin/v_edit_surat',$data);
+        $this->load->view('admin/v_editsurat',$data);
         $this->load->view('layout/users/footer');
     }
 

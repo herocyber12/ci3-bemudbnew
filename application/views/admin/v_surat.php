@@ -43,8 +43,8 @@
 						            	<td><?php echo $data1['tanggal_surat']?></td>
 						            	<td><?php echo $data1['kegunaan_surat'];?></td>
 						            	<td class="d-flex">
-                          <?php echo anchor(base_url('admin/edit_surat/').$data1['id_surat'],'<button type="submit" name="edit" class="btn btn-warning m-2" value="Edit"><i class="mdi mdi-wrench"></i>Edit</button>'); ?>
-                          <?php echo anchor(base_url('admin/delete_surat/').$data1['id_surat'],'<button type="submit" name="delete" class="btn btn-danger m-2" value="Hapus"><i class="mdi mdi-trash-can"></i>Hapus</button>'); ?>
+                          <?php echo anchor(base_url('pages/surat/edit_surat/').$data1['id_surat'],'<button type="submit" name="edit" class="btn btn-warning m-2" value="Edit"><i class="mdi mdi-wrench"></i>Edit</button>'); ?>
+                          <?php echo anchor(base_url('pages/surat/delete_surat/').$data1['id_surat'],'<button type="submit" name="delete" class="btn btn-danger m-2" value="Hapus"><i class="mdi mdi-trash-can"></i>Hapus</button>'); ?>
 						            	</td>
 						            </tr>
 						                <?php

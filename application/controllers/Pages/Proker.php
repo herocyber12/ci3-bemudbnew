@@ -63,7 +63,7 @@ class Proker extends MY_Controller
     {
         $where = array('id' => $id);
         $this->db->where($where);
-        $this->data_model->datadelete('proker');
+        $this->data_model->datadelete('proker',$where);
 
         $this->session->set_flashdata('berhasil_proker', '<div class="alert alert-success">Berhasil Hapus Proker</div>');
 
@@ -72,14 +72,17 @@ class Proker extends MY_Controller
 
     public function confirm_proker($id)
     {
-        if($this->input->post('submit') == "Konfirmasi"){
-            $status = "Disetujui";
-        } else if ($this->input->post('submit') == "Ditolak"){
-            $status = "Ditolak";
-        }
-
         $where = array('id' => $id);
-        $arrayData = array('status' => $status);
+        $arrayData = array('status' => 'Disetujui');
+        $this->data_model->dataupdate('proker',$arrayData,$where);
+
+        redirect('pages/proker');
+    }
+
+    public function tolak_proker($id)
+    {
+        $where = array('id' => $id);
+        $arrayData = array('status' => 'Ditolak');
         $this->data_model->dataupdate('proker',$arrayData,$where);
 
         redirect('pages/proker');
