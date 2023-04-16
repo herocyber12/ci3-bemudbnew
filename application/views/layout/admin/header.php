@@ -159,7 +159,7 @@
           </li>
 			<p class="sidebar-menu-title">Registrasi</p>
 		  <li class="nav-item">
-            <a class="nav-link" href="<?php site_url()?>../admin/p_tambahAnggota">
+            <a class="nav-link" href="<?= site_url('pages/registrasi')?>">
               <i class="mdi mdi-file-cabinet menu-icon"></i>
               <span class="menu-title">Tambah Anggota</span>
             </a>

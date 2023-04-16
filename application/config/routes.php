@@ -72,3 +72,6 @@ $route['pages/surat/(:num)/(:any)'] = 'pages/surat/view/$1';
 
 $route['pages/artikel'] = 'pages/artikel/p_artikel';
 $route['pages/artikel/(:num)/(:any)'] = 'pages/artikel/view/$1';
+
+$route['pages/registrasi'] = 'pages/registrasi/index';
+$route['pages/registrasi/(:num)/(:any)'] = 'pages/registrasi/view/$1';

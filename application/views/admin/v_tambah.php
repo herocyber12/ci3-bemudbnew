@@ -20,13 +20,18 @@ switch($divisi){
 <!-- partial -->
 <div class="main-panel">
   <div class="content-wrapper">
+  	<?php 
+	if($this->session->flashdata('berhasil_tambah_anggota') == TRUE){
+		echo $this->session->flashdata('berhasil_tambah_anggota');
+	}
+	?>
     <div class="row">
       <div class="col">
-        <div class="col-lg-12 grid-margin stretch-card m-2">
+        <div class="col-lg-12 grid-margin stretch-card m-2">\
 		  <div class="card">
 			<div class="card-body">
 			  <h4 class="card-title">Tambah Anggota BEM</h4>
-			  <form class="forms-sample" action="insertAnggota" method="post">
+			  <form class="forms-sample" action="<?= site_url('pages/registrasi/input_anggota') ?>" method="post">
 				<div class="form-group">
 				  <label for="exampleInputEmail1">Nama</label>
 				  <input type="text" name="nama" class="form-control" id="exampleInputEmail1" placeholder="Nama" required old>

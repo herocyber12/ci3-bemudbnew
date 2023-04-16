@@ -178,49 +178,6 @@ class Landing extends CI_Controller
         }
     }
 
-    public function cari()
-	{
-		
-		$data['title'] = 'Registrasi | BEM UDB';
-		$data['keyword'] = 'bem udb';
-		$data['description'] = 'Website resmi bem udb';
-		
-		$this->load->view('cari',$data);
-	}
-
-    public function register()
-	{
-		$nama = $this->input->post('cari');
-
-        $this->db->where('nama',$nama);
-		$cek = $this->data_model->dataget('loginuser');
-
-        
-		$data['calon'] = $cek;
-        $data['title'] = 'Registrasi | BEM UDB';
-		$data['keyword'] = 'bem udb';
-		$data['description'] = 'Website resmi bem udb';
-
-        foreach($cek->result_array() as $a){
-            $nim = $a['nim'];
-        }
-
-        var_dump($nim);
-        if(!$cek){
-            $this->session->set_flashdata('gagal_nama', '<div class="alert alert-danger">Nama Tidak Ditemukan</div>');
-            redirect(base_url('landing/login'));
-            
-        } else{
-            if(empty($nim)){
-                $this->load->view('regist',$data);
-            } else {
-                $this->session->set_flashdata('gagal_nama1', '<div class="alert alert-success">Anda Sudah Memiliki Akun</div>');
-                redirect(base_url('landing/login'));
-                
-            } 
-        }
-	}
-
     public function update_data()
     {
         $uid = $this->input->post('uid');
