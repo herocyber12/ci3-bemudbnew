@@ -81,5 +81,16 @@ class Artikel extends MY_Controller
         $this->load->view('users/v_daftarartikel',$data);
         $this->load->view('layout/users/footer'); 
     }
+
+    public function delete_artikel($id_artikel)
+    {
+        $where = array('id_artikel' => $id_artikel);
+
+        $this->data_model->datadelete('artikel',$where);
+
+        $this->session->set_flashdata('berhasil_laporan', '<div class="alert alert-success">Berhasil Hapus Artikel</div>');
+
+        redirect('pages/artikel');
+    }
 }
 ?>

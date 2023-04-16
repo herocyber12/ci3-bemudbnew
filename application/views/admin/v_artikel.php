@@ -31,7 +31,7 @@
 					    	<td><?php echo $row['tema_artikel'];?></td>
 					    	<td><?php echo $row['tanggal_artikel'];?></td>
 					    	<td><?php echo $row['gmbr'];?></td>
-					    	<td><?php echo anchor(base_url('admin/delete_artikel/').$row['id_artikel'],'<button type="submit" name="delete" class="btn btn-danger m-2" value="Hapus"><i class="mdi mdi-trash-can"></i>Hapus</button>'); ?></td>
+					    	<td><?php echo anchor(base_url('pages/artikel/delete_artikel/').$row['id_artikel'],'<button type="submit" name="delete" class="btn btn-danger m-2" value="Hapus"><i class="mdi mdi-trash-can"></i>Hapus</button>'); ?></td>
 					    </tr>
 						<?php
 							endforeach;

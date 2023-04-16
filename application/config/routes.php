@@ -68,7 +68,7 @@ $route['pages/proker'] = 'pages/proker/p_proker';
 $route['pages/proker/(:num)/(:any)'] = 'pages/proker/view/$1';
 
 $route['pages/surat'] = 'pages/surat/p_surat';
-$route['pages/surat/(:num)/(:any)'] = 'pages/proker/view/$1';
+$route['pages/surat/(:num)/(:any)'] = 'pages/surat/view/$1';
 
 $route['pages/artikel'] = 'pages/artikel/p_artikel';
 $route['pages/artikel/(:num)/(:any)'] = 'pages/artikel/view/$1';

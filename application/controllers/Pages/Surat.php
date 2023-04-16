@@ -11,7 +11,7 @@ class Surat extends MY_Controller
         $data['autoDelet'] = $this->data_model->autoDeletion();
         $data['notifikasi']= $this->data_model->dataget('notifikasi')->num_rows();
         $data['notifi'] = $this->data_model->dataget('notifikasi')->result_array();
-        $data['title'] = 'Proker | BEM UDB';
+        $data['title'] = 'Surat | BEM UDB';
         $data['keyword'] = 'bem udb';
         $data['description'] = 'Website resmi bem udb'; 
         
@@ -107,7 +107,7 @@ class Surat extends MY_Controller
         $data['autoDelet'] = $this->data_model->autoDeletion();
         $data['notifikasi']= $this->data_model->dataget('notifikasi')->num_rows();
         $data['notifi'] = $this->data_model->dataget('notifikasi')->result_array();
-        $data['title'] = 'Laporan | BEM UDB';
+        $data['title'] = 'Edit Surat | BEM UDB';
         $data['keyword'] = 'bem udb';
         $data['description'] = 'Website resmi bem udb'; 
     
@@ -121,17 +121,16 @@ class Surat extends MY_Controller
         $id_surat = $this->input->post('id_surat');
         $no_surat 	= $this->input->post('nomor_surat');
         $arrayData = array(
-            'id_surat' => $id_surat,
             'nomor_surat' => $no_surat,
             'tanggal_surat' => $this->input->post('tanggal_surat'),
             'kegunaan_surat' => $this->input->post('kegunaan_surat')
         );
 
         $where = array('id_surat' => $id_surat);
-        $this->data_model->updateSurat('no_surat',$arrayData, $where);
+        $this->data_model->dataupdate('no_surat',$arrayData, $where);
         $this->session->set_flashdata('berhasil_edit', '<div class="alert alert-success">Berhasil Edit Surat</div>');
 
         redirect('pages/surat');
     }
 }
-?>
+?>  
