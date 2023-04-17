@@ -75,3 +75,6 @@ $route['pages/artikel/(:num)/(:any)'] = 'pages/artikel/view/$1';
 
 $route['pages/registrasi'] = 'pages/registrasi/index';
 $route['pages/registrasi/(:num)/(:any)'] = 'pages/registrasi/view/$1';
+
+$route['pages/oprec'] = 'pages/oprec/index';
+$route['pages/oprec/(:num)/(:any)'] = 'pages/oprec/view/$1';

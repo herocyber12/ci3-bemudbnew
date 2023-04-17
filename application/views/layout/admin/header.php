@@ -166,7 +166,7 @@
           </li>
 			<p class="sidebar-menu-title">OPREC BEM</p>
 		  <li class="nav-item">
-            <a class="nav-link" href="<?php site_url()?>../admin/oprecBem">
+            <a class="nav-link" href="<?= site_url('pages/oprec')?>">
               <i class="mdi mdi-account-box menu-icon"></i>
               <span class="menu-title">Daftar Calon</span>
             </a>
