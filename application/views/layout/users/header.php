@@ -88,7 +88,7 @@ if(empty($this->session->userdata('foto_profil'))){
                 <span class="nav-profile-name"><?php echo $this->session->userdata('Nama'); ?></span>
               </a>
               <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-                <a class="dropdown-item" href="setting_profil">
+                <a class="dropdown-item" href="<?=  site_url('setting/profil')?>">
                 <i class="typcn typcn-cog text-primary"></i>
                 Settings
                 </a>

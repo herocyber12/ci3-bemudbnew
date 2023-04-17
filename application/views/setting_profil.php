@@ -20,7 +20,7 @@
                     <div class="row">
                         <div class="col-md-6 grid-margin stretch-card">
 							<div class="input-group">
-							<form action="updateFotoProfil" method="post" class="form-example" enctype="multipart/form-data">
+							<form action="<?= site_url('setting/profil/updateFotoProfil') ?>" method="post" class="form-example" enctype="multipart/form-data">
 								<div class="text-center">
 									<?php 
                   foreach($profil->result_array() as $data1 ):
@@ -39,8 +39,8 @@
 						<div class="col-lg-6 grid-margin stretch-card">
 							<div class="card">
                   <div class="card-body">
-                  <h4 class="card-title">Edit Anggota</h4>
-					  <form action="updateData" method="post">
+                  <h4 class="card-title">Edit Data Diri</h4>
+					  <form action="<?= site_url('setting/profil/update_data')?>" method="post">
                     <div class="form-group">
                       <label for="exampleInputEmail1">Nim</label>
                       <input name="nim" type="text" class="form-control" id="exampleInputEmail1" value="<?php echo $data1['nim']; ?>" placeholder="Nim" readonly>

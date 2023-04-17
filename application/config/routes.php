@@ -78,3 +78,6 @@ $route['pages/registrasi/(:num)/(:any)'] = 'pages/registrasi/view/$1';
 
 $route['pages/oprec'] = 'pages/oprec/index';
 $route['pages/oprec/(:num)/(:any)'] = 'pages/oprec/view/$1';
+
+$route['setting/profil'] = 'setting/profil/index';
+$route['setting/profil/(:num)/(:any)'] = 'setting/profil/view/$1';
