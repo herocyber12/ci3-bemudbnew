@@ -102,7 +102,7 @@ class Profil extends MY_Controller
 		);
 
         $where = array('uid' => $uid);
-		$this->admin_model->updateProfil( 'loginuser',$arrayData,$where);
+		$this->data_model->dataupdate( 'loginuser',$arrayData,$where);
         $this->session->set_flashdata('berhasil_update', '<div class="alert alert-success">Berhasil Update Profil</div>');
 		redirect('setting/profil');
 	}

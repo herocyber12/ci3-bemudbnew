@@ -112,8 +112,16 @@ if(empty($this->session->userdata('foto_profil'))){
         <ul class="nav">
           <li class="nav-item">
             <div class="d-flex sidebar-profile">
-              <div class="sidebar-profile-image">
-                <img src="<?php base_url('asset/images/'.$foto);?>">
+            <div class="sidebar-profile-image">
+                <?php 
+					if(empty($this->session->userdata['foto_profil'])){
+						echo "<img src='../asset/images/woman.png'>";
+					} else{
+            foreach ($rows->result_array() as $data1):
+						echo "<img src='../asset/images/foto_profil/$data1[foto_profil]'>";
+            endforeach;
+					}
+				?>
                 <span class="sidebar-status-indicator"></span>
               </div>
               <div class="sidebar-profile-name">

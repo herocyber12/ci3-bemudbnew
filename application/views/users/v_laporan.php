@@ -23,7 +23,7 @@ switch($jns_status){
               <div class="col-sm-12 mb-4">
                 <div class="d-flex align-items-center justify-content-md-end d-none">
                   <div class="pr-1 mb-3 mr-2 mb-xl-0">
-                    <button type="button" class="btn btn-sm bg-white btn-icon-text border" data-toggle="modal" data-target="#addlaporan"><i class="mdi mdi-note-plus mr-2"></i> Tambahkan Laporan</button>
+                    <button type="button" class="btn btn-sm bg-primary btn-icon-text border" data-toggle="modal" data-target="#addlaporan"><i class="mdi mdi-note-plus mr-2 text-white"></i> <span class="text-white">Tambahkan Laporan</span></button>
                   </div>
                 </div>
               </div>
