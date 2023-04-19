@@ -156,7 +156,7 @@ switch($divisi){
         									            <!-- di dalam modal-body terdapat 4 form input yang berisi data.
         									            data-data tersebut ditampilkan sama seperti menampilkan data pada tabel. -->
         									            <div class="modal-body">
-														<form class="forms-sample" action="<?= site_url('pages/home/update_anggota')?>" method="post">
+														<form class="forms-sample" action="<?= site_url('home/update_anggota')?>" method="post">
                   										  <div class="form-group">
                   										    <input name="uid" type="hidden" class="form-control" id="exampleInputEmail1" value="<?php echo $data1['uid']; ?>" placeholder="Nim" readonly>
                   										  </div>
@@ -200,7 +200,7 @@ switch($divisi){
 												
 										</td>
 										<td class="d-grid">
-										<?php echo anchor(base_url('pages/home/delete_anggota/').$data1['uid'],'<button type="submit" name="delete" class="btn btn-danger m-2" value="Hapus"><i class="mdi mdi-trash-can"></i>Hapus</button>'); ?>
+										<?php echo anchor(base_url('home/delete_anggota/').$data1['uid'],'<button type="submit" name="delete" class="btn btn-danger m-2" value="Hapus"><i class="mdi mdi-trash-can"></i>Hapus</button>'); ?>
 										</td>
 									</tr>
 									  <?php

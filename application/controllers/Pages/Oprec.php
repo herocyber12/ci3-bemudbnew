@@ -37,7 +37,7 @@ class Oprec extends MY_Controller
         );
         $this->data_model->dataupdate('oprec_bemu',$arrayData,$where);
 
-        redirect('pages/oprec');
+        redirect('oprec');
     }
 
     public function tolak_calon($id_oprec)
@@ -48,7 +48,7 @@ class Oprec extends MY_Controller
         );
         $this->data_model->dataupdate('oprec_bemu',$arrayData,$where);
 
-        redirect('pages/oprec');
+        redirect('oprec');
     }
 
     public function delete_calon($id_oprec)
@@ -78,7 +78,7 @@ class Oprec extends MY_Controller
 
         $this->session->set_flashdata('berhasil_calon', '<div class="alert alert-success">Berhasil Hapus Calon Pendaftar</div>');
 
-        redirect('pages/oprec');
+        redirect('oprec');
     }
 }
 ?>

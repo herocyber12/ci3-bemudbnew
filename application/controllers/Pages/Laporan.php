@@ -58,10 +58,10 @@ class Laporan extends MY_Controller
 
                 $this->session->set_flashdata('berhasil_buat_laporan', '<div class="alert alert-success">Berhasil Membuat Laporan</div>');
 
-                redirect('pages/laporan');
+                redirect('laporan');
             } else {
                 $this->session->set_flashdata('gagal_buat_laporan_keuangan', '<div class="alert alert-warning">Anda Bukan Bendahara</div>');
-                redirect('pages/home');
+                redirect('home');
             }
         } else if($logika == "proker") {
             
@@ -77,7 +77,7 @@ class Laporan extends MY_Controller
 
             $this->session->set_flashdata('berhasil_buat_laporan', '<div class="alert alert-success">Berhasil Membuat Laporan</div>');
             $this->data_model->datainsert('laporan_proker',$arrayData);
-            redirect('pages/laporan');
+            redirect('laporan');
         }
     }
 
@@ -88,7 +88,7 @@ class Laporan extends MY_Controller
 
         $this->session->set_flashdata('berhasil_laporan', '<div class="alert alert-success">Berhasil Hapus Laporan</div>');
 
-        redirect('pages/laporan');
+        redirect('laporan');
     }
 
     public function del_laporan_keuangan($id_laporan)
@@ -98,7 +98,7 @@ class Laporan extends MY_Controller
 
         $this->session->set_flashdata('berhasil_laporan', '<div class="alert alert-success">Berhasil Hapus Laporan</div>');
 
-        redirect('pages/laporan');
+        redirect('laporan');
     }
 }
 ?>

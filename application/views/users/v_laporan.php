@@ -112,7 +112,7 @@ switch($jns_status){
                   </button>
                 </div>
                 <div class="modal-body">
-                  <form class="forms-sample" action="<?= site_url('pages/laporan/input_laporan')?>" method="post">
+                  <form class="forms-sample" action="<?= site_url('laporan/input_laporan')?>" method="post">
                     <div class="form-group" >
                       <label for="exampleInputEmail1">Tanggal</label>
                       <input name="tanggal" type="date" class="form-control" id="exampleInputEmail1" required>

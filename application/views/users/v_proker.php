@@ -20,7 +20,7 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Buat Proker</h4>
-                  <form class="forms-sample" action="<?= site_url('pages/proker/input_proker')?>" method="post">
+                  <form class="forms-sample" action="<?= site_url('proker/input_proker')?>" method="post">
 					          <div class="form-group">
                       <label for="inputNamaProker1">Nama Proker</label>
                       <input name="namaproker" type="text" class="form-control" id="inputNamaProker1" placeholder="Nama Proker" required>

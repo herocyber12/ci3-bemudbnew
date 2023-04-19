@@ -135,7 +135,7 @@
             <p class="sidebar-menu-title">Dash menu</p>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?php site_url('pages/home')?>">
+            <a class="nav-link" href="<?php site_url('home')?>">
               <i class="typcn typcn-device-desktop menu-icon"></i>
               <span class="menu-title">Dashboard</span>
             </a>
@@ -149,24 +149,24 @@
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="<?= site_url('pages/absensi') ?>">Daftar Absensi</a></li>
-                <li class="nav-item"> <a class="nav-link" href="<?= site_url('pages/laporan') ?>">Daftar Laporan</a></li>
-                <li class="nav-item"> <a class="nav-link" href="<?= site_url('pages/proker') ?>">Daftar Proker</a></li>
-                <li class="nav-item"> <a class="nav-link" href="<?= site_url('pages/surat') ?>">Daftar Arsip Surat</a></li>
-                <li class="nav-item"> <a class="nav-link" href="<?= site_url('pages/artikel')?>">Daftar Artikel</a></li>
+                <li class="nav-item"> <a class="nav-link" href="<?= site_url('absensi') ?>">Daftar Absensi</a></li>
+                <li class="nav-item"> <a class="nav-link" href="<?= site_url('laporan') ?>">Daftar Laporan</a></li>
+                <li class="nav-item"> <a class="nav-link" href="<?= site_url('proker') ?>">Daftar Proker</a></li>
+                <li class="nav-item"> <a class="nav-link" href="<?= site_url('surat') ?>">Daftar Arsip Surat</a></li>
+                <li class="nav-item"> <a class="nav-link" href="<?= site_url('artikel')?>">Daftar Artikel</a></li>
               </ul>
             </div>
           </li>
 			<p class="sidebar-menu-title">Registrasi</p>
 		  <li class="nav-item">
-            <a class="nav-link" href="<?= site_url('pages/registrasi')?>">
+            <a class="nav-link" href="<?= site_url('registrasi')?>">
               <i class="mdi mdi-file-cabinet menu-icon"></i>
               <span class="menu-title">Tambah Anggota</span>
             </a>
           </li>
 			<p class="sidebar-menu-title">OPREC BEM</p>
 		  <li class="nav-item">
-            <a class="nav-link" href="<?= site_url('pages/oprec')?>">
+            <a class="nav-link" href="<?= site_url('oprec')?>">
               <i class="mdi mdi-account-box menu-icon"></i>
               <span class="menu-title">Daftar Calon</span>
             </a>

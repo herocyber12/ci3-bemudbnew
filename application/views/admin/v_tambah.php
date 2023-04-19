@@ -31,7 +31,7 @@ switch($divisi){
 		  <div class="card">
 			<div class="card-body">
 			  <h4 class="card-title">Tambah Anggota BEM</h4>
-			  <form class="forms-sample" action="<?= site_url('pages/registrasi/input_anggota') ?>" method="post">
+			  <form class="forms-sample" action="<?= site_url('registrasi/input_anggota') ?>" method="post">
 				<div class="form-group">
 				  <label for="exampleInputEmail1">Nama</label>
 				  <input type="text" name="nama" class="form-control" id="exampleInputEmail1" placeholder="Nama" required old>

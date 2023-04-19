@@ -11,7 +11,7 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Buat Surat</h4>
-                  <form class="forms-sample" action="<?= site_url('pages/surat/input_surat')?>" method="post">
+                  <form class="forms-sample" action="<?= site_url('surat/input_surat')?>" method="post">
                     <div class="form-group">
                       <label for="exampleInputEmail1">Nomor Surat</label>
                       <input name="no_surat" type="number" class="form-control" id="exampleInputEmail1" placeholder="Urutan Nomor Surat" required>

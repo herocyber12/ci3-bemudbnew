@@ -42,7 +42,7 @@
 							<td><?php echo $data1['divisi']?></td>
 							<td><?php echo $data1['tngl'];?></td>
 							<td><?php echo $data1['keterangan'];?></td>
-							<td><?php echo anchor(base_url('pages/absensi/delete_absen/').$data1['id_absen'],'<button type="submit" name="delete" class="btn btn-danger m-2" value="Hapus"><i class="mdi mdi-trash-can"></i>Hapus</button>'); ?></td>
+							<td><?php echo anchor(base_url('absensi/delete_absen/').$data1['id_absen'],'<button type="submit" name="delete" class="btn btn-danger m-2" value="Hapus"><i class="mdi mdi-trash-can"></i>Hapus</button>'); ?></td>
                         </tr>
 						  <?php
 							endforeach;

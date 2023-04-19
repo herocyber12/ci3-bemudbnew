@@ -86,7 +86,7 @@ class Surat extends MY_Controller
             $this->data_model->datainsert('no_surat',$arrayData);
 
             $this->session->set_flashdata('berhasil_surat', '<div class="alert alert-success">Berhasil Input Arsip Surat</div>');
-            redirect('pages/surat');			
+            redirect('surat');			
     }
 
     public function delete_surat($id_surat)
@@ -97,7 +97,7 @@ class Surat extends MY_Controller
 
         $this->session->set_flashdata('berhasil_surat', '<div class="alert alert-success">Berhasil Hapus Surat</div>');
 
-        redirect('pages/surat');
+        redirect('surat');
     }
 
     public function edit_surat($id_surat)
@@ -130,7 +130,7 @@ class Surat extends MY_Controller
         $this->data_model->dataupdate('no_surat',$arrayData, $where);
         $this->session->set_flashdata('berhasil_edit', '<div class="alert alert-success">Berhasil Edit Surat</div>');
 
-        redirect('pages/surat');
+        redirect('surat');
     }
 }
 ?>  

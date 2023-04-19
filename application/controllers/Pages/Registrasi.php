@@ -74,7 +74,7 @@ class Registrasi extends MY_Controller
 
         $this->session->set_flashdata('berhasil_tambah_anggota', '<div class="alert alert-success">Berhasil Menambah Anggota</div>');
 
-        redirect('pages/registrasi');
+        redirect('registrasi');
         
     }
 }

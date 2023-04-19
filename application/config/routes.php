@@ -41,7 +41,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |	$route['translate_uri_dashes'] = FALSE;
 |
 | This is not exactly a route, but allows you to automatically route
-| controller and method names that contain dashes. '-' isn't a valid
+| controller and method names that contain dashes. '-'isn't a valid
 | class or method name character, so it requires translation.
 | When you set this option to TRUE, it will replace ALL dashes in the
 | controller and method URI segments.
@@ -55,29 +55,29 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['landing/(:num)/(:any)'] = 'landing/login';
 
-$route['pages/home'] = 'pages/home/index';
-$route['pages/home/(:num)/(:any)'] = 'pages/home/view/$1';
+$route['/pages/home'] = 'home';
+$route['home/(:num)/(:any)'] = 'home/view/$1';
 
-$route['pages/absensi'] = 'pages/absensi/p_absensi';
-$route['pages/absensi/(:num)/(:any)'] = 'pages/absensi/view/$1';
+$route['absensi'] = 'absensi/p_absensi';
+$route['absensi/(:num)/(:any)'] = 'absensi/view/$1';
 
-$route['pages/laporan'] = 'pages/laporan/p_laporan';
-$route['pages/laporan/(:num)/(:any)'] = 'pages/laporan/view/$1';
+$route['laporan'] = 'laporan/p_laporan';
+$route['laporan/(:num)/(:any)'] = 'laporan/view/$1';
 
-$route['pages/proker'] = 'pages/proker/p_proker';
-$route['pages/proker/(:num)/(:any)'] = 'pages/proker/view/$1';
+$route['proker'] = 'proker/p_proker';
+$route['proker/(:num)/(:any)'] = 'proker/view/$1';
 
-$route['pages/surat'] = 'pages/surat/p_surat';
-$route['pages/surat/(:num)/(:any)'] = 'pages/surat/view/$1';
+$route['surat'] = 'surat/p_surat';
+$route['surat/(:num)/(:any)'] = 'surat/view/$1';
 
-$route['pages/artikel'] = 'pages/artikel/p_artikel';
-$route['pages/artikel/(:num)/(:any)'] = 'pages/artikel/view/$1';
+$route['artikel'] = 'artikel/p_artikel';
+$route['artikel/(:num)/(:any)'] = 'artikel/view/$1';
 
-$route['pages/registrasi'] = 'pages/registrasi/index';
-$route['pages/registrasi/(:num)/(:any)'] = 'pages/registrasi/view/$1';
+$route['registrasi'] = 'registrasi/index';
+$route['registrasi/(:num)/(:any)'] = 'registrasi/view/$1';
 
-$route['pages/oprec'] = 'pages/oprec/index';
-$route['pages/oprec/(:num)/(:any)'] = 'pages/oprec/view/$1';
+$route['oprec'] = 'oprec/index';
+$route['oprec/(:num)/(:any)'] = 'oprec/view/$1';
 
 $route['setting/profil'] = 'setting/profil/index';
 $route['setting/profil/(:num)/(:any)'] = 'setting/profil/view/$1';

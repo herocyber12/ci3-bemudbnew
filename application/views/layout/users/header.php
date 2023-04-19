@@ -136,7 +136,7 @@ if(empty($this->session->userdata('foto_profil'))){
             <p class="sidebar-menu-title">Dash menu</p>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?= site_url('pages/home');?>">
+            <a class="nav-link" href="<?= site_url('home');?>">
               <i class="typcn typcn-device-desktop menu-icon"></i>
               <span class="menu-title">Dashboard</span>
             </a>
@@ -150,27 +150,27 @@ if(empty($this->session->userdata('foto_profil'))){
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="<?= site_url('pages/absensi')?>">Absensi</a></li>
-                <li class="nav-item"> <a class="nav-link" href="<?= site_url('pages/absensi/buatAbsen')?>">Buat Absen</a></li>
+                <li class="nav-item"> <a class="nav-link" href="<?= site_url('absensi')?>">Absensi</a></li>
+                <li class="nav-item"> <a class="nav-link" href="<?= site_url('absensi/buatAbsen')?>">Buat Absen</a></li>
               </ul>
             </div>
           </li>
 			<p class="sidebar-menu-title">Proker Page</p>
 			<li class="nav-item">
-            <a class="nav-link" href="<?= site_url('pages/laporan')?>">
+            <a class="nav-link" href="<?= site_url('laporan')?>">
               <i class="mdi mdi-file-document menu-icon"></i>
               <span class="menu-title">Laporan</span>
             </a>
           </li>
 		  <li class="nav-item">
-            <a class="nav-link" href="<?= site_url('pages/proker') ?>">
+            <a class="nav-link" href="<?= site_url('proker') ?>">
               <i class="mdi mdi-account-hard-hat menu-icon"></i>
               <span class="menu-title">Proker</span>
             </a>
           </li>
 			<p class="sidebar-menu-title">Administrasi</p>
 		  <li class="nav-item">
-            <a class="nav-link" href="<?= site_url('pages/surat') ?>">
+            <a class="nav-link" href="<?= site_url('surat') ?>">
               <i class="mdi mdi-file-cabinet menu-icon"></i>
               <span class="menu-title">Surat</span>
             </a>
@@ -183,8 +183,8 @@ if(empty($this->session->userdata('foto_profil'))){
             </a>
             <div class="collapse" id="form-elements">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"><a class="nav-link" href="<?= site_url('pages/artikel')?>">Buat Artikel</a></li>
-                <li class="nav-item"><a class="nav-link" href="<?= site_url('pages/artikel/daftar_artikel')?>">Daftar Artikel</a></li>
+                <li class="nav-item"><a class="nav-link" href="<?= site_url('artikel')?>">Buat Artikel</a></li>
+                <li class="nav-item"><a class="nav-link" href="<?= site_url('artikel/daftar_artikel')?>">Daftar Artikel</a></li>
               </ul>
             </div>
           </li>

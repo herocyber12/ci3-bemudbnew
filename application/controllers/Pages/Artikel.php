@@ -26,7 +26,7 @@ class Artikel extends MY_Controller
             $this->load->view('layout/users/footer');
         } else {
             $this->session->set_flashdata('bukan_Litbang', '<div class="alert alert-warning">Anda Tidak Bisa ke Halaman Pembuatan Artikel</div>');
-            redirect('pages/home');
+            redirect('home');
         }
     }
 
@@ -61,7 +61,7 @@ class Artikel extends MY_Controller
         $this->data_model->datainsert('artikel',$arrayData);
 
         $this->session->set_flashdata('berhasil_artikel', '<div class="alert alert-success">Berhasil Membuat Artikel</div>');
-        redirect('pages/artikel/daftar_artikel');
+        redirect('artikel/daftar_artikel');
     }
 
     public function daftar_artikel()
@@ -90,7 +90,7 @@ class Artikel extends MY_Controller
 
         $this->session->set_flashdata('berhasil_laporan', '<div class="alert alert-success">Berhasil Hapus Artikel</div>');
 
-        redirect('pages/artikel');
+        redirect('artikel');
     }
 }
 ?>

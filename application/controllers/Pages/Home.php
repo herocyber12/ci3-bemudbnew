@@ -34,10 +34,10 @@ class home extends MY_Controller
             $this->data_model->datadelete('loginuser', $where);
             // $this->session->set_flashdata('gagal_hapus_anggota', '<div class="alert alert-danger">Tidak Bisa Menghapus Admin !</div>');
             $this->session->set_flashdata('gagal_hapus_anggota', '<div class="alert alert-success">Berhasil Hapus Anggota !</div>');
-            redirect('pages/home');
+            redirect('home');
         } else {
             $this->session->set_flashdata('pesan_hapus', '<div class="alert alert-success">Berhasil Menghapus Anggota</div>');
-            redirect('pages/home');
+            redirect('home');
         }
     }
 
@@ -54,7 +54,7 @@ class home extends MY_Controller
         $this->data_model->dataupdate('loginuser',$arrayData, $where);
 
         $this->session->set_flashdata('berhasil_update', '<div class="alert alert-success">Berhasil Update Profil</div>');
-        redirect('pages/home');
+        redirect('home');
     }
 }
 ?>

@@ -56,7 +56,7 @@ class Proker extends MY_Controller
         $this->data_model->datainsert('proker',$arrayData);
 
         $this->session->set_flashdata('berhasil_proker', '<div class="alert alert-success">Berhasil Mengajukan Proker</div>');
-        redirect('pages/proker');
+        redirect('proker');
     }
 
     public function delete_proker($id)
@@ -67,7 +67,7 @@ class Proker extends MY_Controller
 
         $this->session->set_flashdata('berhasil_proker', '<div class="alert alert-success">Berhasil Hapus Proker</div>');
 
-        redirect('pages/proker');
+        redirect('proker');
     }
 
     public function confirm_proker($id)
@@ -76,7 +76,7 @@ class Proker extends MY_Controller
         $arrayData = array('status' => 'Disetujui');
         $this->data_model->dataupdate('proker',$arrayData,$where);
 
-        redirect('pages/proker');
+        redirect('proker');
     }
 
     public function tolak_proker($id)
@@ -85,7 +85,7 @@ class Proker extends MY_Controller
         $arrayData = array('status' => 'Ditolak');
         $this->data_model->dataupdate('proker',$arrayData,$where);
 
-        redirect('pages/proker');
+        redirect('proker');
     }
 }
 ?>

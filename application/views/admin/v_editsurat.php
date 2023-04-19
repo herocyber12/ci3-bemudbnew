@@ -9,7 +9,7 @@
                   <?php 
                     foreach($editSurat->result_array() as $data):
                   ?>
-                  <form class="forms-sample" action="<?php site_url('pages/surat/updateSurat')?>" method="post">
+                  <form class="forms-sample" action="<?php site_url('surat/updateSurat')?>" method="post">
                     <div class="form-group">
                       <label for="exampleInputEmail1">ID SURAT</label>
                       <input name="id_surat" type="text" class="form-control" id="exampleInputEmail1" value="<?php echo $data['id_surat']; ?>" readonly>

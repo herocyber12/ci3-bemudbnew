@@ -37,17 +37,17 @@
 							<?php 
                 if($data1['status'] == "Disetujui"){
                   echo "<td class='d-flex'><button class = 'btn btn-success' disabled><i class = 'mdi mdi-check'></i>$data1[status]</button>";
-                  echo anchor(base_url('pages/proker/delete_proker/').$data1['id'],'<button type="submit" name="delete" class="btn btn-danger m-2" value="Hapus"><i class="mdi mdi-trash-can"></i>Hapus</button>'); 
+                  echo anchor(base_url('proker/delete_proker/').$data1['id'],'<button type="submit" name="delete" class="btn btn-danger m-2" value="Hapus"><i class="mdi mdi-trash-can"></i>Hapus</button>'); 
                   echo"</td>";
                 }elseif($data1['status'] == "Ditolak"){
                   echo "<td class='d-flex'><button class = 'btn btn-warning' disabled><i class = 'mdi mdi-hand-back-left'></i>$data1[status]</button>";
-                  echo anchor(base_url('pages/proker/delete_proker/').$data1['id'],'<button type="submit" name="delete" class="btn btn-danger m-2" value="Hapus"><i class="mdi mdi-trash-can"></i>Hapus</button>'); 
+                  echo anchor(base_url('proker/delete_proker/').$data1['id'],'<button type="submit" name="delete" class="btn btn-danger m-2" value="Hapus"><i class="mdi mdi-trash-can"></i>Hapus</button>'); 
                   echo"</td>";
                 } else{
                   echo "<td class='d-flex'>";
-                  echo anchor(base_url('pages/proker/confirm_proker/').$data1['id'],'<button type="submit" class="btn btn-success mr-1" name="submit" value="konfirmasi"><i class="mdi mdi-check"></i>Konfirmasi</button>');
-                  echo anchor(base_url('pages/proker/tolak_proker/').$data1['id'],'<button type="submit" class="btn btn-warning" name="submit" value="tolak"><i class="mdi mdi-hand-back-left"></i>Tolak </button>');
-                  echo anchor(base_url('pages/proker/delete_proker/').$data1['id'],'<button type="submit" name="delete" class="btn btn-danger ml-1" value="Hapus"><i class="mdi mdi-trash-can"></i>Hapus</button>');
+                  echo anchor(base_url('proker/confirm_proker/').$data1['id'],'<button type="submit" class="btn btn-success mr-1" name="submit" value="konfirmasi"><i class="mdi mdi-check"></i>Konfirmasi</button>');
+                  echo anchor(base_url('proker/tolak_proker/').$data1['id'],'<button type="submit" class="btn btn-warning" name="submit" value="tolak"><i class="mdi mdi-hand-back-left"></i>Tolak </button>');
+                  echo anchor(base_url('proker/delete_proker/').$data1['id'],'<button type="submit" name="delete" class="btn btn-danger ml-1" value="Hapus"><i class="mdi mdi-trash-can"></i>Hapus</button>');
                   echo "</div>";
                 }
 								?>

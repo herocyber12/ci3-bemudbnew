@@ -58,7 +58,7 @@
         							      	                </button>
                                           </div>
         							      	            <div class="modal-body">
-                                          <form class="forms-sample" action="<?= site_url('pages/surat/updateSurat')?>" method="post">
+                                          <form class="forms-sample" action="<?= site_url('surat/updateSurat')?>" method="post">
                                             <div class="form-group">
                                               <label for="exampleInputEmail1">ID SURAT</label>
                                               <input name="id_surat" type="text" class="form-control" id="exampleInputEmail1" value="<?php echo $data1['id_surat']; ?>" readonly>
@@ -81,8 +81,8 @@
         							      	        </div>
         							      	    </div>
         							      	</div>
-											      <?php //echo anchor(base_url('pages/surat/edit_data/').$data1['uid'],'<button type="submit" name="edit" class="btn btn-warning m-2" value="Edit"><i class="mdi mdi-wrench"></i>Edit</button>'); ?>
-                            <?php echo anchor(base_url('pages/surat/delete_surat/').$data1['id_surat'],'<button type="submit" name="delete" class="btn btn-danger m-2" value="Hapus"><i class="mdi mdi-trash-can"></i>Hapus</button>'); ?>
+											      <?php //echo anchor(base_url('surat/edit_data/').$data1['uid'],'<button type="submit" name="edit" class="btn btn-warning m-2" value="Edit"><i class="mdi mdi-wrench"></i>Edit</button>'); ?>
+                            <?php echo anchor(base_url('surat/delete_surat/').$data1['id_surat'],'<button type="submit" name="delete" class="btn btn-danger m-2" value="Hapus"><i class="mdi mdi-trash-can"></i>Hapus</button>'); ?>
 						              </td>
 						                  </tr>
 						                      <?php
