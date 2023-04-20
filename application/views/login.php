@@ -62,7 +62,7 @@
 					<button type="submit" name="submit" class="btn btn-block btn-success btn-lg font-weight-medium auth-form-btn mb-2">SIGN IN</button>
 					</div>
               </form>
-            <form class="pt-3" action="<?= site_url('landing/cari'); ?>" method="post">
+            <form class="pt-3" action="<?= site_url('registrasi/cari'); ?>" method="post">
             <a href="#"><span>Lupa Kata Sandi ?</span></a>
             <h6>Belum punya akun dan Anggota BEM UDB ? Silahkan klik dibawah ini</h6> 
               <button type="submit" name="submit" class="btn btn-block btn-primary btn-lg fonr-weight-medium auth-form-btn mt-1">Daftar</button>

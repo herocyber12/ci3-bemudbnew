@@ -6,7 +6,7 @@
               echo $this->session->flashdata('berhasil_proker');
             }
             ?>
-            <div class="row">
+            <!-- <div class="row">
               <div class="col-sm-12">
                 <div class="d-flex align-items-center justify-content-md-end d-none">
                   <div class="pr-1 mb-3 mr-2 mb-xl-0">
@@ -14,7 +14,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
             <div class="row">
              <div class="col-md-4 grid-margin stretch-card">
               <div class="card">

@@ -56,5 +56,35 @@ class home extends MY_Controller
         $this->session->set_flashdata('berhasil_update', '<div class="alert alert-success">Berhasil Update Profil</div>');
         redirect('home');
     }
+
+    public function export(){
+        $nama_file = $this->input->post('nama_file');
+        $jenis_export = $this->input->post('jenis_export');
+        // nama file
+        $filename=$nama_file.date('Y-m-d').".xls";
+        
+        //header info for browser
+        header("Content-Type: application/vnd-ms-excel"); 
+        header('Content-Disposition: attachment; filename="' . $filename . '";');
+        
+        //menampilkan data sebagai array dari tabel produk
+            // $this->db->where('divisi', $this->session->userdata('Divisi'));
+            $sql= $this->data_model->dataget($jenis_export);
+
+        foreach($sql->result_array() as $data)
+        $out[]=$data;
+    
+        $show_coloumn = false;
+        foreach($out as $record) {
+        if(!$show_coloumn) {
+        //menampilkan nama kolom di baris pertama
+        echo implode("\t", array_keys($record)) . "\n";
+        $show_coloumn = true;
+        }
+        // looping data dari database
+        echo implode("\t", array_values($record)) . "\n";
+        } exit();
+    }
+
 }
 ?>

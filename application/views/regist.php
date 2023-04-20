@@ -47,7 +47,7 @@ if(empty($uid)){
 				  </div>
               </div>
                 <h4>Form Buat Akun</h4>
-			        	<form class="forms-sample" action="<?php echo site_url('landing/update_data'); ?>" method="post">
+			        	<form class="forms-sample" action="<?= site_url('registrasi/update_data'); ?>" method="post">
 			        	  <input type="hidden" name="uid" class="form-control" id="exampleInputNim1 "value="<?php echo $a['uid']; ?>">
                 <div class="form-group">
 			        	  <label for="exampleInputNim1">Nim (Max 10 Digit Min 9 Digit)</label>

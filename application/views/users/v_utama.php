@@ -64,9 +64,6 @@
 					?>
 					
 					<!-- Buat postingan -->
-                  <div class="pr-1 mb-3 mr-2 mb-xl-0">
-                    <a href="export"><button type="button" class="btn btn-sm bg-white btn-icon-text border"><i class="typcn typcn-arrow-forward-outline mr-2"></i> Export</button></a>
-                  </div>
                 </div>
               </div>
             </div>

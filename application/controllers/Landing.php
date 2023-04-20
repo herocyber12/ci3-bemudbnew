@@ -108,11 +108,11 @@ class Landing extends CI_Controller
     public function login()
 	{
 		if($this->session->userdata('islogin_in') === true	){
-			redirect('home/index');
+			redirect('home');
 			die;
 		}
 
-		$data['title'] = 'landing/ | BEM UDB';
+		$data['title'] = 'LOGIN | BEM UDB';
 		$data['keyword'] = 'bem udb';
 		$data['description'] = 'Website resmi bem udb';
 
@@ -128,7 +128,7 @@ class Landing extends CI_Controller
         $this->session->unset_userdata('Divisi');
         $this->session->unset_userdata('foto_profil');
 
-        redirect(site_url('landing/login'));
+        redirect(base_url('landing/login'));
     }
 
     public function ck_login()
@@ -141,14 +141,15 @@ class Landing extends CI_Controller
         $this->form_validation->set_rules('password', 'Password', 'required');
     
         if($this->form_validation->run() == FALSE){
-            redirect('landing/');
+            redirect('login');
             die;
         }
         $this->db->where('username',$username);
         $getLogin = $this->data_model->dataget('id_profil'); 
             if($getLogin->num_rows()>0){
                 $cek = $this->data_model->data_login_row($username,$password);
-                if($cek->num_rows()>0){
+                var_dump($cek);
+                if($cek->num_rows() > 0){
                     $b= $cek->result_array();
                     foreach($b as $a):
                        $this->session->set_userdata('islogin_in',true);
@@ -159,47 +160,21 @@ class Landing extends CI_Controller
                        $this->session->set_userdata('Divisi', $a['divisi']);
                        $this->session->set_userdata('foto_profil', $a['foto_profil']);
     
-                       redirect('home/index');
+                       redirect('home');
                     
             endforeach;
+            } else{
+                $jumlahlogin=0;
+                $jumlahlogin++;
+
+                if($jumlahlogin > 3){
+                    $this->session->set_flashdata('gagal_login', '<div class="alert alert-danger">Username Atau Password Salah</div>');
+                    redirect(site_url('landing'));
+                }
             }
         }else{
             $this->session->set_flashdata('gagal_login', '<div class="alert alert-danger">Username Atau Password Salah</div>');
             redirect(base_url('landing/login'));
-        }
-    }
-
-    public function update_data()
-    {
-        $uid = $this->input->post('uid');
-        $password = $this->input->post('password');
-        $password = md5($password);
-
-        $arrayData = array(
-            'nim' => $this->input->post('nim'),
-            'nama' => $this->input->post('nama'),
-            'prodi' => $this->input->post('prodi'),
-            'no_hp' => $this->input->post('no_hp')
-        );
-
-        $where = array('uid' => $uid);
-
-        $arrayInsertProfil = array(
-            'username' => $this->input->post('username'),
-            'password' => $password,
-            'uid' => $uid
-        );
-        
-        $cek = $this->data_model->dataupdate('landing/user',$arrayData,$where);
-        
-        $cek = $this->user_model->toIdProfil($arrayInsertProfil, 'id_profil');
-
-        if($cek){
-            $this->session->set_flashdata('berhasil_akun', '<div class="alert alert-success">Berhasil membuat akun</div>');
-            redirect(base_url('landing/'));
-        } else{
-            $this->session->set_flashdata('gagal_akun', '<div class="alert alert-danger">Gagal membuat akun</div>');
-            redirect(base_url('landing/'));
         }
     }
 }

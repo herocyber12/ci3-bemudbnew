@@ -76,8 +76,11 @@ class Artikel extends MY_Controller
         $data['title'] = 'Daftar Artikel | BEM UDB';
         $data['keyword'] = 'bem udb';
         $data['description'] = 'Website resmi bem udb'; 
-      
-        $this->load->view('layout/admin/header',$data);
+        if($this->session->userdata('Divisi') == "Admin"){
+            $this->load->view('layout/admin/header',$data);
+        } else{
+            $this->load->view('layout/users/header',$data);
+        }
         $this->load->view('users/v_daftarartikel',$data);
         $this->load->view('layout/users/footer'); 
     }

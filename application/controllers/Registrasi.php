@@ -42,8 +42,6 @@ class Registrasi extends MY_Controller
         foreach($cek->result_array() as $a){
             $nim = $a['nim'];
         }
-
-        var_dump($nim);
         if(!$cek){
             $this->session->set_flashdata('gagal_nama', '<div class="alert alert-danger">Nama Tidak Ditemukan</div>');
             redirect(base_url('landing/login'));
@@ -76,6 +74,40 @@ class Registrasi extends MY_Controller
 
         redirect('registrasi');
         
+    }
+
+    public function update_data()
+    {
+        $uid = $this->input->post('uid');
+        $password = $this->input->post('password');
+        $password = md5($password);
+
+        $arrayData = array(
+            'nim' => $this->input->post('nim'),
+            'nama' => $this->input->post('nama'),
+            'prodi' => $this->input->post('prodi'),
+            'no_hp' => $this->input->post('no_hp')
+        );
+
+        $where = array('uid' => $uid);
+
+        $arrayInsertProfil = array(
+            'username' => $this->input->post('username'),
+            'password' => $password,
+            'uid' => $uid
+        );
+        
+        $cek = $this->data_model->dataupdate('loginuser',$arrayData,$where);
+        
+        $cek = $this->data_model->datainsert('id_profil',$arrayInsertProfil);
+
+        if($cek){
+            $this->session->set_flashdata('berhasil_akun', '<div class="alert alert-success">Berhasil membuat akun</div>');
+            redirect(base_url('landing/login'));
+        } else{
+            $this->session->set_flashdata('gagal_akun', '<div class="alert alert-danger">Gagal membuat akun</div>');
+            redirect(base_url('landing/login'));
+        }
     }
 }
 ?>

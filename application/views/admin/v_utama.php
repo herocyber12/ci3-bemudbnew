@@ -1,19 +1,15 @@
 <?php 
-$divisi = "";
-$ketua = "" ; $wakilketua = ""; $sekretaris=""; $bendahara="";
-$sosial = ""; $psdm = "";$kominfo = "";
-$dalamnegri = ""; $luarnegri = ""; $kajianstrategi = "";
+$jenis_export = "";
+$anggota = ""; $absensi = ""; $laporan_proker = ""; $proker ="";
+$laporan_keuangan = ""; $arsip_surat = "";
 
-switch($divisi){
-  case "ketua" 					  : $ketua 				    = "selected"; break;
-  case "wakil ketua" 			  : $wakilketua 			= "selected"; break;
-  case "sekretaris" 			  : $sekretaris 			= "selected"; break;
-  case "bendahara"				  : $bendahara 			    = "selected"; break;
-  case "sosial" 				  : $sosial 				= "selected"; break;
-  case "psdm" 					  : $psdm 				    = "selected"; break;
-  case "kominfo" 				  : $kominfo 				= "selected"; break;
-  case "humas" 				      : $humas 			        = "selected"; break;
-  case "litbang & kastrat" 		  : $kajianstrategi 		= "selected"; break;
+switch($jenis_export){
+  case "loginuser" 					  : $anggota 				    = "selected"; break;
+  case "absensi"						  : $absensi					= "selected"; break;
+  case "proker"					  		  : $proker             		= "selected"; break;
+  case "laporan_proker"					  : $laporan_proker             = "selected"; break;
+  case "laporan_keuangan"                 : $laporan_keuangan			= "selected"; break;
+  case "no_surat"					  : $arsip_surat				= "selected"; break;
 }
 ?>
 <!-- partial -->
@@ -80,7 +76,41 @@ switch($divisi){
 					?>
 					<!-- Buat postingan -->
                   <div class="pr-1 mb-3 mr-2 mb-xl-0">
-                    <a href="export"><button type="button" class="btn btn-sm bg-white btn-icon-text border"><i class="typcn typcn-arrow-forward-outline mr-2"></i> Export</button></a>
+				  <button type="button" class="btn btn-sm bg-white btn-icon-text border" data-toggle="modal" data-target="#exportid"><i class="typcn typcn-arrow-forward-outline mr-2"></i>Export Data</button>
+					 <!-- Modal -->
+					 <div class="modal fade" id="exportid" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        			    <div class="modal-dialog modal-dialog-centered" role="document">
+        			      <div class="modal-content">
+        			        <div class="modal-header">
+        			          <h5 class="modal-title" id="exampleModalLongTitle">Tambahkan Laporan</h5>
+        			          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        			            <span aria-hidden="true">&times;</span>
+        			          </button>
+        			        </div>
+        			        <div class="modal-body">
+							<form class="forms-sample" action="<?= site_url('home/export')?>" method="post">
+        			            <div class="form-group" >
+        			              <label for="exampleInputEmail1">Nama File</label>
+        			              <input name="nama_file" type="text" class="form-control mb-4" id="exampleInputEmail1" required>
+								  <label for="exampleInputEmail1">Tanggal</label>
+								  <select class="form-control" name="jenis_export" require>
+									<option value="loginuser"<?php $anggota ?>>Data Anggota</option>
+									<option value="absensi"<?php $absensi ?>>Absensi</option>
+									<option value="proker"<?php $proker ?>>Proker</option>
+									<option value="laporan_proker"<?php $laporan_proker ?>>Laporan Proker</option>
+									<option value="laporan_keuangan"<?php $laporan_keuangan ?>>Laporan Keuangan</option>
+									<option value="no_surat"<?php $arsip_surat ?>>Arsip Surat</option>
+								  </select>
+								  <input type="submit" name="submit" class="btn btn-primary mt-5" value="Export">
+        			            </div>
+        			          </form>
+        			        </div>
+        			      <div class="modal-footer">
+        			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        			      </div>
+        			    </div>
+        			  </div>
+        			</div>
                   </div>
                 </div>
               </div>
