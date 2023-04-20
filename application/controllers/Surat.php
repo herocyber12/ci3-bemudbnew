@@ -133,4 +133,4 @@ class Surat extends MY_Controller
         redirect('surat');
     }
 }
-?>  
+?>

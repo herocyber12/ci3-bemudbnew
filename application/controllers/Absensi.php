@@ -66,10 +66,10 @@ class Absensi extends MY_Controller
             );
             if(!$this->data_model->datainsert('absensi',$arrayData)){
                 $this->session->set_flashdata('abnsensi_gagal', '<div class="alert alert-danger">Gagal Absen</div>');
-                redirect('pages/absensi');
+                redirect('absensi');
             } else{
                 $this->session->set_flashdata('absensi_berhasil', '<div class="alert alert-success">Berhasil Absen</div>');
-                redirect('pages/absensi');
+                redirect('absensi');
             }
 
         }
@@ -84,7 +84,7 @@ class Absensi extends MY_Controller
             $this->session->set_flashdata('berhasil_buat_absen', '<div class="alert alert-success">Berhasil Buat Absen</div>');
             $this->data_model->buatAbsens();
         }
-        redirect('pages/home');   
+        redirect('home');   
         
     }
 
@@ -97,7 +97,7 @@ class Absensi extends MY_Controller
 
         $this->session->set_flashdata('berhasil_absen', '<div class="alert alert-success">Berhasil Hapus Data Absensi</div>');
 
-        redirect('pages/absensi');
+        redirect('absensi');
     }
 
 }

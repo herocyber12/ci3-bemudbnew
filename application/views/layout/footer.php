@@ -30,6 +30,7 @@
             <h5 class="text-light mb-4">Quick Links</h5>
             <a class="btn btn-link" href="https://udb.ac.id">Universitas duta bangsa surakarta</a>
             <a class="btn btn-link" href="https://spmb.udb.ac.id">Pendaftaran UDB Surakarta</a>
+            <a class="btn btn-link" href="https://hmpti-udb.my.id/">HMP TI</a>
           </div>
           <div class="col-lg-3 col-md-6">
             <h5 class="text-light mb-4">Popular Links</h5>

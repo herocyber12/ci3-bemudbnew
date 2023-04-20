@@ -1,22 +1,15 @@
 <?php 
   defined('BASEPATH') OR exit('No direct script access allowed');
-$nama = $this->session->userdata('Nama');
-$nim = $this->session->userdata('Nim');
-$prodi = $this->session->userdata('Prodi');
-$divisi = $this->session->userdata('Divisi');
+// $nama = $this->session->userdata('Nama');
+// $nim = $this->session->userdata('Nim');
+// $prodi = $this->session->userdata('Prodi');
+// $divisi = $this->session->userdata('Divisi');
 $foto_profil = $this->session->userdata('foto_profil');
 
 if(empty($this->session->userdata('islogin_in'))){
   redirect('landing/login');
 }
 
-$foto = "";
-
-if(empty($this->session->userdata('foto_profil'))){
-  $foto = "bg-2.jpg";
-} else{
-  $foto = $this->session->userdata('foto_profil');
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">

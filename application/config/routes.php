@@ -53,8 +53,6 @@ $route['default_controller'] = 'landing';
 $route['404_override'] = 'eror404';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['landing/(:num)/(:any)'] = 'landing/login';
-
 $route['/pages/home'] = 'home';
 $route['home/(:num)/(:any)'] = 'home/view/$1';
 
@@ -79,5 +77,5 @@ $route['registrasi/(:num)/(:any)'] = 'registrasi/view/$1';
 $route['oprec'] = 'oprec/index';
 $route['oprec/(:num)/(:any)'] = 'oprec/view/$1';
 
-$route['setting/profil'] = 'setting/profil/index';
-$route['setting/profil/(:num)/(:any)'] = 'setting/profil/view/$1';
+$route['profil'] = 'profil/index';
+$route['setting/profil/(:num)/(:any)'] = 'profil/view/$1';
