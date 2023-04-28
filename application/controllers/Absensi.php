@@ -84,7 +84,7 @@ class Absensi extends MY_Controller
             $this->session->set_flashdata('berhasil_buat_absen', '<div class="alert alert-success">Berhasil Buat Absen</div>');
             $this->data_model->buatAbsens();
         }
-        redirect('home');   
+        redirect('absensi');   
         
     }
 

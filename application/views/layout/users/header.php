@@ -142,18 +142,11 @@ if(empty($this->session->userdata('foto_profil'))){
             </a>
           </li>
 			<p class="sidebar-menu-title">Absensi</p>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-              <i class="mdi mdi-check-network-outline menu-icon"></i>
-              <span class="menu-title">Absen</span>
-              <i class="typcn typcn-chevron-right menu-arrow"></i>
+      <li class="nav-item">
+            <a class="nav-link" href="<?= site_url('absensi')?>">
+              <i class="mdi mdi-file-document menu-icon"></i>
+              <span class="menu-title">Absen Rapat</span>
             </a>
-            <div class="collapse" id="ui-basic">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="<?= site_url('absensi')?>">Absensi</a></li>
-                <li class="nav-item"> <a class="nav-link" href="<?= site_url('absensi/buatAbsen')?>">Buat Absen</a></li>
-              </ul>
-            </div>
           </li>
 			<p class="sidebar-menu-title">Proker Page</p>
 			<li class="nav-item">

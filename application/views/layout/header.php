@@ -114,9 +114,6 @@ if($get_all_p > 0){
             <a class="btn btn-sm-square bg-white text-primary me-1" href="https://www.instagram.com/bem.udb"
               ><i class="fab fa-instagram"></i
             ></a>
-			  <a class="btn btn-sm-square bg-white text-primary me-1" href=""
-              ><i class="fab fa-youtube"></i
-            ></a>
           </div>
         </div>
       </div>
@@ -128,7 +125,7 @@ if($get_all_p > 0){
       class="navbar navbar-expand-lg bg-white navbar-light sticky-top py-lg-0 px-4 px-lg-5 wow fadeIn"
       data-wow-delay="0.1s"
     >
-      <a href="index.html" class="navbar-brand p-0">
+      <a href="<?= base_url(); ?>" class="navbar-brand p-0">
         <img class="img-fluid me-3" src="<?php echo base_url(); ?>asset/images/icon/icon-10.png" alt="Icon" />
         <h1 class="m-0 text-primary">BEM UDB</h1>
       </a>

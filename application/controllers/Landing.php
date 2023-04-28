@@ -48,6 +48,23 @@ class Landing extends CI_Controller
 		$this->load->view('layout/footer');
 	}
 
+    public function bertialist()
+    {
+		$jurnal = $this->data_model->dataget('artikel');
+		
+		$data['title'] = 'BERITA | BEM UDB';
+		$data['keyword'] = 'bem udb';
+		$data['description'] = 'Website resmi bem udb';
+		$data['berita'] = $jurnal;
+
+        $data['postingane'] = $this->getdata;
+        $data['get_all_p'] = $this->rowdata;
+		
+//		$this->load->view('layout/header',$data);
+		$this->load->view('beritalist', $data);
+//		$this->load->view('layout/footer');
+    }
+
     public function prokerbem()
 	{
 		$data['title'] = 'PROKER | BEM UDB';

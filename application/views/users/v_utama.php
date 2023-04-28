@@ -30,7 +30,7 @@
 				  	<div class="col-6">
 				  		<div class="card border-warning">
 				  			<div class="card-body">
-					  			<h4 class="text-warning">Jumlah BEM</h4>
+					  			<h4 class="text-warning">Jumlah Proker BEM U</h4>
 								<h4 class="text-dark"><?php echo $jumlahProker; ?></h4>
 					 		</div>
 				  		</div>

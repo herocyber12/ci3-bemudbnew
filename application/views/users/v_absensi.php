@@ -20,8 +20,18 @@
                 echo $this->session->flashdata('abnsensi_gagal');
               }elseif($this->session->flashdata('absensi_berhasil')){
                 echo $this->session->flashdata('absensi_berhasil');
+              }elseif($this->session->flashdata('berhasil_buat_absen') == TRUE){
+                echo $this->session->flashdata('berhasil_buat_absen');
               }
             ?>
+            <div class="row">
+            <div class="col-sm-6">
+                  <div class="pr-1 mb-3 mr-2 mb-xl-0">
+                  <?php echo anchor(site_url('absensi/buatAbsen'),'<button type="submit" name="submit" class="btn btn-secondary m-2"><i class="mdi mdi-note-plus
+"></i> Buat Absen</button>'); ?>
+                  </div>
+                </div>
+              </div>
             <div class="row">
              <div class="col-lg-6 grid-margin stretch-card">
               <div class="card">
