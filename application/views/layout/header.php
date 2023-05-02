@@ -68,7 +68,7 @@ if($get_all_p > 0){
     <link href="<?php echo base_url(); ?>asset/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="<?php echo base_url(); ?>asset/css/landing/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="<?= base_url('asset/css/landing/bootstrap.min.css') ?>" rel="stylesheet" type="text/css"/>
 
     <!-- Template Stylesheet -->
     <link href="<?php echo base_url(); ?>asset/css/landing/style.css" rel="stylesheet" />
@@ -119,7 +119,7 @@ if($get_all_p > 0){
       </div>
     </div>
     <!-- Topbar End -->
-
+	  
     <!-- Navbar Start -->
     <nav
       class="navbar navbar-expand-lg bg-white navbar-light sticky-top py-lg-0 px-4 px-lg-5 wow fadeIn"

@@ -29,16 +29,16 @@ if(empty($this->session->userdata('foto_profil'))){
     <meta content="bem" name="keywords" />
     <meta content="Untuk menjadikan mahasiswa bem yang akan menjadi pelajar universitas serta mahasiswa yang akan calon penerus di bem ikutkan program bem sebagai kursus mem" name="description" />
     <!-- base:css -->
-    <link rel="stylesheet" href="<?= base_url()?>asset/vendors/typicons.font/font/typicons.css">
-    <link rel="stylesheet" href="<?= base_url()?>asset/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="<?= base_url('asset/vendors/typicons.font/font/typicons.css')?>">
+    <link rel="stylesheet" href="<?= base_url('asset/vendors/css/vendor.bundle.base.css')?>">
 	 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@mdi/font@6.9.96/css/materialdesignicons.min.css">
     <!-- endinject --> 
     <!-- plugin css for this page -->
     <!-- End plugin css for this page -->
     <!-- inject:css -->
-    <link rel="stylesheet" href="<?= base_url()?>asset/css/vertical-layout-light/style.css">
+    <link rel="stylesheet" href="<?= base_url('asset/css/vertical-layout-light/style.css')?>">
     <!-- endinject -->
-    <link rel="shortcut icon" href="<?= base_url()?>asset/images/Logo BEM UNIV FIX.webp" />
+    <link rel="shortcut icon" href="<?= base_url('asset/images/Logo BEM UNIV FIX.webp')?>" />
   </head>
   <body>
     <div class="container-scroller">
@@ -47,8 +47,8 @@ if(empty($this->session->userdata('foto_profil'))){
 
       <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-          <a class="navbar-brand brand-logo" href="beranda"><img src="<?= base_url();?>asset/images/Logo BEM UNIV FIX BGT.webp" alt="logo"/></a>
-          <a class="navbar-brand brand-logo-mini" href="beranda"><img src="<?= base_url();?>asset/images/Logo BEM UNIV FIX.webp" alt="logo"/></a>
+          <a class="navbar-brand brand-logo" href="beranda"><img src="<?= base_url('asset/images/Logo BEM UNIV FIX BGT.webp');?>" alt="logo"/></a>
+          <a class="navbar-brand brand-logo-mini" href="beranda"><img src="<?= base_url('asset/images/Logo BEM UNIV FIX.webp');?>" alt="logo"/></a>
           <button class="navbar-toggler navbar-toggler align-self-center d-none d-lg-flex" type="button" data-toggle="minimize">
             <span class="typcn typcn-th-menu"></span>
           </button>

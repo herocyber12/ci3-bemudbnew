@@ -3,7 +3,7 @@ class Artikel extends MY_Controller
 {
     public function p_artikel()
     {
-        if($this->session->userdata('Divisi') == 'litbang & kastrat' || $this->session->userdata('Divisi') == "sekretaris" || $this->session->userdata('Divisi') == "kominfo" || $this->session->userdata('Divisi') == "Admin"){
+        if($this->session->userdata('Divisi') == 'litbang & kastrat' || $this->session->userdata('Divisi') == "sekretaris" || $this->session->userdata('Divisi') == "kominfo" || $this->session->userdata('Divisi') == "Admin" || $this->session->userdata('Divisi') == "ketua"){
             
             $this->db->order_by('tanggal_artikel','DESC');
             $data['jumlahArtikel'] = $this->data_model->dataget('artikel');

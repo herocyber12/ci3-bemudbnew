@@ -10,15 +10,16 @@
   <title><?= $title; ?></title>
 	
   <!-- base:css -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>vendors/typicons.font/font/typicons.css">
-  <link rel="stylesheet" href="<?php echo base_url(); ?>vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="<?= base_url('asset/vendors/typicons.font/font/typicons.css'); ?>">
+  <link rel="stylesheet" href="<?= base_url('asset/vendors/css/vendor.bundle.base.css'); ?>">
   <!-- endinject -->
   <!-- plugin css for this page -->
+  <link rel="stylesheet" href="<?= base_url('asset/vendors/mdi/css/materialdesignicons.min.css') ?>">
   <!-- End plugin css for this page -->
   <!-- inject:css -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>asset/css/vertical-layout-light/style.css">
+  <link rel="stylesheet" href="<?= base_url('asset/css/vertical-layout-light/style.css'); ?>">
   <!-- endinject -->
-  <link rel="shortcut icon" href="<?php echo base_url(); ?>asset/images/Logo BEM UNIV FIX.ico" />
+  <link rel="shortcut icon" href="<?= base_url('asset/images/Logo BEM UNIV FIX.ico'); ?>" />
 </head>
 
 <body>
@@ -49,21 +50,25 @@
             echo $this->session->flashdata('berhasil_akun');
           elseif($this->session->flashdata('gagal_akun') == TRUE):
             echo $this->session->flashdata('gagal_akun');
+          elseif($this->session->flashdata('ganti_password') == TRUE):
+            echo $this->session->flashdata('ganti_password');
           endif;
 				?>
 				<form class="pt-3" action="<?= base_url(); ?>landing/ck_login" method="post">
 					<div class="form-group">
-					  <input type="text" name="nama" aria-label="Nama" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Username" required>
+					  <input type="text" name="nama" aria-label="Nama" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Masukan Username" required>
 					</div>
-					<div class="form-group">
-					  <input type="password" name="password" aria-label="Password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password" required>
-					</div>
+					<div class="input-group">
+					    <input type="password" name="password" aria-label="Nama" class="form-control form-control-lg" id="password" placeholder="Masukan Password" required>
+              <button type="button" class="input-group-text bg-transparent
+              btn-inverse-white" onclick="togglepassword()"><i id="iconnya" class="mdi mdi-eye"></i></button>
+            </div>
 					<div class="mt-3">
 					<button type="submit" name="submit" class="btn btn-block btn-success btn-lg font-weight-medium auth-form-btn mb-2">SIGN IN</button>
 					</div>
               </form>
             <form class="pt-3" action="<?= site_url('registrasi/cari'); ?>" method="post">
-            <a href="#"><span>Lupa Kata Sandi ?</span></a>
+            <a href="<?= site_url('landing/cari_username') ?>"><span>Lupa Kata Sandi ?</span></a>
             <h6>Belum punya akun dan Anggota BEM UDB ? Silahkan klik dibawah ini</h6> 
               <button type="submit" name="submit" class="btn btn-block btn-primary btn-lg fonr-weight-medium auth-form-btn mt-1">Daftar</button>
             </form>
@@ -78,15 +83,29 @@
   </div>
   <!-- container-scroller -->
   <!-- base:js -->
-  <script src="../vendors/js/vendor.bundle.base.js"></script>
+  <script src="<?= base_url('asset/vendors/js/vendor.bundle.base.js') ?>"></script>
   <!-- endinject -->
+
   <!-- inject:js -->
-  <script src="<?php echo base_url(); ?>asset/js/off-canvas.js"></script>
-  <script src="<?php echo base_url(); ?>asset/js/hoverable-collapse.js"></script>
-  <script src="<?php echo base_url(); ?>asset/js/template.js"></script>
-  <script src="<?php echo base_url(); ?>asset/js/settings.js"></script>
-  <script src="<?php echo base_url(); ?>asset/js/todolist.js"></script>
+  <script src="<?= base_url('asset/js/off-canvas.js'); ?>"></script>
+  <script src="<?= base_url('asset/js/hoverable-collapse.js'); ?>"></script>
+  <script src="<?= base_url('asset/js/template.js'); ?>"></script>
+  <script src="<?= base_url('asset/js/settings.js'); ?>"></script>
+  <script src="<?= base_url('asset/js/todolist.js'); ?>"></script>
   <!-- endinject -->
+  <script>
+    function togglepassword(){
+      const passwordInput = document.getElementById('password');
+      const classPassword = document.getElementById('iconnya');
+      if(passwordInput.type === "password"){
+        passwordInput.type = "text";
+        classPassword.className = "mdi mdi-eye-off";
+      } else {
+        passwordInput.type = "password";
+        classPassword.className = "mdi mdi-eye";
+      }
+    } 
+  </script>
 </body>
 
 </html>

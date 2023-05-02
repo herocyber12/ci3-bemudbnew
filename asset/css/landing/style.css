@@ -5,6 +5,13 @@
     --dark: #282F34;
 }
 
+.ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 200px;
+}
+
 .back-to-top {
     position: fixed;
     display: none;

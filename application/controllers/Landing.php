@@ -38,7 +38,7 @@ class Landing extends CI_Controller
 		$data['title'] = 'BERITA | BEM UDB';
 		$data['keyword'] = 'bem udb';
 		$data['description'] = 'Website resmi bem udb';
-		$data['berita'] = $jurnal;
+		$data['berita'] = $jurnal->result_array();
 
         $data['postingane'] = $this->getdata;
         $data['get_all_p'] = $this->rowdata;
@@ -48,21 +48,22 @@ class Landing extends CI_Controller
 		$this->load->view('layout/footer');
 	}
 
-    public function bertialist()
+    public function beritalist()
     {
 		$jurnal = $this->data_model->dataget('artikel');
 		
 		$data['title'] = 'BERITA | BEM UDB';
 		$data['keyword'] = 'bem udb';
 		$data['description'] = 'Website resmi bem udb';
-		$data['berita'] = $jurnal;
-
+		$data['berita'] = $jurnal->result_array();
+		
+		$data['cover'] = "../../asset/images/cover.jpg";
         $data['postingane'] = $this->getdata;
         $data['get_all_p'] = $this->rowdata;
 		
-//		$this->load->view('layout/header',$data);
+		$this->load->view('layout/header',$data);
 		$this->load->view('beritalist', $data);
-//		$this->load->view('layout/footer');
+		$this->load->view('layout/footer');
     }
 
     public function prokerbem()
@@ -136,7 +137,56 @@ class Landing extends CI_Controller
 		$this->load->view('login',$data);
 	}
 
-    public function ck_logout()
+ 
+	public function cari_username(){		
+		
+		$data['title'] = 'Cari Username | BEM UDB';
+		$data['keyword'] = 'bem udb';
+	    $data['description'] = 'Website resmi bem udb';
+        
+        $this->load->view('cari_username', $data);
+    }	
+
+    public function ganti_password(){		
+		
+        $username = $this->input->post('username');
+        $this->db->where('username',$username);
+        $getLogin = $this->data_model->dataget('id_profil'); 
+        if(empty($getLogin->num_rows())){
+            $this->session->set_flashdata('username_tidak_ada', '<div class="alert alert-danger">Username tidak ditemukan</div>');
+            redirect('landing/cari_username');
+        } else {
+
+            $data['username'] = $username;
+            $data['title'] = 'Ganti Password | BEM UDB';
+            $data['keyword'] = 'bem udb';
+            $data['description'] = 'Website resmi bem udb';
+
+            $this->session->set_flashdata('username_ada', '<div class="alert alert-success">Username Ditemukan</div>');
+            $this->load->view('ganti_password', $data);
+        }
+    }
+
+    public function ck_password()
+    {
+        $username = $this->input->post('username');
+        $password = $this->input->post('password');
+        $password = md5($password);
+
+        $arrayData = array(
+            'password' => $password
+        );
+
+        $where = array('username' => $username);
+        $result = $this->data_model->dataupdate('id_profil', $arrayData, $where);
+
+        if($result > 0){
+            $this->session->set_flashdata('ganti_password', '<div class="alert alert-success">Ganti Password Berhasil</div>');
+            redirect('landing/login');
+        }
+    }
+
+   public function ck_logout()
     {
         $this->session->unset_userdata('islogin_in');
         $this->session->unset_userdata('Nim');
@@ -165,7 +215,6 @@ class Landing extends CI_Controller
         $getLogin = $this->data_model->dataget('id_profil'); 
             if($getLogin->num_rows()>0){
                 $cek = $this->data_model->data_login_row($username,$password);
-                var_dump($cek);
                 if($cek->num_rows() > 0){
                     $b= $cek->result_array();
                     foreach($b as $a):
