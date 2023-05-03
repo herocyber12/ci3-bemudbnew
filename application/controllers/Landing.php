@@ -120,7 +120,9 @@ class Landing extends CI_Controller
 		$data['keyword'] = 'bem udb';
 		$data['description'] = 'Website resmi bem udb';
 
+        $this->load->view('layout/login/header',$data);
 		$this->load->view('login/login',$data);
+        $this->load->view('layout/login/footer');
 	}
 
  
@@ -130,7 +132,9 @@ class Landing extends CI_Controller
 		$data['keyword'] = 'bem udb';
 	    $data['description'] = 'Website resmi bem udb';
         
+        $this->load->view('layout/login/header',$data);
         $this->load->view('login/cari_username', $data);
+        $this->load->view('layout/login/footer');
     }	
 
     public function ganti_password(){		
@@ -149,7 +153,10 @@ class Landing extends CI_Controller
             $data['description'] = 'Website resmi bem udb';
 
             $this->session->set_flashdata('username_ada', '<div class="alert alert-success">Username Ditemukan</div>');
+            
+            $this->load->view('layout/login/header',$data);
             $this->load->view('login/ganti_password', $data);
+            $this->load->view('layout/login/footer');
         }
     }
 

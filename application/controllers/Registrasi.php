@@ -23,7 +23,10 @@ class Registrasi extends MY_Controller
 		$data['keyword'] = 'bem udb';
 		$data['description'] = 'Website resmi bem udb';
 		
-		$this->load->view('cari',$data);
+        
+        $this->load->view('layout/login/header',$data);
+		$this->load->view('login/cari',$data);
+        $this->load->view('layout/login/footer');
 	}
 
     public function register()
@@ -48,7 +51,7 @@ class Registrasi extends MY_Controller
             
         } else{
             if(empty($nim)){
-                $this->load->view('regist',$data);
+                $this->load->view('login/regist',$data);
             } else {
                 $this->session->set_flashdata('gagal_nama1', '<div class="alert alert-success">Anda Sudah Memiliki Akun</div>');
                 redirect(base_url('landing/login'));
