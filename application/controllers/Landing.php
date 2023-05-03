@@ -26,7 +26,7 @@ class Landing extends CI_Controller
         $data['get_all_p'] = $this->rowdata;
 
         $this->load->view('layout/header',$data);
-		$this->load->view('landing');
+		$this->load->view('landing/landing');
 		$this->load->view('layout/footer');
     }
 
@@ -44,7 +44,7 @@ class Landing extends CI_Controller
         $data['get_all_p'] = $this->rowdata;
 		
 		$this->load->view('layout/header',$data);
-		$this->load->view('berita', $data);
+		$this->load->view('landing/berita', $data);
 		$this->load->view('layout/footer');
 	}
 
@@ -62,7 +62,7 @@ class Landing extends CI_Controller
         $data['get_all_p'] = $this->rowdata;
 		
 		$this->load->view('layout/header',$data);
-		$this->load->view('beritalist', $data);
+		$this->load->view('landing/beritalist', $data);
 		$this->load->view('layout/footer');
     }
 
@@ -77,21 +77,7 @@ class Landing extends CI_Controller
         $data['get_all_p'] = $this->rowdata;
 
 		$this->load->view('layout/header',$data);
-		$this->load->view('prokerbem',$data);
-		$this->load->view('layout/footer');
-	}
-
-    public function visimisi()
-	{
-		$data['title'] = 'VISI DAN MISI | BEM UDB';
-		$data['keyword'] = 'bem udb';
-		$data['description'] = 'Website resmi bem udb';
-
-        $data['postingane'] = $this->getdata;
-        $data['get_all_p'] = $this->rowdata;
-
-		$this->load->view('layout/header',$data);
-		$this->load->view('visimisibem',$data);
+		$this->load->view('landing/prokerbem',$data);
 		$this->load->view('layout/footer');
 	}
 
@@ -105,7 +91,7 @@ class Landing extends CI_Controller
         $data['get_all_p'] = $this->rowdata;
 
 		$this->load->view('layout/header',$data);
-		$this->load->view('struktur');
+		$this->load->view('landing/struktur');
 		$this->load->view('layout/footer');
 	}
 	
@@ -119,7 +105,7 @@ class Landing extends CI_Controller
         $data['get_all_p'] = $this->rowdata;
 
 		$this->load->view('layout/header',$data);
-		$this->load->view('contact');
+		$this->load->view('landing/contact');
 		$this->load->view('layout/footer');
 	}
 
@@ -134,7 +120,7 @@ class Landing extends CI_Controller
 		$data['keyword'] = 'bem udb';
 		$data['description'] = 'Website resmi bem udb';
 
-		$this->load->view('login',$data);
+		$this->load->view('login/login',$data);
 	}
 
  
@@ -144,7 +130,7 @@ class Landing extends CI_Controller
 		$data['keyword'] = 'bem udb';
 	    $data['description'] = 'Website resmi bem udb';
         
-        $this->load->view('cari_username', $data);
+        $this->load->view('login/cari_username', $data);
     }	
 
     public function ganti_password(){		
@@ -163,7 +149,7 @@ class Landing extends CI_Controller
             $data['description'] = 'Website resmi bem udb';
 
             $this->session->set_flashdata('username_ada', '<div class="alert alert-success">Username Ditemukan</div>');
-            $this->load->view('ganti_password', $data);
+            $this->load->view('login/ganti_password', $data);
         }
     }
 
