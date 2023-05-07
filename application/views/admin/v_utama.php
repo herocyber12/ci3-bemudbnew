@@ -226,8 +226,6 @@ switch($jenis_export){
         									        </div>
         									    </div>
         									</div>
-												<?php //echo anchor(base_url('admin/edit_data/').$data1['uid'],'<button type="submit" name="edit" class="btn btn-warning m-2" value="Edit"><i class="mdi mdi-wrench"></i>Edit</button>'); ?>
-												
 										</td>
 										<td class="d-grid">
 										<?php echo anchor(base_url('home/delete_anggota/').$data1['uid'],'<button type="submit" name="delete" class="btn btn-danger m-2" value="Hapus"><i class="mdi mdi-trash-can"></i>Hapus</button>'); ?>

@@ -42,25 +42,39 @@
 					<!-- Buat postingan -->
 					<?php
 					
-					if ($this->session->userdata('Divisi') == "kominfo"){
-					echo "<div class='mb-3 mr-2 mb-xl-0 pr-1'>
-						<div class='dropdown'>
-							<button class='btn bg-white btn-sm dropdown-toggle btn-icon-text border mr-2' type='button' id='dropdownMenu3' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-								<i class='typcn typcn-calendar-outline mr-2'></i>Buat Postingan
-							</button>
-							<div class='dropdown-menu' aria-labelledby='dropdownMenuSizeButton3' data-x-placement='top-start'>
-								<div class='dropdown-header'>";
-					echo form_open_multipart('user/insertPostingan');
-					echo	"<input type='text' name='judul' class='form-control mb-4' placeholder='Nama Kegiatan'>
-							<input type='file' name='foto' class='form-control mb-4' required>
-							<button type='submit' name='submit' class='btn btn-success'>Buat</button>";
-					echo form_close();
-									
-							echo	"</div>
-							</div>
-						</div>
-					</div>";
-					}
+					if ($this->session->userdata('Divisi') == "kominfo" || $this->session->userdata('Divisi') == "ketua"){ ?>
+						<div class="btn btn-group">
+					<a href="" class="btn btn-info" data-toggle="modal"
+        			    data-target="#modalpengumuman"><i class="typcn typcn-calendar-outline mr-2"></i>Buat Postingan</a>
+					</div>
+        			<!-- untuk melihat bentuk-bentuk modal kalian bisa mengunjungi laman bootstrap dan cari modal di kotak pencariannya -->
+        			<!-- id setiap modal juga harus berbeda, cara membedakannya dengan menggunakan id_barang -->
+        			<div class="modal fade" id="modalpengumuman" tabindex="-1" aria-labelledby="exampleModalLabel"
+        			    aria-hidden="true">
+        			    <div class="modal-dialog">
+        			        <div class="modal-content">
+        			            <div class="modal-header">
+        			                <h5 class="modal-title" id="exampleModalLabel">Edit Data</h5>
+        			                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        			                    <span aria-hidden="true">&times;</span>
+        			                </button>
+        			            </div>
+        			            <!-- di dalam modal-body terdapat 4 form input yang berisi data.
+        			            data-data tersebut ditampilkan sama seperti menampilkan data pada tabel. -->
+        			            <div class="modal-body">
+								<form class="forms-sample" action="<?= site_url('home/update_anggota')?>" method="post" enctype="multipart/form-data">
+									<input type="text" name="judul" class="form-control mb-2" placeholder="Masukan Tema Postingan">
+									<input type="file" name="foto" class="form-control mb-2">
+									<button type="submit" class="btn btn-success">Buat</button>
+                  				</form>
+        			            </div>
+        			            <!-- <div class="modal-footer">
+        			                <button type="button" class="btn btn-primary">Save changes</button>
+        			            </div> -->
+        			        </div>
+        			    </div>
+        			</div>
+					<?php }
 					?>
 					
 					<!-- Buat postingan -->

@@ -22,7 +22,11 @@
             echo $this->session->flashdata('ganti_password');
           endif;
 				?>
+<<<<<<< Updated upstream
 				<form class="pt-3" action="<?= base_url(); ?>landing/ck_login" method="post">
+=======
+				<form class="pt-3" action="<?= site_url('landing/ck_login')?>" method="post">
+>>>>>>> Stashed changes
 					<div class="form-group">
 					  <input type="text" name="nama" aria-label="Nama" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Masukan Username" required>
 					</div>
@@ -34,13 +38,17 @@
 					<div class="mt-3">
 					<button type="submit" name="submit" class="btn btn-block btn-success btn-lg font-weight-medium auth-form-btn mb-2">SIGN IN</button>
 					</div>
-              </form>
+        </form>
             <form class="pt-3" action="<?= site_url('registrasi/cari'); ?>" method="post">
             <a href="<?= site_url('landing/cari_username') ?>"><span>Lupa Kata Sandi ?</span></a>
             <h6>Belum punya akun dan Anggota BEM UDB ? Silahkan klik dibawah ini</h6> 
               <button type="submit" name="submit" class="btn btn-block btn-primary btn-lg fonr-weight-medium auth-form-btn mt-1">Daftar</button>
+<<<<<<< Updated upstream
             </form>
           
+=======
+        </form>
+>>>>>>> Stashed changes
             </div>
           </div>
         </div>
