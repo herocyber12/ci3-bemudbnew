@@ -7,14 +7,6 @@ class Landing extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-<<<<<<< Updated upstream
-        $this->load->library('session');
-        $this->load->helper(array('url','form','html','security'));
-        date_default_timezone_set('Asia/Jakarta');
-        
-=======
-
->>>>>>> Stashed changes
         $this->getdata = $this->data_model->dataget('posting');
         $this->rowdata = $this->data_model->data_count_all('posting');
 
@@ -201,7 +193,6 @@ class Landing extends CI_Controller
 
     public function ck_login()
     {
-<<<<<<< Updated upstream
         $username = $this->input->post('nama');
         $password = $this->input->post('password');
         $password = md5($password);
@@ -218,24 +209,6 @@ class Landing extends CI_Controller
             if($getLogin->num_rows()>0){
                 $cek = $this->data_model->data_login_row($username,$password);
                 if($cek->num_rows() > 0){
-=======
-            $username = $this->input->post('nama');
-            $password = $this->input->post('password');
-            $password = md5($password);
-
-            $this->form_validation->set_rules('nama', 'Nama', 'required');
-            $this->form_validation->set_rules('password', 'Password', 'required');
-
-            if($this->form_validation->run() == false) {
-                redirect('login');
-                die;
-            }
-            $this->db->where('username', $username);
-            $getLogin = $this->data_model->dataget('id_profil');
-            if($getLogin->num_rows()>0) {
-                $cek = $this->data_model->data_login_row($username, $password);
-                if($cek->num_rows() > 0) {
->>>>>>> Stashed changes
                     $b= $cek->result_array();
                     foreach($b as $a):
                         $this->session->set_userdata('islogin_in', true);

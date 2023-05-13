@@ -101,6 +101,8 @@ class Profil extends MY_Controller
 			'no_hp' => $no_hp,
 		);
 
+        $this->session->set_userdata("Nama", $nama);
+
         $where = array('uid' => $uid);
 		$this->data_model->dataupdate( 'loginuser',$arrayData,$where);
         $this->session->set_flashdata('berhasil_update', '<div class="alert alert-success">Berhasil Update Profil</div>');

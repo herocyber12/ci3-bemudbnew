@@ -88,10 +88,9 @@
 							foreach($postingane->result_array() as $row){
                     			$gambar = $row['posting_gambar'];?>
             			<div class="owl-carousel-item">
-            	  			<a class="animal-item" href="#" alt="">
+            	  			<a class="animal-item" alt="">
             	        		<img class="img-fluid" src="asset/images/<?php echo $gambar; ?>" alt="" />
             	       			<div class="animal-text p-4">
-            	          			<p class="text-white small text-uppercase mb-0"><?php echo $row['posting_tanggal']; ?></p>
             	          			<h5 class="text-white mb-0"><?php echo $row['posting_judul']; ?></h5>
             	        		</div>
 					 		</a>

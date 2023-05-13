@@ -86,5 +86,31 @@ class home extends MY_Controller
         } exit();
     }
 
+    public function input_postingan()
+    {
+        $judul = trim($this->input->post('judul'));
+        $foto = $_FILES['foto']['name'];
+        $config['upload_path'] = './asset/images';
+		$config['allowed_types'] = 'jpg|png|jpeg';
+
+        $arrayData = array(
+            'posting_judul' => $judul,
+            'posting_gambar' => $foto
+        );
+
+        $this->load->library('upload',$config);
+
+        if(!$this->upload->do_upload('foto')){
+            $this->session->set_flashdata('postingan', '<div class="alert alert-danger">Gagal Membuat Postingan</div>');
+            redirect('home');
+            die;
+        } else {
+            $foto = $this->upload->data('file_name');
+        }
+        $this->session->set_flashdata('postingan_berhasil', '<div class="alert alert-success">Berhasil Membuat Postingan</div>');
+        $this->data_model->datainsert('posting',$arrayData);
+
+        redirect('home');
+    }
 }
 ?>

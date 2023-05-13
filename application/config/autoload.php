@@ -89,11 +89,7 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-<<<<<<< Updated upstream
 $autoload['helper'] = array('url','form','html','security');
-=======
-$autoload['helper'] = array('url','form','html','security', 'my_security_helper');
->>>>>>> Stashed changes
 
 /*
 | -------------------------------------------------------------------

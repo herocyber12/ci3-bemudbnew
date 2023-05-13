@@ -1,10 +1,11 @@
 <?php 
 $jns_status = "";
 
-$berjalan; $tidak_berjalan;
+$berjalan; $tidak_berjalan; $proses;
 
 switch($jns_status){
     case "Berjalan"	: $berjalan = "selected"; break;
+    case "Proses"	: $proses = "selected"; break;
     case "Tidak Berjalan" : $tidak_berjalan = "selected"; break;
 }
 ?>
@@ -132,10 +133,11 @@ switch($jns_status){
                     </div>
                     <div id="proker-form" style="display: none ;">
                       <label for = "pemasukanK">Nama Proker</label>
-                      <input type="text" name="namaproker" class="form-control m-2" id="pemasukanK" placeholder="Masukan Jumlah Pemasukan">
+                      <input type="text" name="namaproker" class="form-control m-2" id="pemasukanK" placeholder="Masukan Nama Proker">
                       <label for = "pengeluaranK">Status</label>
                       <select class="form-control m-2" name="status">
                         <option value="Berjalan<?php $berjalan ?>">Berjalan</option>
+                        <option value="Proses<?php $proses ?>">Proses</option>
                         <option value="Tidak Berjalan<?php $tidak_berjalan ?>">Tidak Berjalan</option>
                       </select>
                       <label>Keterangan Proker</label>
