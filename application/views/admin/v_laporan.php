@@ -28,12 +28,12 @@
 					            			foreach($sum_lap_proker->result_array() as $row):
 					            		?>
 					            	<tr>
-					            		<td><?php echo $row['id_lproker']; ?></td>
-					            		<td><?php echo $row['tanggal'];?></td>
-					            		<td><?php echo $row['nama_proker'];?></td>
-                          <td><?php echo $row['divisi'] ?></td>
-					            		<td><?php echo $row['keterangan'];?></td>
-					            		<td><?php echo $row['status'];?></td>
+					            		<td><?= $row['id_lproker']; ?></td>
+					            		<td><?= $row['tanggal'];?></td>
+					            		<td><?= $row['nama_proker'];?></td>
+                          <td><?= $row['divisi'] ?></td>
+					            		<td><?= $row['keterangan'];?></td>
+					            		<td><?= $row['status'];?></td>
 					            		<td><?php echo anchor(site_url('laporan/del_laporan_proker/').$row['id_lproker'],'<button type="submit" name="submit" class="btn btn-danger m-2" value="laporan_proker"><i class="mdi mdi-trash-can"></i>Hapus</button>'); ?></td>
 					            	</tr>
 					            <?php
@@ -65,11 +65,11 @@
 					            			foreach($sum_lap_keuangan->result_array() as $row):
 					            		?>
 					            	<tr>
-					            		<td><?php echo $row['id_lkeuangan']; ?></td>
-					            		<td><?php echo $row['tanggal'];?></td>
-					            		<td><?php echo $row['pemasukan'];?></td>
-                          <td><?php echo $row['pengeluaran'] ?></td>
-					            		<td><?php echo $row['keterangan'];?></td>
+					            		<td><?= $row['id_lkeuangan']; ?></td>
+					            		<td><?= $row['tanggal'];?></td>
+					            		<td>Rp. <?= $row['pemasukan'];?></td>
+                          <td>Rp. <?= $row['pengeluaran'] ?></td>
+					            		<td><?= $row['keterangan'];?></td>
 					            		<td><?php echo anchor(site_url('laporan/del_laporan_keuangan/').$row['id_lkeuangan'],'<button type="submit" name="submit" class="btn btn-danger m-2" value="laporan_keuangan"><i class="mdi mdi-trash-can"></i>Hapus</button>'); ?></td>
 					            	</tr>
 					            <?php
