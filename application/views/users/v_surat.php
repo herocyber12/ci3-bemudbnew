@@ -37,7 +37,8 @@
                     <table class="table">
                       <thead>
                         <tr>
-                          <th>Id Surat</th>
+                          <th>No.</th>
+                          <th>ID Surat</th>
                           <th>Nomor Surat</th>
 						              <th>Tanggal Surat</th>
                           <th>Keterangan</th>
@@ -45,19 +46,21 @@
                       </thead>
                       <tbody>
 						            <?php
+                        $no = 1;
 						            	foreach($surat as $data1):
 						            ?>
 						            <tr>
-						            	<td><?php echo $data1['id_surat']?></td>
-						            	<td><?php echo $data1['nomor_surat']?></td>
-						            	<td><?php echo $data1['tanggal_surat']?></td>
-						            	<td><?php echo $data1['kegunaan_surat'];?></td>
+                          <td><?= $no; ?></td>
+						            	<td><?= $data1['id_surat']?></td>
+						            	<td><?= $data1['nomor_surat']?></td>
+						            	<td><?= $data1['tanggal_surat']?></td>
+						            	<td><?= $data1['kegunaan_surat'];?></td>
                           <td>	
                             <div class="btn btn-group">
 											        <a href="" class="btn btn-info" data-toggle="modal"
-        							        		    data-target="#modal<?php echo $data1['id_surat']; ?>"><i class="mdi mdi-wrench"></i>Edit</a>
+        							        		    data-target="#modal<?= $data1['id_surat']; ?>"><i class="mdi mdi-wrench"></i>Edit</a>
 											        </div>
-        							      	<div class="modal fade" id="modal<?php echo $data1['id_surat']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel"
+        							      	<div class="modal fade" id="modal<?= $data1['id_surat']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel"
         							      	    aria-hidden="true">
         							      	    <div class="modal-dialog">
         							      	        <div class="modal-content">
@@ -71,19 +74,19 @@
                                           <form class="forms-sample" action="<?= site_url('surat/updateSurat')?>" method="post">
                                             <div class="form-group">
                                               <label for="exampleInputEmail1">ID SURAT</label>
-                                              <input name="id_surat" type="text" class="form-control" value="<?php echo $data1['id_surat']; ?>" readonly>
+                                              <input name="id_surat" type="text" class="form-control" value="<?= $data1['id_surat']; ?>" readonly>
                                             </div>
 					                                  <div class="form-group">
                                               <label for="exampleInputEmail1">Nomor Surat</label>
-                                              <input name="nomor_surat" type="text" class="form-control" value="<?php echo $data1['nomor_surat']; ?>">
+                                              <input name="nomor_surat" type="text" class="form-control" value="<?= $data1['nomor_surat']; ?>">
                                             </div>
 					                                  <div class="form-group">
                                               <label for="exampleInputDate1">Tanggal</label>
-                                              <input name="tanggal_surat" type="date" class="form-control" value="<?php echo $data1['tanggal_surat']; ?>">
+                                              <input name="tanggal_surat" type="date" class="form-control" value="<?= $data1['tanggal_surat']; ?>">
                                             </div>
 					                                  <div class="form-group">
                                               <label for="exampleInputFile1">Keterangan</label>
-                                              <input name="kegunaan_surat" type="text" class="form-control" value="<?php echo $data1['kegunaan_surat']; ?>">
+                                              <input name="kegunaan_surat" type="text" class="form-control" value="<?= $data1['kegunaan_surat']; ?>">
                                             </div>
                                             <button type="submit" name="submit" class="btn btn-primary mr-2" value="Update">Update</button>
                                           </form>
@@ -94,6 +97,7 @@
 						              </td>
 						            </tr>
 				                	<?php
+                          $no++;
 					                	endforeach;
 					                ?>
                       </tbody>

@@ -3,10 +3,13 @@ class Surat extends MY_Controller
 {
     public function p_surat()
     {
+        
         $this->db->order_by('jam_surat', 'DESC');
         $this->db->order_by('tanggal_surat','DESC');
-        $data['surat'] = $this->data_model->dataget('no_surat')->result_array(); 
+        $data['surat'] = $this->data_model->dataget('no_surat')->result_array();
 
+        $this->db->order_by('tanggal_surat','DESC');
+        $data['jumlahSurat'] = $this->data_model->dataget('no_surat');
         $data['autoDelet'] = $this->data_model->autoDeletion();
         $data['notifikasi']= $this->data_model->dataget('notifikasi')->num_rows();
         $data['notifi'] = $this->data_model->dataget('notifikasi')->result_array();
@@ -32,8 +35,8 @@ class Surat extends MY_Controller
 		$no_surat 	= $this->input->post('no_surat');
 		$tahun = date('Y');
 		$bulan = date('m');
-        $jam = date('H:i:s');
-		switch($bulan){
+		$jam = date('H:i:s');
+        switch($bulan){
 			case 1:
 				$romawi = "I"; 
 				break;

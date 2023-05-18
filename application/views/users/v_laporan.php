@@ -36,6 +36,7 @@ switch($jns_status){
                         <table class="table overflow-auto">
                           <thead>
                             <tr>
+                              <th>No.</th>
                               <th>ID Laporan</th>
                               <th>Tanggal Laporan</th>
                               <th>Nama Proker</th>
@@ -46,16 +47,19 @@ switch($jns_status){
                           <tbody>
                             <tr>
 					                	<?php
+                            $no = 1;
 					              	  foreach($laporan_proker as $row):
 					              	  ?>
 					              	  <tr>
-                              <td><?php echo htmlentities(strip_tags(trim($row['id_lproker'])))?></td>
-					              	  	<td><?php echo htmlentities(strip_tags(trim($row['tanggal'])));?></td>
-					               		  <td><?php echo htmlentities(strip_tags(trim($row['nama_proker'])));?></td>
-					                		<td><?php echo htmlentities(strip_tags(trim($row['status'])));?></td>
-					                		<td><?php echo htmlentities(strip_tags(trim($row['keterangan'])));?></td>
+                              <td><?= $no; ?></td>
+                              <td><?= htmlentities(strip_tags(trim($row['id_lproker'])))?></td>
+					              	  	<td><?= htmlentities(strip_tags(trim($row['tanggal'])));?></td>
+					               		  <td><?= htmlentities(strip_tags(trim($row['nama_proker'])));?></td>
+					                		<td><?= htmlentities(strip_tags(trim($row['status'])));?></td>
+					                		<td><?= htmlentities(strip_tags(trim($row['keterangan'])));?></td>
 					                	</tr>
 					               <?php
+                         $no++;
 					                endforeach;
 					                ?>
                           </tbody>
@@ -72,6 +76,7 @@ switch($jns_status){
                         <table class="table overflow-auto">
                           <thead>
                             <tr>
+                              <th>No.</th>
                               <th>ID Laporan</th>
                               <th>Tanggal Laporan Masuk</th>
                               <th>Pemasukan</th>
@@ -82,9 +87,11 @@ switch($jns_status){
                           <tbody>
                             <tr>
 					                	<?php
+                            $no = 1;
 					                	foreach($laporan as $row):
 					                	?>
 					                	<tr>
+                              <td><?= $no; ?></td>
                               <td><?= htmlentities(strip_tags(trim($row['id_lkeuangan'])))?></td>
 					                		<td><?= htmlentities(strip_tags(trim($row['tanggal'])));?></td>
 					                		<td>Rp. <?= htmlentities(strip_tags(trim($row['pemasukan'])));?></td>
@@ -92,6 +99,7 @@ switch($jns_status){
 					                		<td><?= htmlentities(strip_tags(trim($row['keterangan'])));?></td>
 					                	</tr>
 					                <?php
+                          $no++;
 					                endforeach;
 					                ?>
                           </tbody>
