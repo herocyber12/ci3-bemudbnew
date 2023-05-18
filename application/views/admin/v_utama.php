@@ -164,15 +164,10 @@ switch($jenis_export){
 									  </td>
 										
 									  <td class="d-flex">
-											<!-- membuat tombol dengan ukuran small berwarna biru  -->
-        									<!-- data-target setiap modal harus berbeda, karena akan menampilkan data yang berbeda pula
-        									caranya membedakannya, gunakan id_barang sebagai pembeda data-target di setiap modal -->
         									<div class="btn btn-group">
 											<a href="" class="btn btn-info" data-toggle="modal"
         									    data-target="#modal<?php echo $data1['uid']; ?>"><i class="mdi mdi-wrench"></i>Edit</a>
 											</div>
-        									<!-- untuk melihat bentuk-bentuk modal kalian bisa mengunjungi laman bootstrap dan cari modal di kotak pencariannya -->
-        									<!-- id setiap modal juga harus berbeda, cara membedakannya dengan menggunakan id_barang -->
         									<div class="modal fade" id="modal<?php echo $data1['uid']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel"
         									    aria-hidden="true">
         									    <div class="modal-dialog">
@@ -183,8 +178,6 @@ switch($jenis_export){
         									                    <span aria-hidden="true">&times;</span>
         									                </button>
         									            </div>
-        									            <!-- di dalam modal-body terdapat 4 form input yang berisi data.
-        									            data-data tersebut ditampilkan sama seperti menampilkan data pada tabel. -->
         									            <div class="modal-body">
 														<form class="forms-sample" action="<?= site_url('home/update_anggota')?>" method="post">
                   										  <div class="form-group">

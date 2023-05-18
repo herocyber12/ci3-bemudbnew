@@ -10,6 +10,7 @@ class Absensi extends MY_Controller
             $a = $x['tanggal'];
         endforeach;
 
+        $this->db->where('keterangan', 'Hadir');
         $this->db->where('tngl',$a);
         $this->db->where('nim',$nim);
         $absensi = $this->data_model->dataget('absensi');

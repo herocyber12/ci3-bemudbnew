@@ -1,16 +1,9 @@
 <?php 
     foreach($absensia->result_array() as $row):
         $tanggal=$row['tngl'];
-    endforeach;
 
-    $disable_in = "";
-    if($absensia->num_rows()){
-        if(empty($tanggal)){
-          $disable_in = "";
-        } else{
-          $disable_in = "disabled='disabled'";
-        }
-    }
+        $keterangan = $row['keterangan'];
+      endforeach;
 ?>
         <!-- partial -->
         <div class="main-panel">
@@ -27,8 +20,7 @@
             <div class="row">
             <div class="col-sm-6">
                   <div class="pr-1 mb-3 mr-2 mb-xl-0">
-                  <?php echo anchor(site_url('absensi/buatAbsen'),'<button type="submit" name="submit" class="btn btn-secondary m-2"><i class="mdi mdi-note-plus
-"></i> Buat Absen</button>'); ?>
+                  <?php echo anchor(site_url('absensi/buatAbsen'),'<button type="submit" name="submit" class="btn btn-secondary m-2"><i class="mdi mdi-note-plus"></i> Buat Absen</button>'); ?>
                   </div>
                 </div>
               </div>
@@ -48,7 +40,16 @@
                       </thead>
                       <tbody>
                         <tr>
-                            <?php foreach($tanggalJ->result_array() as $row3):?>
+                            <?php foreach($tanggalJ->result_array() as $row3):
+                               $disable_in = "";
+                               if($absensia->num_rows()){
+                                   if(empty($tanggal) && empty($keterangan)){
+                                     $disable_in = "";
+                                   } else{
+                                     $disable_in = "disabled='disabled'";
+                                   }
+                               }
+                              ?>
                             <td><?php echo $row3['tanggal'];?></td>
 						                <td><?php echo $row3['jam']; ?></td>
 							              <td><form method="post" action="<?= site_url('absensi/input_absen') ?>">
@@ -69,10 +70,12 @@
                     <table class="table">
                       <thead>
                         <tr>
+                          <th>No</th>
                           <th>Nim</th>
                           <th>Nama</th>
                           <th>Divisi</th>
                           <th>Tanggal</th>
+                          <th>Jam</th>
                           <th>Keterangan</th>
                         </tr>
                       </thead>
@@ -87,16 +90,20 @@
 							          } else{
 							            $ambil1 = $this->db->query("SELECT *FROM absensi where divisi = '$divisi'");
 							            $hasil_ambil1 = $ambil1->result_array();
-							          }
+							          } 
+                        $no = 1;
 					              foreach($hasil_ambil1 as $data1){
 							        ?>	
-							        <td><?php echo $data1['nim']?></td>
-							        <td><?php echo $data1['nama']?></td>
-							        <td><?php echo $data1['divisi']?></td>
-							        <td><?php echo $data1['tngl'];?></td>
-							        <td><?php echo $data1['keterangan'];?></td>
+                      <th><?= $no ?></th>
+							        <td><?= $data1['nim']?></td>
+							        <td><?= $data1['nama']?></td>
+							        <td><?= $data1['divisi']?></td>
+							        <td><?= $data1['tngl'];?></td>
+							        <td><?= $data1['jam_skrng'];?></td>
+							        <td><?= $data1['keterangan'];?></td>
                                 </tr>
 						          <?php
+                      $no++;
 							          }
 						          ?>
                       </tbody>

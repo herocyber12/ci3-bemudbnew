@@ -135,7 +135,7 @@
             <p class="sidebar-menu-title">Dash menu</p>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?php site_url('home')?>">
+            <a class="nav-link" href="<?= site_url('home');?>">
               <i class="typcn typcn-device-desktop menu-icon"></i>
               <span class="menu-title">Dashboard</span>
             </a>

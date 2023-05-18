@@ -31,15 +31,15 @@ switch($jns_status){
               <div class="col-md-6 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Buat Laporan</h4>
+                    <h4 class="card-title">Arsip Laporan Proker</h4>
                       <div class="table-responsive">
                         <table class="table overflow-auto">
                           <thead>
                             <tr>
-                              <th>ID</th>
-                              <th>Tanggal</th>
-                              <th>Pemasukan</th>
-						                  <th>Pengeluaran</th>
+                              <th>ID Laporan</th>
+                              <th>Tanggal Laporan</th>
+                              <th>Nama Proker</th>
+						                  <th>Status</th>
                               <th>Keterangan</th>
                             </tr>
                           </thead>
@@ -72,8 +72,8 @@ switch($jns_status){
                         <table class="table overflow-auto">
                           <thead>
                             <tr>
-                              <th>ID</th>
-                              <th>Tanggal</th>
+                              <th>ID Laporan</th>
+                              <th>Tanggal Laporan Masuk</th>
                               <th>Pemasukan</th>
 						                  <th>Pengeluaran</th>
                               <th>Keterangan</th>
@@ -85,11 +85,11 @@ switch($jns_status){
 					                	foreach($laporan as $row):
 					                	?>
 					                	<tr>
-                              <td><?php echo htmlentities(strip_tags(trim($row['id_lkeuangan'])))?></td>
-					                		<td><?php echo htmlentities(strip_tags(trim($row['tanggal'])));?></td>
-					                		<td><?php echo htmlentities(strip_tags(trim($row['pemasukan'])));?></td>
-					                		<td><?php echo htmlentities(strip_tags(trim($row['pengeluaran'])));?></td>
-					                		<td><?php echo htmlentities(strip_tags(trim($row['keterangan'])));?></td>
+                              <td><?= htmlentities(strip_tags(trim($row['id_lkeuangan'])))?></td>
+					                		<td><?= htmlentities(strip_tags(trim($row['tanggal'])));?></td>
+					                		<td>Rp. <?= htmlentities(strip_tags(trim($row['pemasukan'])));?></td>
+					                		<td>Rp. <?= htmlentities(strip_tags(trim($row['pengeluaran'])));?></td>
+					                		<td><?= htmlentities(strip_tags(trim($row['keterangan'])));?></td>
 					                	</tr>
 					                <?php
 					                endforeach;
