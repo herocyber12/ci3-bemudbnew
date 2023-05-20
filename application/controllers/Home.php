@@ -5,24 +5,31 @@ class home extends MY_Controller
 {
     public function index()
     {
-            $data['autoDelet'] = $this->data_model->autoDeletion();
-            $data['notifikasi']= $this->data_model->dataget('notifikasi')->num_rows();
-            $data['notifi'] = $this->data_model->dataget('notifikasi')->result_array();
-            $data['jumlahAnggta'] = $this->data_model->data_count_all('loginuser');
-            $data['jumlahProker'] = $this->data_model->data_count_all('proker');
+        if($this->input->post('submit') == "close")
+        {
+          $arrayData = array('changelog_view' => 1);
+          $where = array('uid' => $this->session->userdata('Uid'));
+          $this->data_model->dataupdate('loginuser',$arrayData,$where);
+        }
 
-            $data['title'] = 'Dashboard | BEM UDB';
-            $data['keyword'] = 'bem udb';
-            $data['description'] = 'Website resmi bem udb';
-            
-            if($this->session->userdata('Divisi') == "Admin"){
-                $this->load->view('layout/admin/header',$data);;
-                $this->load->view('admin/v_utama',$data);
-            } else {
-                $this->load->view('layout/users/header',$data);
-                $this->load->view('users/v_utama',$data);
-            }
-            $this->load->view('layout/users/footer');
+        $data['autoDelet'] = $this->data_model->autoDeletion();
+        $data['notifikasi']= $this->data_model->dataget('notifikasi')->num_rows();
+        $data['notifi'] = $this->data_model->dataget('notifikasi')->result_array();
+        $data['jumlahAnggta'] = $this->data_model->data_count_all('loginuser');
+        $data['jumlahProker'] = $this->data_model->data_count_all('proker');
+
+        $data['title'] = 'Dashboard | BEM UDB';
+        $data['keyword'] = 'bem udb';
+        $data['description'] = 'Website resmi bem udb';
+        
+        if($this->session->userdata('Divisi') == "Admin"){
+            $this->load->view('layout/admin/header',$data);;
+            $this->load->view('admin/v_utama',$data);
+        } else {
+            $this->load->view('layout/users/header',$data);
+            $this->load->view('users/v_utama',$data);
+        }
+        $this->load->view('layout/users/footer');
     }
 
     public function delete_anggota($uid)

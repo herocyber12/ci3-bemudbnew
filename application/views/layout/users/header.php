@@ -17,6 +17,8 @@ if(empty($this->session->userdata('foto_profil'))){
 } else{
   $foto = $this->session->userdata('foto_profil');
 }
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,16 +31,16 @@ if(empty($this->session->userdata('foto_profil'))){
     <meta content="bem" name="keywords" />
     <meta content="Untuk menjadikan mahasiswa bem yang akan menjadi pelajar universitas serta mahasiswa yang akan calon penerus di bem ikutkan program bem sebagai kursus mem" name="description" />
     <!-- base:css -->
-    <link rel="stylesheet" href="<?= base_url('asset/vendors/typicons.font/font/typicons.css')?>">
-    <link rel="stylesheet" href="<?= base_url('asset/vendors/css/vendor.bundle.base.css')?>">
+    <link rel="stylesheet" href="<?= base_url('asset/vendors/typicons.font/font/typicons.css');?>">
+    <link rel="stylesheet" href="<?= base_url('asset/vendors/css/vendor.bundle.base.css');?>">
 	 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@mdi/font@6.9.96/css/materialdesignicons.min.css">
     <!-- endinject --> 
     <!-- plugin css for this page -->
     <!-- End plugin css for this page -->
     <!-- inject:css -->
-    <link rel="stylesheet" href="<?= base_url('asset/css/vertical-layout-light/style.css')?>">
+    <link rel="stylesheet" href="<?= base_url('asset/css/vertical-layout-light/style.css');?>">
     <!-- endinject -->
-    <link rel="shortcut icon" href="<?= base_url('asset/images/Logo BEM UNIV FIX.webp')?>" />
+    <link rel="shortcut icon" href="<?= base_url('asset/images/Logo BEM UNIV FIX.webp');?>" />
   </head>
   <body>
     <div class="container-scroller">

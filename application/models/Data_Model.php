@@ -67,6 +67,21 @@ class Data_Model extends CI_Model
         );
         $this->datainsert('buatabsen',$arrayData);
     }
+
+    public function buatChangelog($arrayData)
+    {
+        $this->db->query("DROP TABLE IF EXISTS changelog");
+        $this->db->query("CREATE TABLE changelog(versi VARCHAR(10) NOT NULL,tanggal DATE NOT NULL, new TEXT NOT NULL)");
+        
+        $arrayUpdate = array(
+            'changelog_view' => 0,
+        );
+
+        $where = array('changelog_view'=> 1);
+        $this->dataupdate('loginuser',$arrayUpdate,$where);
+
+        $this->datainsert('changelog',$arrayData);
+    }
 }
 
 ?>

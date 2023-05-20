@@ -9,8 +9,20 @@
   if(empty($this->session->userdata('islogin_in'))){
     redirect('landing/login');
   }
-
+  $this->db->where('uid',$this->session->userdata('Uid'));
+  $this->db->where('changelog_view',0);
+  $changelog_view = $this->db->get('loginuser')->result();
+  
+  if($changelog_view){
+    echo "<script>
+    window.addEventListener('DOMContentLoaded', function() {
+      var modal = new bootstrap.Modal(document.getElementById('changelogModal'));
+      modal.show();
+    });
+  </script>";
+  }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -22,16 +34,16 @@
     <meta content="bem" name="keywords" />
     <meta content="Untuk menjadikan mahasiswa bem yang akan menjadi pelajar universitas serta mahasiswa yang akan calon penerus di bem ikutkan program bem sebagai kursus mem" name="description" />
     <!-- base:css -->
-    <link rel="stylesheet" href="<?= base_url()?>asset/vendors/typicons.font/font/typicons.css">
-    <link rel="stylesheet" href="<?= base_url()?>asset/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="<?= base_url('asset/vendors/typicons.font/font/typicons.css');?>">
+    <link rel="stylesheet" href="<?= base_url('asset/vendors/css/vendor.bundle.base.css');?>">
 	 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@mdi/font@6.9.96/css/materialdesignicons.min.css">
     <!-- endinject --> 
     <!-- plugin css for this page -->
     <!-- End plugin css for this page -->
     <!-- inject:css -->
-    <link rel="stylesheet" href="<?= base_url()?>asset/css/vertical-layout-light/style.css">
+    <link rel="stylesheet" href="<?= base_url('asset/css/vertical-layout-light/style.css')?>">
     <!-- endinject -->
-    <link rel="shortcut icon" href="<?= base_url()?>asset/images/Logo BEM UNIV FIX.webp" />
+    <link rel="shortcut icon" href="<?= base_url('asset/images/Logo BEM UNIV FIX.webp')?>"/>
   </head>
   <body>
     <div class="container-scroller">
@@ -40,8 +52,8 @@
 
       <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-          <a class="navbar-brand brand-logo" href="  beranda"><img src="<?= base_url();?>asset/images/Logo BEM UNIV FIX BGT.webp" alt="logo"/></a>
-          <a class="navbar-brand brand-logo-mini" href="  beranda"><img src="<?= base_url();?>asset/images/Logo BEM UNIV FIX.webp" alt="logo"/></a>
+          <a class="navbar-brand brand-logo" href="  beranda"><img src="<?= base_url('asset/images/Logo BEM UNIV FIX BGT.webp');?>" alt="logo"/></a>
+          <a class="navbar-brand brand-logo-mini" href="  beranda"><img src="<?= base_url('asset/images/Logo BEM UNIV FIX.webp');?>" alt="logo"/></a>
           <button class="navbar-toggler navbar-toggler align-self-center d-none d-lg-flex" type="button" data-toggle="minimize">
             <span class="typcn typcn-th-menu"></span>
           </button>
@@ -157,19 +169,66 @@
               </ul>
             </div>
           </li>
-			<p class="sidebar-menu-title">Registrasi</p>
-		  <li class="nav-item">
+			    <p class="sidebar-menu-title">Registrasi</p>
+		      <li class="nav-item">
             <a class="nav-link" href="<?= site_url('registrasi')?>">
               <i class="mdi mdi-file-cabinet menu-icon"></i>
               <span class="menu-title">Tambah Anggota</span>
             </a>
           </li>
-			<p class="sidebar-menu-title">OPREC BEM</p>
-		  <li class="nav-item">
+			    <p class="sidebar-menu-title">OPREC BEM</p>
+		      <li class="nav-item">
             <a class="nav-link" href="<?= site_url('oprec')?>">
               <i class="mdi mdi-account-box menu-icon"></i>
               <span class="menu-title">Daftar Calon</span>
             </a>
           </li>
+          <p class="sidebar-menu-title">ChangeLog</p>
+          <li class="nav-item">
+            <a class="nav-link" href="<?= site_url('changelogs')?>">
+            <i class="mdi mdi-account-box menu-icon"></i>
+            <span class="menu-tittle">Buat ChangeLog</span>
+            </a>
+          </li>
         </ul>
       </nav>
+<!--START Notifikasi Changelog -->
+      <?php
+      $changelog = $this->db->get('changelog');
+      foreach($changelog->result_array()as $a):
+      ?>
+      <div class="modal fade" id="changelogModal" tabindex="-1" aria-labelledby="changelogModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">ChangeLog</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <table>
+                    <tr>
+                      <td>Web BEM UDB <?= $a['versi'];?></td>
+                    </tr>
+                    <tr>
+                      <td><h6><?= $a['tanggal'];?></h6></td>
+                    </tr>
+                    <tr>
+                      <td><?= $a['new'];?></td>
+                    </tr>
+                  </table>
+                </div>
+              <div class="modal-footer">
+                <form method="post" action="<?= site_url('home') ?>">
+                  <button type="submit" name="submit" class="btn btn-secondary" value="close">Close</button>
+                </form>
+              </div>
+            </div>
+          </div>
+      </div>
+      
+      <?php
+      endforeach;
+      ?>
+      <!--END Notifikasi Changelog -->
