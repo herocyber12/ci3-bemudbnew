@@ -24,12 +24,56 @@
     <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
     
     <!-- endinject -->
+
     <!-- plugin js for this page -->
     <script src="<?= base_url(); ?>asset/vendors/progressbar.js/progressbar.min.js"></script>
     <script src="<?= base_url(); ?>asset/vendors/chart.js/Chart.min.js"></script>
     <!-- End plugin js for this page -->
+
     <!-- Custom js for this page-->
     <script src="<?= base_url(); ?>asset/js/dashboard.js"></script>
+    <script src="<?= base_url(); ?>asset/js/ajax.js"></script>
     <!-- End custom js for this page-->
+    <script>
+      
+    getabsensi();
+    function getabsensi(){
+        $.ajax({
+            type: "GET",
+            url: "absensi/get_absensi",
+            success: function(data) {
+                    var dataabs = JSON.parse(data);
+                    
+                    var html = "";
+                    var no = 1;
+    
+                    for(var i = 0 ; i < dataabs.length ;i++){
+                        html += "<tr>"+
+                        // "<td>"+no+"</td>"+
+                        "<td>"+dataabs[i].id+"</td>"+
+                        "<td>"+dataabs[i].nim+"</td>"+
+                        "<td>"+dataabs[i].nama+"</td>"+
+                        "<td>"+dataabs[i].divisi+"</td>"+
+                        "<td>"+dataabs[i].tngl+"</td>"+
+                        "<td>"+dataabs[i].jam_skrng+"</td>"+
+                        "<td>"+dataabs[i].keterangan+"</td>"+
+                        "</tr>";
+                    }
+                    document.getElementById("data_absen").innerHTML = html;
+                
+            }
+        });
+    }
+
+    $("#input_absensi").click(function(){
+        $.ajax({
+            type: "POST",
+            url: "absensi/input_absen",
+            success: function(){
+                getabsensi();
+            }
+        });
+    });
+    </script>
   </body>
 </html>

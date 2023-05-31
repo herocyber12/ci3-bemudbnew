@@ -1,4 +1,8 @@
-<?php 
+<?php
+
+use PHPUnit\Util\Json;
+
+
 class Absensi extends MY_Controller
 {
     public function p_absensi()
@@ -72,7 +76,6 @@ class Absensi extends MY_Controller
                 $this->session->set_flashdata('absensi_berhasil', '<div class="alert alert-success">Berhasil Absen</div>');
                 redirect('absensi');
             }
-
         }
 
     }
@@ -87,6 +90,31 @@ class Absensi extends MY_Controller
         }
         redirect('absensi');   
         
+    }
+
+    public function get_absensi(){
+        $divisi = $this->session->userdata('Divisi');
+        if($this->session->userdata('Divisi') == "ketua" || $this->session->userdata('Divisi') == "wakil ketua" ||  $this->session->userdata('Divisi') == "sekretaris") {
+            $ambil1 =$this->db->query("SELECT *FROM absensi ORDER BY tngl desc");
+            $hasil_ambil1 = $ambil1->result_array();
+        } else {
+            $ambil1 = $this->db->query("SELECT *FROM absensi where divisi = '$divisi'");
+            $hasil_ambil1 = $ambil1->result_array();
+        }
+
+        
+        foreach($hasil_ambil1 as $a) {
+            $data[] = array(
+                "id" => $a['id_absen'],
+                "nim" => $a['nim'],
+                "nama" => $a['nama'],
+                "divisi" => $a['divisi'],
+                "tngl" => $a['tngl'],
+                "jam_skrng" => $a['jam_skrng'],
+                "keterangan" => $a['keterangan']
+            );
+        }
+        json_encode($data);
     }
 
     //Fungsi yang ada di halaman admin
