@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'bem',
+	'hostname' => 'localhost:3306',
+	'username' => 'bemudbmy_bemdb',
+	'password' => 'Jinxpro123@',
+	'database' => 'bemudbmy_bem',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

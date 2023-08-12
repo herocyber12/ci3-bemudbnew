@@ -26,10 +26,10 @@
         <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
           <div class="owl-carousel header-carousel">
             <div class="owl-carousel-item">
-              <img class="img-fluid" src="asset/images/carousel-2.jpg" alt="" />
+              <img class="img-fluid" src="asset/images/carousel-2.jpg" alt="alternative" />
             </div>
             <div class="owl-carousel-item">
-              <img class="img-fluid" src="asset/images/carousel-1.jpg" alt="" />
+              <img class="img-fluid" src="asset/images/carousel-1.jpg" alt="alternative" />
             </div>
           </div>
         </div>
@@ -88,9 +88,10 @@
 							foreach($postingane->result_array() as $row){
                     			$gambar = $row['posting_gambar'];?>
             			<div class="owl-carousel-item">
-            	  			<a class="animal-item" alt="">
-            	        		<img class="img-fluid" src="asset/images/<?php echo $gambar; ?>" alt="" />
+            	  			<a class="animal-item" href="#" alt="alternative">
+            	        		<img class="img-fluid" src="asset/images/<?php echo $gambar; ?>" alt="alternative" />
             	       			<div class="animal-text p-4">
+            	          			<p class="text-white small text-uppercase mb-0"><?php echo $row['posting_tanggal']; ?></p>
             	          			<h5 class="text-white mb-0"><?php echo $row['posting_judul']; ?></h5>
             	        		</div>
 					 		</a>
@@ -100,8 +101,8 @@
 							?></div><?php
 						} else {
 							?>
-            	  			<a class="animal-item" href="#" alt="">
-            	        		<img class="img-fluid" src="asset/images/g ada konten.jpg" alt="" />
+            	  			<a class="animal-item" href="#" alt="alternative">
+            	        		<img class="img-fluid" src="asset/images/g ada konten.jpg" alt="alternative" />
             	       			<div class="animal-text p-4">
             	          			<p class="text-white small text-uppercase mb-0">Belum ada konten</p>
             	          			<h5 class="text-white mb-0">BOSS</h5>
@@ -148,7 +149,7 @@ Informasi
           </div>
           <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
             <div class="img-border">
-              <img class="img-fluid" src="asset/images/about.jpg" alt="" style="box-shadow: 1px 2px 3px rgba(0,0,0,0.4);" />
+              <img class="img-fluid" src="asset/images/about.jpg" alt="alternative" style="box-shadow: 1px 2px 3px rgba(0,0,0,0.4);" />
             </div>
           </div>
         </div>

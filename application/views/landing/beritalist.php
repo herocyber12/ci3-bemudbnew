@@ -1,6 +1,6 @@
 <div class="container">
 	  	<div class="d-flex justify-content-center mt-3">
-			<div class="col-7 row d-grid">
+			<div class="col-xl-7 row d-grid">
 			<?php
 				$sql = $this->db->get('artikel');
 			foreach($berita as $a):

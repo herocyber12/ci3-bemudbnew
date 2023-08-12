@@ -2,7 +2,7 @@
 	 <?php foreach($berita as $brt): ?>
 	  <div class = "container">
 		  <div class="d-flex justify-content-center">
-			<div class="col-7 d-grid text-center">
+			<div class="col-xl-7 d-grid text-center">
 					
 					<div class="p-2 text-center">
 						<h2><?php echo $brt['tema_artikel']?></h2>
