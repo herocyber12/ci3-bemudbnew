@@ -23,6 +23,8 @@
     <script src="<?= base_url(); ?>asset/ckeditor/ckeditor.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
     
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
     <!-- endinject -->
     <!-- plugin js for this page -->
     <script src="<?= base_url(); ?>asset/vendors/progressbar.js/progressbar.min.js"></script>

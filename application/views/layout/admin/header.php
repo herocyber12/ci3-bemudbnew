@@ -41,6 +41,7 @@
     <!-- plugin css for this page -->
     <!-- End plugin css for this page -->
     <!-- inject:css -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="<?= base_url('asset/css/vertical-layout-light/style.css')?>">
     <!-- endinject -->
     <link rel="shortcut icon" href="<?= base_url('asset/images/Logo BEM UNIV FIX.webp')?>"/>

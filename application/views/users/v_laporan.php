@@ -81,6 +81,7 @@ switch($jns_status){
                               <th>Tanggal Laporan Masuk</th>
                               <th>Pemasukan</th>
 						                  <th>Pengeluaran</th>
+                              <th>Saldo</th>
                               <th>Keterangan</th>
                             </tr>
                           </thead>
@@ -89,13 +90,28 @@ switch($jns_status){
 					                	<?php
                             $no = 1;
 					                	foreach($laporan as $row):
+                              if($row['pemasukan'] > 0){
+                                $cls = "text-success";
+                                $syms = "+";
+                              } else {
+                                $cls = "";
+                                $syms = "";
+                              }
+                              if($row['pengeluaran'] > 0){
+                                $clss = "text-danger";
+                                $sym = "-";
+                              } else {
+                                $clss = "";
+                                $sym = "";
+                              }
 					                	?>
 					                	<tr>
                               <td><?= $no; ?></td>
                               <td><?= htmlentities(strip_tags(trim($row['id_lkeuangan'])))?></td>
 					                		<td><?= htmlentities(strip_tags(trim($row['tanggal'])));?></td>
-					                		<td>Rp. <?= htmlentities(strip_tags(trim($row['pemasukan'])));?></td>
-					                		<td>Rp. <?= htmlentities(strip_tags(trim($row['pengeluaran'])));?></td>
+					                		<td class="<?= $cls?>">Rp. <?= htmlentities(strip_tags(trim($row['pemasukan']))); ?> <?=$syms;?></td>
+					                		<td class="<?= $clss?>">Rp. <?= htmlentities(strip_tags(trim($row['pengeluaran'])));?> <?=$sym;?></td>
+					                		<td>Rp. <?= htmlentities(strip_tags(trim($row['saldo'])));?></td>
 					                		<td><?= htmlentities(strip_tags(trim($row['keterangan'])));?></td>
 					                	</tr>
 					                <?php
@@ -124,7 +140,7 @@ switch($jns_status){
                   <form class="forms-sample" action="<?= site_url('laporan/input_laporan')?>" method="post">
                     <div class="form-group" >
                       <label for="exampleInputEmail1">Tanggal</label>
-                      <input name="tanggal" type="date" class="form-control" id="exampleInputEmail1" required>
+                      <input name="tanggal" type="text" class="form-control" id="datepicker" placeholder="Tanggal Laporan Dibuat" required>
                     </div>
                     <div class="form-group">
                       <label><input type="radio" name="jenis-form" class="m-1" value="keuangan" onchange="jenisFormChanged()" checked> Keuangan</label>
@@ -132,9 +148,9 @@ switch($jns_status){
                     </div>
                     <div id="keuangan-form" style="display: block ;">
                       <label for = "pemasukanK">Pemasukan</label>
-                      <input type="text" name="moneyin" class="form-control m-2" id="pemasukanK" placeholder="Masukan Jumlah Pemasukan">
+                      <input type="number" name="moneyin" class="form-control m-2" id="pemasukanK" placeholder="Masukan Jumlah Pemasukan">
                       <label for = "pengeluaranK">Pengeluaran</label>
-                      <input type="text" name="moneyout" class="form-control m-2" id="pengeluaranK" placeholder="Masukan Jumlah Pengeluaran">
+                      <input type="number" name="moneyout" class="form-control m-2" id="pengeluaranK" placeholder="Masukan Jumlah Pengeluaran">
                       <label for = "pengeluaranK">Keterangan Pelaporan Keuangan</label>
                       <textarea name="keterangan1" class="form-control m-2" placeholder="Masukan Keterangan Uangnya Untuk Apa Saja"></textarea>
                       <button type="submit" name="submit" class="btn btn-primary mr-2" value="keuangan">Buat</button>

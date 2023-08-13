@@ -38,19 +38,44 @@ class Laporan extends MY_Controller
     {
         
         $id_laporan = mt_rand(10000,99999);
-        $tanggal = $this->input->post('tanggal');
         $logika = $this->input->post('submit');
+        $uangmasuk = $this->input->post('moneyin');
+        $uangkeluar = $this->input->post('moneyout');
+        $a = $this->input->post('tanggal');
+        
+        $d = strtotime($a);
+        $tanggal = date("Y-m-d",$d);
+
+        // var_dump($tanggal);
+        // exit;
 
         if($logika == "keuangan"){
             if($this->session->userdata('Divisi') == "Bendahara" || $this->session->userdata('Divisi') == "bendahara"){
 
                 $id = "IDLK-".$id_laporan;
                 
+                $this->db->order_by('id_lkeuangan', 'DESC');
+                $this->db->limit(1);
+                $uang = $this->data_model->dataget('laporan_keuangan')->result_array();
+        
+                foreach ($uang as $a) {
+                    $c = $a['saldo'];
+                }
+                
+                if ($uangkeluar > 0) {
+                    $saldo = $c - $uangkeluar;
+                } elseif ($uangmasuk > 0) {
+                    $saldo = $c + $uangmasuk;
+                } else {
+                    echo "tes"; 
+                }
+                
                 $arrayData = array(
                     'id_lkeuangan' => $id,
                     'tanggal' => $tanggal,
-                    'pemasukan' => $this->input->post('moneyin'),
-                    'pengeluaran' => $this->input->post('moneyout'),
+                    'pemasukan' => $uangmasuk,
+                    'pengeluaran' => $uangkeluar,
+                    'saldo' => $saldo,
                     'keterangan' => $this->input->post('keterangan1')
                 );
             
