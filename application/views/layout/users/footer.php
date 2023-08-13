@@ -17,7 +17,7 @@
     <!-- inject:js -->
     <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
 
-    <script src="<?= base_url(); ?>vendor/sweatalert2/dist/sweetalert2.min.js">
+    <script src="<?= base_url(); ?>vendor/sweatalert2/dist/sweetalert2.min.js"></script>
     <script src="<?= base_url(); ?>asset/js/off-canvas.js"></script>
     <script src="<?= base_url(); ?>asset/js/hoverable-collapse.js"></script>
     <script src="<?= base_url(); ?>asset/js/template.js"></script>
