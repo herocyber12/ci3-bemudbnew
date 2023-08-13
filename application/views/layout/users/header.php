@@ -45,6 +45,7 @@ $this->db->where('uid',$this->session->userdata('Uid'));
     <!-- base:css -->
     <link rel="stylesheet" href="<?= base_url('asset/vendors/typicons.font/font/typicons.css')?>">
     <link rel="stylesheet" href="<?= base_url('asset/vendors/css/vendor.bundle.base.css')?>">
+    <link rel="stylesheet" href="<?= base_url('vendor/sweatalert2/dist/sweetalert2.min.css')?>">
 	 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@mdi/font@6.9.96/css/materialdesignicons.min.css">
     <!-- endinject --> 
     <!-- plugin css for this page -->
