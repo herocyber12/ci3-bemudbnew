@@ -39,10 +39,14 @@ class Proker extends MY_Controller
     {
         $id = mt_rand(100000,999999);
         $namaproker = $this->input->post('namaproker');
-        $tanggal = $this->input->post('tanggal');
+        $a = $this->input->post('tanggal');
         $alasan = $this->input->post('alasan');
         $divisi = $this->session->userdata('Divisi');
         $status = "Belum disetujui";    
+
+        
+        $d = strtotime($a);
+        $tanggal = date("Y-m-d",$d);
         
         $arrayData = array(
             'id' => $id,
