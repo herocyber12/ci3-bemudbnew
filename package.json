@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "sweetalert2": "^11.7.22"
+  },
+  "name": "node.js",
+  "description": "What is CodeIgniter ###################",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/herocyber12/ci3-bemudbnew.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/herocyber12/ci3-bemudbnew/issues"
+  },
+  "homepage": "https://github.com/herocyber12/ci3-bemudbnew#readme"
+}
