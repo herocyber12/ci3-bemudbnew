@@ -8,15 +8,6 @@
         <!-- partial -->
         <div class="main-panel">
           <div class="content-wrapper">
-            <?php 
-              if($this->session->flashdata('abnsensi_gagal') == TRUE){
-                echo $this->session->flashdata('abnsensi_gagal');
-              }elseif($this->session->flashdata('absensi_berhasil')){
-                echo $this->session->flashdata('absensi_berhasil');
-              }elseif($this->session->flashdata('berhasil_buat_absen') == TRUE){
-                echo $this->session->flashdata('berhasil_buat_absen');
-              }
-            ?>
             <div class="row">
             <div class="col-sm-6">
                   <div class="pr-1 mb-3 mr-2 mb-xl-0">
@@ -52,9 +43,12 @@
                               ?>
                             <td><?php echo $row3['tanggal'];?></td>
 						                <td><?php echo $row3['jam']; ?></td>
-							              <td><form method="post" action="<?= site_url('absensi/input_absen') ?>">
+							              <td><button type="button" id="absensi" class="btn btn-success" value="absen" <?php echo $disable_in;?>>Absen</button>
+                               
+                            <!-- <form method="post" action="<?= site_url('absensi/input_absen') ?>">
 		    				              <input type="submit" class="btn btn-success" name="submit" value="Absen" <?php echo $disable_in;?>></input>
-							                </form></td>
+							                </form> -->
+                            </td>
                             <?php endforeach; ?>
                         </tr>
                     </table>
@@ -79,7 +73,7 @@
                           <th>Keterangan</th>
                         </tr>
                       </thead>
-                      <tbody>
+                      <tbody id="data_absen">
                         <tr>
 							        <?php  
                         $nim = $this->session->userdata('Nim');
@@ -91,10 +85,11 @@
 							            $ambil1 = $this->db->query("SELECT *FROM absensi where divisi = '$divisi'");
 							            $hasil_ambil1 = $ambil1->result_array();
 							          } 
+                        
                         $no = 1;
 					              foreach($hasil_ambil1 as $data1){
 							        ?>	
-                      <th><?= $no ?></th>
+                      <td><?= $no ?></td>
 							        <td><?= $data1['nim']?></td>
 							        <td><?= $data1['nama']?></td>
 							        <td><?= $data1['divisi']?></td>

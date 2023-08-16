@@ -13,13 +13,6 @@ switch($jns_status){
         <!-- partial -->
         <div class="main-panel">
           <div class="content-wrapper">
-          <?php 
-              if($this->session->flashdata('berhasil_buat_laporan') == TRUE){
-                echo $this->session->flashdata('berhasil_buat_laporan');
-              }elseif($this->session->flashdata('gagal_buat_laporan_keuangan')==TRUE){
-                echo $this->session->flashdata('gagal_buat_laporan_keuangan');
-              }
-            ?>
             <div class="row">
               <div class="col-sm-12 mb-4">
                 <div class="d-flex align-items-center justify-content-md-end d-none">
@@ -28,7 +21,7 @@ switch($jns_status){
                   </div>
                 </div>
               </div>
-              <div class="col-md-6 grid-margin stretch-card">
+              <div class="col-xl-6 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Arsip Laporan Proker</h4>
@@ -44,7 +37,7 @@ switch($jns_status){
                               <th>Keterangan</th>
                             </tr>
                           </thead>
-                          <tbody>
+                          <tbody id="data_proker">
                             <tr>
 					                	<?php
                             $no = 1;
@@ -68,7 +61,7 @@ switch($jns_status){
                     </div>
                   </div>
               </div>
-              <div class="col-lg-6 grid-margin stretch-card">
+              <div class="col-xl-6 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Arsip Laporan Keuangan</h4>
@@ -85,7 +78,7 @@ switch($jns_status){
                               <th>Keterangan</th>
                             </tr>
                           </thead>
-                          <tbody>
+                          <tbody id="data_keuangan">
                             <tr>
 					                	<?php
                             $no = 1;
@@ -137,15 +130,15 @@ switch($jns_status){
                   </button>
                 </div>
                 <div class="modal-body">
-                  <form class="forms-sample" action="<?= site_url('laporan/input_laporan')?>" method="post">
+                  <form class="forms-sample" id="my-form">
                     <div class="form-group" >
                       <label for="exampleInputEmail1">Tanggal</label>
                       <input name="tanggal" type="text" class="form-control" id="datepicker" placeholder="Tanggal Laporan Dibuat" required>
                     </div>
                     <div class="form-group">
-                      <label><input type="radio" name="jenis-form" class="m-1" value="keuangan" onchange="jenisFormChanged()" checked> Keuangan</label>
-                      <label><input type="radio" name="jenis-form" class="m-1" value="proker" onchange="jenisFormChanged()"> Proker</label>
-                    </div>
+            <label><input type="radio" name="jenis-form" class="m-1" value="keuangan" checked> Keuangan</label>
+            <label><input type="radio" name="jenis-form" class="m-1" value="proker"> Proker</label>
+        </div>
                     <div id="keuangan-form" style="display: block ;">
                       <label for = "pemasukanK">Pemasukan</label>
                       <input type="number" name="moneyin" class="form-control m-2" id="pemasukanK" placeholder="Masukan Jumlah Pemasukan">
@@ -153,7 +146,7 @@ switch($jns_status){
                       <input type="number" name="moneyout" class="form-control m-2" id="pengeluaranK" placeholder="Masukan Jumlah Pengeluaran">
                       <label for = "pengeluaranK">Keterangan Pelaporan Keuangan</label>
                       <textarea name="keterangan1" class="form-control m-2" placeholder="Masukan Keterangan Uangnya Untuk Apa Saja"></textarea>
-                      <button type="submit" name="submit" class="btn btn-primary mr-2" value="keuangan">Buat</button>
+                      <button type="button" id="buat_laporan_keuangan" class="btn btn-primary mr-2" value="keuangan">Buat</button>
                     </div>
                     <div id="proker-form" style="display: none ;">
                       <label for = "pemasukanK">Nama Proker</label>
@@ -166,12 +159,12 @@ switch($jns_status){
                       </select>
                       <label>Keterangan Proker</label>
                       <textarea name="keterangan2" class="form-control m-2" placeholder="Masukan Keterangan Proker"></textarea>
-                      <button type="submit" name="submit" class="btn btn-primary mr-2" value="proker">Buat</button>
+                      <button type="button" id="buat_laporan_proker" class="btn btn-primary mr-2" value="proker">Buat</button>
                     </div>
                   </form>
                 </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeModalButton">Close</button>
               </div>
             </div>
           </div>

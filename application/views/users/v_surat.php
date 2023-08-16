@@ -1,13 +1,8 @@
 		<!-- partial -->
         <div class="main-panel">
           <div class="content-wrapper">
-            <?php 
-            if($this->session->flashdata('berhasil_surat')==TRUE){
-              echo $this->session->flashdata('berhasil_surat');
-            }
-            ?>
             <div class="row">
-             <div class="col-md-4 grid-margin stretch-card">
+             <div class="col-xl-4 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Buat Surat</h4>
@@ -29,7 +24,7 @@
                 </div>
               </div>
             </div>
-              <div class="col-lg-8 grid-margin stretch-card">
+              <div class="col-xl-8 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Arsip Surat</h4>

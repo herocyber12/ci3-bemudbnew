@@ -51,6 +51,7 @@ class Absensi extends MY_Controller
             $jam = $x['jam'];
         endforeach;
         
+        
         if($this->input->post('submit') !== ""){
 
             $id_absen = mt_rand(1000,9999);
@@ -65,14 +66,41 @@ class Absensi extends MY_Controller
                 'jam_skrng' => $jam,
                 'keterangan' => $keterangan
             );
-            if(!$this->data_model->datainsert('absensi',$arrayData)){
-                $this->session->set_flashdata('abnsensi_gagal', '<div class="alert alert-danger">Gagal Absen</div>');
-                redirect('absensi');
-            } else{
-                $this->session->set_flashdata('absensi_berhasil', '<div class="alert alert-success">Berhasil Absen</div>');
-                redirect('absensi');
-            }
 
+            if(!$this->data_model->datainsert('absensi',$arrayData)){
+                echo json_encode(array('status' => 'gagal'));
+            } else{
+                $dataAbsensi = $this->data_model->dataget('absensi')->result_array();
+
+                // Inisialisasi array untuk menyimpan data hasil
+                $resultArray = array();
+
+                foreach ($dataAbsensi as $absen) {
+                    // Ambil data dari setiap baris
+                    $id_absen = $absen['id_absen'];
+                    $nim = $absen['nim'];
+                    $nama = $absen['nama'];
+                    $divisi = $absen['divisi'];
+                    $tngl = $absen['tngl'];
+                    $jam_skrng = $absen['jam_skrng'];
+                    $keterangan = $absen['keterangan'];
+
+                    // Masukkan data ke dalam array
+                    $resultArray[] = array(
+                        'id_absen' => $id_absen,
+                        'nim' => $nim,
+                        'nama' => $nama,
+                        'divisi' => $divisi,
+                        'tngl' => $tngl,
+                        'jam_skrng' => $jam_skrng,
+                        'keterangan' => $keterangan
+                    );
+                }
+                echo json_encode(array(
+                    'status' => 'berhasil',
+                    'data' => $resultArray
+                )); 
+            }
         }
 
     }

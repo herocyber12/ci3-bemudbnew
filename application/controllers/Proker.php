@@ -57,10 +57,34 @@ class Proker extends MY_Controller
             'status' => $status
         );
 
-        $this->data_model->datainsert('proker',$arrayData);
+        $result = $this->data_model->datainsert('proker',$arrayData);
 
-        $this->session->set_flashdata('berhasil_proker', '<div class="alert alert-success">Berhasil Mengajukan Proker</div>');
-        redirect('proker');
+        if($result){
+            $dataProker = $this->data_model->dataget('proker')->result_array();
+
+            $arrayData = array();
+
+            foreach($dataProker as $a){
+                $divisi = $a['divisi'];
+                $namaproker = $a['namaproker'];
+                $tanggal = $a['tanggal'];
+                $alasan = $a['alasan'];
+                $status = $a['status'];
+
+                $arrayData[] = array(
+                    'divisi' => $divisi,
+                    'namaproker' => $namaproker,
+                    'tanggal' => $tanggal,
+                    'alasan' => $alasan,
+                    'status' => $status
+                );
+            }
+
+            echo json_encode(array(
+                'status' => 'berhasil',
+                'data' => $arrayData
+            ));
+        }
     }
 
     public function delete_proker($id)

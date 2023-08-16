@@ -2,22 +2,13 @@
     <!-- container-scroller -->
     <!-- base:js -->
     <script src="<?= base_url(); ?>asset/vendors/js/vendor.bundle.base.js"></script>
-    <script>
-  function jenisFormChanged() {
-    var jenisForm = document.querySelector('input[name="jenis-form"]:checked').value;
-    if (jenisForm === "keuangan") {
-      document.getElementById("keuangan-form").style.display = "block";
-      document.getElementById("proker-form").style.display = "none";
-    } else if (jenisForm === "proker") {
-      document.getElementById("keuangan-form").style.display = "none";
-      document.getElementById("proker-form").style.display = "block";
-    }
-  }
-</script>
+    
     <!-- inject:js -->
-    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <script src="<?= base_url(); ?>vendor/sweatalert2/dist/sweetalert2.min.js"></script>
+    <script src="<?= base_url(); ?>asset/js/ajax.js"></script>
+
+    <script src="<?= base_url(); ?>vendor\sweetalert2\dist\sweetalert2.min.js"></script>
     <script src="<?= base_url(); ?>asset/js/off-canvas.js"></script>
     <script src="<?= base_url(); ?>asset/js/hoverable-collapse.js"></script>
     <script src="<?= base_url(); ?>asset/js/template.js"></script>
@@ -35,5 +26,10 @@
     <!-- Custom js for this page-->
     <script src="<?= base_url(); ?>asset/js/dashboard.js"></script>
     <!-- End custom js for this page-->
+    <script>
+      const absenURL = "<?= site_url('absensi/input_absen') ?>";
+      const laporanS = "<?= site_url('laporan/input_laporan') ?>";
+      const prokerS = "<?= site_url('proker/input_proker') ?>";
+    </script>
   </body>
 </html>

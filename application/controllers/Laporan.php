@@ -38,7 +38,7 @@ class Laporan extends MY_Controller
     {
         
         $id_laporan = mt_rand(10000,99999);
-        $logika = $this->input->post('submit');
+        $logika = $this->input->post('jenis-form');
         $uangmasuk = $this->input->post('moneyin');
         $uangkeluar = $this->input->post('moneyout');
         $a = $this->input->post('tanggal');
@@ -79,13 +79,39 @@ class Laporan extends MY_Controller
                     'keterangan' => $this->input->post('keterangan1')
                 );
             
-                $this->data_model->datainsert('laporan_keuangan',$arrayData);
+                $result = $this->data_model->datainsert('laporan_keuangan',$arrayData);
 
-                $this->session->set_flashdata('berhasil_buat_laporan', '<div class="alert alert-success">Berhasil Membuat Laporan</div>');
+                if($result){
+                    $dataKeuangan = $this->data_model->dataget('laporan_keuangan')->result_array();
+                    $resultArray = array();
 
-                redirect('laporan');
+                    foreach ($dataKeuangan as $a) {
+                    
+                        $idlk = $a['id_lkeuangan'];
+                        $tanggal = $a['tanggal'];
+                        $pemasukan = $a['pemasukan'];
+                        $pengeluaran = $a['pengeluaran'];
+                        $saldo = $a['saldo'];
+                        $keterangan = $a['keterangan'];
+                    
+                        $resultArray[] = array(
+                            'id_lkeuangan' => $idlk,
+                            'tanggal' => $tanggal,
+                            'pemasukan' => $pemasukan,
+                            'pengeluaran' => $pengeluaran,
+                            'saldo' => $saldo,
+                            'keterangan' => $keterangan
+                        );
+                    }
+                    echo json_encode(array(
+                        'type' => 'keuangan',
+                        'status' => 'berhasil', 
+                        'data' => $resultArray
+                    ));
+                }
+
+                // echo json_encode(array('status' => 'berhasil', 'data' => $resultArray));
             } else {
-                $this->session->set_flashdata('gagal_buat_laporan_keuangan', '<div class="alert alert-warning">Anda Bukan Bendahara</div>');
                 redirect('home');
             }
         } else if($logika == "proker") {
@@ -100,9 +126,38 @@ class Laporan extends MY_Controller
                 'keterangan' => $this->input->post('keterangan2')
             );
 
-            $this->session->set_flashdata('berhasil_buat_laporan', '<div class="alert alert-success">Berhasil Membuat Laporan</div>');
-            $this->data_model->datainsert('laporan_proker',$arrayData);
-            redirect('laporan');
+            $result = $this->data_model->datainsert('laporan_proker',$arrayData);
+            if($result){
+                $dataProker = $this->data_model->dataget('laporan_proker')->result_array();
+                $resultArray = array();
+
+                foreach ($dataProker as $a) {
+                
+                    $idlp = $a['id_lproker'];
+                    $tanggal = $a['tanggal'];
+                    $namaProker = $a['nama_proker'];
+                    $status = $a['status'];
+                    $keterangan = $a['keterangan'];
+                
+                    $resultArray[] = array(
+                        'id_lproker' => $idlp,
+                        'tanggal' => $tanggal,
+                        'namaproker' => $namaProker,
+                        'status' => $status,
+                        'keterangan' => $keterangan
+                    );
+                }
+                echo json_encode(array(
+                    'type' => 'proker',
+                    'status' => 'berhasil', 
+                    'data' => $resultArray
+                ));
+            }
+
+            // echo json_encode(array('status' => 'berhasil', 'data' => $resultArray));
+        } else {
+            echo "gagal";
+            die;
         }
     }
 
