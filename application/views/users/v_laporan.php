@@ -70,7 +70,6 @@ switch($jns_status){
                           <thead>
                             <tr>
                               <th>No.</th>
-                              <th>ID Laporan</th>
                               <th>Tanggal Laporan Masuk</th>
                               <th>Pemasukan</th>
 						                  <th>Pengeluaran</th>
@@ -100,7 +99,6 @@ switch($jns_status){
 					                	?>
 					                	<tr>
                               <td><?= $no; ?></td>
-                              <td><?= htmlentities(strip_tags(trim($row['id_lkeuangan'])))?></td>
 					                		<td><?= htmlentities(strip_tags(trim($row['tanggal'])));?></td>
 					                		<td class="<?= $cls?>">Rp. <?= htmlentities(strip_tags(trim($row['pemasukan']))); ?> <?=$syms;?></td>
 					                		<td class="<?= $clss?>">Rp. <?= htmlentities(strip_tags(trim($row['pengeluaran'])));?> <?=$sym;?></td>
