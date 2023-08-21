@@ -150,7 +150,7 @@ if($get_all_p > 0){
               >Tentang kami</a
             >
             <div class="dropdown-menu rounded-0 rounded-bottom m-0">
-              <a href="<?php echo base_url(); ?>landing/anggota" class="dropdown-item">Anggota</a>
+              <a href="<?php echo base_url(); ?>landing/struktur_anggota" class="dropdown-item">Anggota</a>
               <a href="<?php echo base_url(); ?>landing/prokerbem" class="dropdown-item">Proker</a>
 			  <a href="<?php echo base_url(); ?>landing/struktur" class="dropdown-item">Struktur Ormawa UDB</a>
             </div>

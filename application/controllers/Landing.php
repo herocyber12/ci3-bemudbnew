@@ -90,6 +90,19 @@ class Landing extends CI_Controller
         $this->load->view('landing/struktur');
         $this->load->view('layout/footer');
     }
+    public function struktur_anggota()
+    {
+        $data['title'] = "Struktur Anggota | BEM UDB";
+        $data['keyword'] = 'bem udb';
+        $data['description'] = 'Website resmi bem udb';
+
+        $data['postingane'] = $this->getdata;
+        $data['get_all_p'] = $this->rowdata;
+
+        $this->load->view('layout/header', $data);
+        $this->load->view('landing/struktur_anggota');
+        $this->load->view('layout/footer');
+    }
 
     public function contact()
     {
