@@ -115,7 +115,6 @@ closeButton.trigger("click");
         data: $('#my-form').serialize(),
         dataType : 'JSON',
         success: function(response){
-          // console.log(response);
           var html = '';
             var no = 1;
             for (var i = 0; i< response.data.length; i++){
@@ -135,7 +134,6 @@ closeButton.trigger("click");
               }
               html += "<tr>"+
                         "<td>"+ no + "</td>"+
-                        "<td>"+ response.data[i].id_lkeuangan+"</td>" +
                         "<td>"+ response.data[i].tanggal +"</td>"+
                         "<td class='"+cls+"'> Rp."+ response.data[i].pemasukan+""+syms+"</td>"+
                         "<td class='"+clss+"'> Rp."+ response.data[i].pengeluaran+""+sym+"</td>"+
@@ -156,7 +154,12 @@ closeButton.trigger("click");
                 icon:'error',
                 title:"Gagal Membuat Laporan Keuangan"
               })
-            } else {
+            } else if(response.status === "banned"){
+              Swal.fire({
+                icon:'error',
+                title:"Anda Bukan Bendahara"
+              })
+            }else {
               Swal.fire({
                 icon:'error',
                 title:'Terjadi Kesalahan'
