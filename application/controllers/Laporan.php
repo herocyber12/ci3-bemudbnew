@@ -112,7 +112,10 @@ class Laporan extends MY_Controller
 
                 // echo json_encode(array('status' => 'berhasil', 'data' => $resultArray));
             } else {
-                redirect('home');
+                echo json_encode(array(
+                    'type' => 'keuangan',
+                    'status' => 'banned'
+                ));
             }
         } else if($logika == "proker") {
             
